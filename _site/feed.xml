@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-12T11:13:46+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">engineering-blog</title><subtitle>usTwo Engineering</subtitle><entry><title type="html">Getting Started With Visionos</title><link href="http://localhost:4000/2024/02/08/getting-started-with-visionos.html" rel="alternate" type="text/html" title="Getting Started With Visionos" /><published>2024-02-08T00:00:00+00:00</published><updated>2024-02-08T00:00:00+00:00</updated><id>http://localhost:4000/2024/02/08/getting-started-with-visionos</id><content type="html" xml:base="http://localhost:4000/2024/02/08/getting-started-with-visionos.html"><![CDATA[<p>layout: post
+title: “Getting started with VisionOS”
+date: 2024-02-08 09:00:00 -0000
+categories: visionos visionpro</p>
+
+<h1 id="getting-started-with-visionos">Getting started with VisionOS</h1>
+
+<p>Hi, This is a short guide on how to get up and running with RealityKit on VisionOS.</p>
+
+<p>We’ll cover:</p>
+
+<ul>
+  <li><a href="#software_requirements">Software Requirements</a></li>
+  <li><a href="#xcode">Xcode</a></li>
+  <li><a href="#realityview">RealityView</a>
+    <ul>
+      <li><a href="#contentview">ContentView</a></li>
+      <li><a href="#immersiveview">ImmersiveView</a></li>
+      <li><a href="#running_the_default">Running the Default App</a></li>
+      <li><a href="#starting_afresh">Starting Afresh</a></li>
+    </ul>
+  </li>
+  <li><a href="#entity">Entities</a></li>
+  <li><a href="#drag_gesture">Dragging Gestures</a></li>
+  <li><a href="#component">Components</a></li>
+  <li><a href="#system">Systems</a></li>
+</ul>
+
+<h2 id="installing-required-software-">Installing Required Software <a name="software_requirements_"></a></h2>
+
+<p>The VisionOS is shipped in Xcode 15.2 and later, the easiest way to download this is from <a href="https://xcodereleases.com/">Xcode Releases</a></p>
+
+<h2 id="xcode-">Xcode <a name="xcode"></a></h2>
+
+<p>We’re based in the UK and getting hands-on time with a physical device is a challenge, for this guide
+we’ll be running our tests in Xcodes Preview and Simulator.</p>
+
+<h2 id="creating-a-realityview-">Creating a RealityView <a name="realityview"></a></h2>
+
+<p>When you open Xcode 15.2 you’ll be asked to create a project, choose <code class="language-plaintext highlighter-rouge">visionOS App</code>.</p>
+
+<p>This creates a basic template App containing:</p>
+
+<ul>
+  <li>ContentView</li>
+  <li>ImmersiveView</li>
+</ul>
+
+<p>The ContentView can load the Immersive View</p>
+
+<h3 id="contentview-">ContentView <a name="contentview"></a></h3>
+
+<p>You can think of a ContentView as a 2D view presented in 3D space. I think of it as a normal
+iOS App, all iOS controls work in this view.</p>
+
+<p>You’ll note that you can also move this view around by <code class="language-plaintext highlighter-rouge">holding down</code> in the white bar at the bottom
+of the view, and then moving it to where-ever you want.</p>
+
+<h3 id="immersiveview-">ImmersiveView <a name="immersiveview"></a></h3>
+
+<p>The ImmersiveView contains a pre-made RealityView View, it loads some content from a referenced <code class="language-plaintext highlighter-rouge">RealityKitContent</code> package.</p>
+
+<h3 id="running-the-default-app-">Running the Default App <a name="running_the_default"></a></h3>
+
+<p>You can use this App in the Canvas Preview, or via running it in the Simulator, <code class="language-plaintext highlighter-rouge">CMD+R</code></p>
+
+<h3 id="starting-afresh-">Starting afresh <a name="starting_afresh"></a></h3>
+
+<p>However, we’d like to explain why things work they way they do, so let’s delete all of the code in the ImmersiveView</p>
+
+<p>Let’s start clean, paste this in:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">SwiftUI</span>
+<span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">struct</span> <span class="kt">ImmersiveView</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">ImmersiveView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+  <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kt">Text</span><span class="p">(</span><span class="s">"Getting Started"</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview {</span>
+  <span class="kt">ImmersiveView</span><span class="p">()</span>
+    <span class="o">.</span><span class="nf">previewLayout</span><span class="p">(</span><span class="o">.</span><span class="n">sizeThatFits</span><span class="p">)</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>You should see the Preview Canvas update so that it has a Label “Getting Started”</p>
+
+<p>Let’s replace the Text Label with a RealityView to load some 3D Content.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">SwiftUI</span>
+<span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">struct</span> <span class="kt">ImmersiveView</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">ImmersiveView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+
+  <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="n">realityView</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="k">var</span> <span class="nv">realityView</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kt">RealityView</span> <span class="p">{</span> <span class="n">content</span> <span class="k">in</span>
+      
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview {</span>
+  <span class="kt">ImmersiveView</span><span class="p">()</span>
+    <span class="o">.</span><span class="nf">previewLayout</span><span class="p">(</span><span class="o">.</span><span class="n">sizeThatFits</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If done correctly, the Canvas should update and show nothing…that’s because we haven’t asked the RealityView
+to draw anything.
+You can see the RealityView’s closure has a <code class="language-plaintext highlighter-rouge">content</code> argument, you can think of that as the <code class="language-plaintext highlighter-rouge">scene</code> into which
+we can add content.</p>
+
+<p>The Content that we want to add are <code class="language-plaintext highlighter-rouge">Entities</code>, we can create one directly in the closure, but let’s separate it out a little.</p>
+
+<h2 id="creating-an-entity-">Creating an Entity <a name="entity"></a></h2>
+
+<p>Let’s create a new file called <code class="language-plaintext highlighter-rouge">Shape.swift</code>, well have a class that can represent a Shape Entity</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">class</span> <span class="kt">Shape</span><span class="p">:</span> <span class="kt">Entity</span> <span class="p">{</span>
+
+  <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If we added that to the <code class="language-plaintext highlighter-rouge">scene</code> nothing would render as we have no 3D content, let’s fix that by adding a 3D Cube as a child entity</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">class</span> <span class="kt">Shape</span><span class="p">:</span> <span class="kt">Entity</span> <span class="p">{</span>
+
+  <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+
+    <span class="k">let</span> <span class="nv">cube</span> <span class="o">=</span> <span class="kt">ModelEntity</span><span class="p">(</span><span class="nv">mesh</span><span class="p">:</span> <span class="o">.</span><span class="nf">generateBox</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">))</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addChild</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It’s important to note that the units used in RealityKit are in meters, so this cube is 25cm along each edge.</p>
+
+<p>Entities can have multiple children, and those children cal also have children an so on, so in that sense, you can think of it like a tree of Entities/Nodes</p>
+
+<p>We can now switch back to the <code class="language-plaintext highlighter-rouge">ImmersiveView</code> and add this Shape to the <code class="language-plaintext highlighter-rouge">scene</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import SwiftUI
+import RealityKit
+
+struct ImmersiveView {
+
+}
+
+extension ImmersiveView: View {
+
+  var body: some View {
+    realityView
+  }
+
+  private var realityView: some View {
+    RealityView { content in
+      let shape = Shape()
+      content.add(shape)
+    }
+  }
+}
+
+#Preview {
+  ImmersiveView()
+    .previewLayout(.sizeThatFits)
+}
+</code></pre></div></div>
+
+<p>You will see the canvas update, it will display a pink/purple striped cube, use you mouse to move around the scene.</p>
+
+<h2 id="dragging-the-entity-with-gestures-">Dragging the Entity with Gestures <a name="drag_gesture_"></a></h2>
+
+<p>Ok, so we have a 3D cube floating in space…lets make it so that we can move it via dragging it.
+We need to add a <code class="language-plaintext highlighter-rouge">DragGesture</code> to the RealityView</p>
+
+<p>The default implementation can look like this:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">SwiftUI</span>
+<span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">struct</span> <span class="kt">ImmersiveView</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">ImmersiveView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+
+  <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="n">realityView</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="k">var</span> <span class="nv">dragGesture</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">Gesture</span> <span class="p">{</span>
+    <span class="kt">DragGesture</span><span class="p">()</span>
+      <span class="o">.</span><span class="n">onChanged</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
+
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="k">var</span> <span class="nv">realityView</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kt">RealityView</span> <span class="p">{</span> <span class="n">content</span> <span class="k">in</span>
+      <span class="k">let</span> <span class="nv">shape</span> <span class="o">=</span> <span class="kt">Shape</span><span class="p">()</span>
+      <span class="n">shape</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">content</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="o">.</span><span class="nf">gesture</span><span class="p">(</span><span class="n">dragGesture</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview {</span>
+  <span class="kt">ImmersiveView</span><span class="p">()</span>
+    <span class="o">.</span><span class="nf">previewLayout</span><span class="p">(</span><span class="o">.</span><span class="n">sizeThatFits</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Note the new dragGesture variable, it’s attached to the <code class="language-plaintext highlighter-rouge">RealityView</code>.</p>
+
+<p>If you try and drag the cube, nothing will happen, why?…</p>
+
+<p>The cube has not been told that it can be interacted with, and to do that, we need to use <code class="language-plaintext highlighter-rouge">components</code></p>
+
+<h2 id="creating-a-component-">Creating a Component <a name="component"></a></h2>
+
+<p>An <code class="language-plaintext highlighter-rouge">Entity</code> can have a collection of <code class="language-plaintext highlighter-rouge">Components</code>, which are effectively traits that the entity has, for example</p>
+
+<p>An <code class="language-plaintext highlighter-rouge">Entity</code> can have the <code class="language-plaintext highlighter-rouge">HoverEffectComponent</code> which RealityView interprets as highlighting the <code class="language-plaintext highlighter-rouge">Entity</code> when it is hovered over, whether that by via a mouse, or gaze.</p>
+
+<p>In order for the <code class="language-plaintext highlighter-rouge">Cube</code> to be <code class="language-plaintext highlighter-rouge">Selectable</code> we need to add the <code class="language-plaintext highlighter-rouge">InputTargetComponent</code>, let’s update the code:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">class</span> <span class="kt">Shape</span><span class="p">:</span> <span class="kt">Entity</span> <span class="p">{</span>
+
+  <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+
+    <span class="k">let</span> <span class="nv">cube</span> <span class="o">=</span> <span class="kt">ModelEntity</span><span class="p">(</span><span class="nv">mesh</span><span class="p">:</span> <span class="o">.</span><span class="nf">generateBox</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">))</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addChild</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="nf">generateCollisionShapes</span><span class="p">(</span><span class="nv">recursive</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="kt">InputTargetComponent</span><span class="p">())</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This tells RealityView that this <code class="language-plaintext highlighter-rouge">Entity</code> can track input.</p>
+
+<p>However, even with this, our DragGesture still doesn’t work, why?</p>
+
+<p>The DragGesture has another method that defines on which entity it affects:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">targetedToEntity</span>
+</code></pre></div></div>
+
+<p>This takes a <code class="language-plaintext highlighter-rouge">Component</code> to filter on, in our demo, we only want to select <code class="language-plaintext highlighter-rouge">Shapes</code> so let’s create a new <code class="language-plaintext highlighter-rouge">ShapeComponent</code> that only <code class="language-plaintext highlighter-rouge">Shapes</code> have</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">class</span> <span class="kt">ShapeComponent</span><span class="p">:</span> <span class="kt">Component</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>We can then attach this to our <code class="language-plaintext highlighter-rouge">Shape</code> Entity</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">class</span> <span class="kt">Shape</span><span class="p">:</span> <span class="kt">Entity</span> <span class="p">{</span>
+
+  <span class="kd">required</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">super</span><span class="o">.</span><span class="nf">init</span><span class="p">()</span>
+
+    <span class="k">let</span> <span class="nv">cube</span> <span class="o">=</span> <span class="kt">ModelEntity</span><span class="p">(</span><span class="nv">mesh</span><span class="p">:</span> <span class="o">.</span><span class="nf">generateBox</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="mf">0.25</span><span class="p">))</span>
+    <span class="k">self</span><span class="o">.</span><span class="nf">addChild</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
+
+    <span class="k">self</span><span class="o">.</span><span class="nf">generateCollisionShapes</span><span class="p">(</span><span class="nv">recursive</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">components</span><span class="p">[</span><span class="kt">ShapeComponent</span><span class="o">.</span><span class="k">self</span><span class="p">]</span> <span class="o">=</span> <span class="kt">ShapeComponent</span><span class="p">()</span>
+    <span class="n">cube</span><span class="o">.</span><span class="n">components</span><span class="o">.</span><span class="nf">set</span><span class="p">(</span><span class="kt">InputTargetComponent</span><span class="p">())</span>
+  <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">DragGesture</code> can then be updated to filter on that component</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">SwiftUI</span>
+<span class="kd">import</span> <span class="kt">RealityKit</span>
+
+<span class="kd">struct</span> <span class="kt">ImmersiveView</span> <span class="p">{</span>
+
+<span class="p">}</span>
+
+<span class="kd">extension</span> <span class="kt">ImmersiveView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+
+  <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="n">realityView</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="k">var</span> <span class="nv">dragGesture</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">Gesture</span> <span class="p">{</span>
+    <span class="kt">DragGesture</span><span class="p">()</span>
+      <span class="o">.</span><span class="nf">targetedToEntity</span><span class="p">(</span><span class="nv">where</span><span class="p">:</span> <span class="o">.</span><span class="nf">has</span><span class="p">(</span><span class="kt">ShapeComponent</span><span class="o">.</span><span class="k">self</span><span class="p">))</span>
+      <span class="o">.</span><span class="n">onChanged</span> <span class="p">{</span> <span class="n">value</span> <span class="k">in</span>
+
+      <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="kd">private</span> <span class="k">var</span> <span class="nv">realityView</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kt">RealityView</span> <span class="p">{</span> <span class="n">content</span> <span class="k">in</span>
+      <span class="k">let</span> <span class="nv">shape</span> <span class="o">=</span> <span class="kt">Shape</span><span class="p">()</span>
+      <span class="n">shape</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">content</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="o">.</span><span class="nf">gesture</span><span class="p">(</span><span class="n">dragGesture</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cp">#Preview {</span>
+  <span class="kt">ImmersiveView</span><span class="p">()</span>
+    <span class="o">.</span><span class="nf">previewLayout</span><span class="p">(</span><span class="o">.</span><span class="n">sizeThatFits</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you now run the demo, you can see the <code class="language-plaintext highlighter-rouge">onChanged</code> handler is called when you try to drag the <code class="language-plaintext highlighter-rouge">Shape</code></p>
+
+<h2 id="creating-a-system-">Creating a System <a name="system"></a></h2>
+
+<p>TODO</p>]]></content><author><name></name></author><summary type="html"><![CDATA[layout: post title: “Getting started with VisionOS” date: 2024-02-08 09:00:00 -0000 categories: visionos visionpro]]></summary></entry></feed>

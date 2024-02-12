@@ -1,0 +1,19 @@
+inc:
+  title:        "ustwo engineering"
+  cover_image:  blog-cover.jpg
+  logo:         logo.png
+
+  # Company information
+  company:      ustwo
+  url:          http://ustwo.com/
+  facebook:     false
+  twitter:      ustwo
+
+
+url:         http://ustwo.github.io/engineering-blog
+source:      .
+destination: ./_site
+
+theme: minima
+plugins:
+  - jekyll-feed
