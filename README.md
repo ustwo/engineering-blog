@@ -25,26 +25,10 @@ sh ./scripts/new-developer.sh
 
 ## GitHub Pages with Jekyll <a name="jekyll"></a>
 
-Install [Jekyll](https://jekyllrb.com/docs/installation/macos/)
+We are using GitHub Pages with Jekyll templates
 
-```bash
-gem install jekyll
-```
 
-If you're on a Mac, you may want to use [RBENV](https://github.com/rbenv/rbenv) to install `Ruby` versions
-
-```bash
-rbenv install 3.1.3
-```
-
-Then switch to that version, either local or global:
-
-```bash
-rbenv local 3.1.3
-rbenv global 3.1.3
-```
-
-### Run locally <a name="run_local_"></a>
+### Run locally <a name="run_local"></a>
 
 ```bash
 bundle exec jekyll serve

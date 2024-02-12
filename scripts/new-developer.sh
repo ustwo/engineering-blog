@@ -17,7 +17,36 @@ select yn in "Yes" "No"; do
 done
 
 
-#https://commitizen-tools.github.io/commitizen/
+# https://github.com/rbenv/rbenv
+echo "Do you want to install RBEnv"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) brew install rbenv ruby-build; break;;
+        No ) break;;
+    esac
+done
+
+
+echo "Do you want to switch to RBEnv 3.1.3 locally?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) rbenv install 3.1.3; rbenv local 3.1.3; break;;
+        No ) break;;
+    esac
+done
+
+
+# https://jekyllrb.com/docs/installation/macos
+echo "Do you want to install Jekyll for GitHub Pages?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) gem install jekyll; break;;
+        No ) break;;
+    esac
+done
+
+
+# https://commitizen-tools.github.io/commitizen/
 echo "Do you want to install Commitizen?"
 select yn in "Yes" "No"; do
     case $yn in
@@ -27,7 +56,7 @@ select yn in "Yes" "No"; do
 done
 
 
-#https://pre-commit.com/
+# https://pre-commit.com/
 echo "Do you want to install pre-commit?"
 select yn in "Yes" "No"; do
     case $yn in
