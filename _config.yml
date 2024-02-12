@@ -17,3 +17,9 @@ destination: ./_site
 theme: minima
 plugins:
   - jekyll-feed
+  
+exclude:
+    - scripts
+    - CNAME
+    - Gemfile
+    - Gemfile.lock
