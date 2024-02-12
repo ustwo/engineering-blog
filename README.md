@@ -49,3 +49,9 @@ rbenv global 3.1.3
 ```bash
 bundle exec jekyll serve
 ```
+
+Note: If you get a `webbrick` error you need to run:
+
+```bash
+bundle add webrick
+```
