@@ -6,7 +6,6 @@
 2. [Getting Started](#getting_started)
 	1. [New to the Project?](#new_to_the_project)
 3. [GitHub Pages with Jekyll](#jekyll)
-	1. [Run site locally](#run_local)
 
 ## Introduction <a name="introduction"></a>
 
@@ -42,10 +41,4 @@ Then switch to that version, either local or global:
 ```bash
 rbenv local 3.1.3
 rbenv global 3.1.3
-```
-
-### Run locally <a name="run_local_"></a>
-
-```bash
-bundle exec jekyll serve
 ```
