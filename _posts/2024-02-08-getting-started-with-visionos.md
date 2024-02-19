@@ -199,7 +199,7 @@ extension ImmersiveView: View {
 
 You will see the canvas update, it will display a pink/purple striped cube, use you mouse to move around the scene.
 
-![Untextured Cube](/assets/visionos/untextured_shape_.png)
+![Untextured Cube](/assets/visionos/untextured_shape.png)
 
 ## Dragging the Entity with Gestures <a name="drag_gesture_"></a>
 
