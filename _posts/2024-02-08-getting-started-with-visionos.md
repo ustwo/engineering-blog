@@ -21,7 +21,7 @@ We'll cover:
 - [Components](#component)
 
 
-## Installing Required Software <a name="software_requirements_"></a>
+## Installing Required Software <a name="software_requirements"></a>
 
 The VisionOS is shipped in Xcode 15.2 and later, the easiest way to download this is from [Xcode Releases](https://xcodereleases.com/)
 
@@ -201,7 +201,7 @@ You will see the canvas update, it will display a pink/purple striped cube, use 
 
 ![Untextured Cube](/assets/visionos/untextured_shape.png)
 
-## Dragging the Entity with Gestures <a name="drag_gesture_"></a>
+## Dragging the Entity with Gestures <a name="drag_gesture"></a>
 
 Ok, so we have a 3D cube floating in space...lets make it so that we can move it via dragging it.
 We need to add a `DragGesture` to the RealityView
