@@ -1,8 +1,3 @@
-layout: post
-title: "Getting started with VisionOS"
-date: 2024-02-08 09:00:00 -0000
-categories: visionos visionpro
-
 # Getting started with VisionOS
 
 Hi, This is a short guide on how to get up and running with RealityKit on VisionOS.
