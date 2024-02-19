@@ -23,12 +23,12 @@ We'll cover:
 
 ## Installing Required Software <a name="software_requirements"></a>
 
-The VisionOS is shipped in Xcode 15.2 and later, the easiest way to download this is from [Xcode Releases](https://xcodereleases.com/)
+VisionOS is shipped in Xcode 15.2 and later, the easiest way to download this is from [Xcode Releases](https://xcodereleases.com/)
 
 ## Xcode <a name="xcode"></a>
 
-We're based in the UK and getting hands-on time with a physical device is a challenge, for this guide
-we'll be running our tests in Xcodes Preview and Simulator.
+We're based in the UK and getting hands-on time with a physical device is currently a challenge, for this guide
+we'll be running our examples in Xcode Preview and Simulator.
 
 ## Creating a RealityView <a name="realityview"></a>
 
@@ -41,7 +41,7 @@ This creates a basic template App containing:
 - ContentView
 - ImmersiveView
 
-The ContentView can load the Immersive View
+The ContentView load the Immersive View when instructed to.
 
 ### ContentView <a name="contentview"></a>
 
@@ -58,6 +58,8 @@ The ImmersiveView contains a pre-made RealityView View, it loads some content fr
 ### Running the Default App <a name="running_the_default"></a>
 
 You can use this App in the Canvas Preview, or via running it in the Simulator, `CMD+R`
+
+![Default Space](/assets/visionos/default_space.png)
 
 ### Starting afresh <a name="starting_afresh"></a>
 
@@ -83,7 +85,6 @@ extension ImmersiveView: View {
   ImmersiveView()
     .previewLayout(.sizeThatFits)
 }
-
 ```
 
 You should see the Preview Canvas update so that it has a Label "Getting Started"
@@ -119,7 +120,7 @@ extension ImmersiveView: View {
 }
 ```
 
-If done correctly, the Canvas should update and show nothing...that's because we haven't asked the RealityView
+If done correctly, the Canvas should update and show... nothing, that's because we haven't asked the RealityView
 to draw anything.
 
 ![Blank Screen](/assets/visionos/blank.png)
@@ -128,7 +129,6 @@ You can see the RealityView's closure has a `content` argument, you can think of
 we can add content.
 
 The Content that we want to add are `Entities`, we can create one directly in the closure, but let's separate it out a little.
-
 
 ## Creating an Entity <a name="entity"></a>
 
@@ -163,9 +163,9 @@ class Shape: Entity {
 }
 ```
 
-It's important to note that the units used in RealityKit are in meters, so this cube is 25cm along each edge.
+It's important to note that the units used in RealityKit are in `meters`, so this cube is `25cm` along each edge.
 
-Entities can have multiple children, and those children cal also have children an so on, so in that sense, you can think of it like a tree of Entities/Nodes
+Entities can have multiple children, and those children cal also have children and so on, so in that sense, you can think of it like a tree of Entities/Nodes
 
 We can now switch back to the `ImmersiveView` and add this Shape to the `scene`.
 
@@ -198,6 +198,8 @@ extension ImmersiveView: View {
 ```
 
 You will see the canvas update, it will display a pink/purple striped cube, use you mouse to move around the scene.
+
+Note: No Texture/Material has been applied to this Cube, we'll cover that in another tutorial.
 
 ![Untextured Cube](/assets/visionos/untextured_shape.png)
 
@@ -245,19 +247,19 @@ extension ImmersiveView: View {
 }
 ```
 
-Note the new dragGesture variable, it's attached to the `RealityView`.
+Note the new `dragGesture` variable, it's attached to the `RealityView`.
 
 If you try and drag the cube, nothing will happen, why?...
 
-The cube has not been told that it can be interacted with, and to do that, we need to use `components`
+The cube has not been told that it can be interacted with, and to do that, we can use `components`.
 
 ## Creating a Component <a name="component"></a>
 
-An `Entity` can have a collection of `Components`, which are effectively traits that the entity has, for example
+An `Entity` can have a collection of `Components`,I think of them as traits that the entity has, for example:
 
 An `Entity` can have the `HoverEffectComponent` which RealityView interprets as highlighting the `Entity` when it is hovered over, whether that by via a mouse, or gaze.
 
-In order for the `Cube` to be `Selectable` we need to add the `InputTargetComponent`, let's update the code:
+In order for the `Cube` to be `Selectable` we need to add the `InputTargetComponent`, and `CollisionComponent`, let's update the code:
 
 ```swift
 import RealityKit
@@ -309,8 +311,9 @@ class Shape: Entity {
     self.addChild(cube)
 
     self.generateCollisionShapes(recursive: true)
-    cube.components[ShapeComponent.self] = ShapeComponent()
     cube.components.set(InputTargetComponent())
+    
+    cube.components[ShapeComponent.self] = ShapeComponent()
   }
 
 }
@@ -358,7 +361,7 @@ extension ImmersiveView: View {
 
 If you now run the demo, you can see the `onChanged` handler is called when you try to drag the `Shape`
 
-We can now take the `value` from the `targetedToEntity` to set the new position
+We can now take the `value` from the `targetedToEntity` to set the new position of the `entity` selected.
 
 ```swift
 import SwiftUI
@@ -402,3 +405,4 @@ extension ImmersiveView: View {
 
 ![Drag Gesture](/assets/visionos/drag_gesture.gif)
 
+So that's not a lot of code to Add a 3D entity and drag it around the scene.
