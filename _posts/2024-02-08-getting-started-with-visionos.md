@@ -35,6 +35,8 @@ we'll be running our tests in Xcodes Preview and Simulator.
 
 When you open Xcode 15.2 you'll be asked to create a project, choose `visionOS App`.
 
+![Xcode Vision App](/assets/visionos/xcode_vision.png)
+
 This creates a basic template App containing:
 
 - ContentView
@@ -87,6 +89,8 @@ extension ImmersiveView: View {
 
 You should see the Preview Canvas update so that it has a Label "Getting Started"
 
+![Xcode Vision App](/assets/visionos/blank_getting_started.png)
+
 Let's replace the Text Label with a RealityView to load some 3D Content.
 
 ```swift
@@ -118,6 +122,9 @@ extension ImmersiveView: View {
 
 If done correctly, the Canvas should update and show nothing...that's because we haven't asked the RealityView
 to draw anything.
+
+![Xcode Vision App](/assets/visionos/blank.png)
+
 You can see the RealityView's closure has a `content` argument, you can think of that as the `scene` into which
 we can add content.
 
@@ -192,6 +199,8 @@ extension ImmersiveView: View {
 ```
 
 You will see the canvas update, it will display a pink/purple striped cube, use you mouse to move around the scene.
+
+![Xcode Vision App](/assets/visionos/untextured_shape_.png)
 
 ## Dragging the Entity with Gestures <a name="drag_gesture_"></a>
 
