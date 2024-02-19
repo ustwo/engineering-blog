@@ -19,7 +19,6 @@ We'll cover:
 - [Entities](#entity)
 - [Dragging Gestures](#drag_gesture)
 - [Components](#component)
-- [Systems](#system)
 
 
 ## Installing Required Software <a name="software_requirements_"></a>
@@ -89,7 +88,7 @@ extension ImmersiveView: View {
 
 You should see the Preview Canvas update so that it has a Label "Getting Started"
 
-![Xcode Vision App](/assets/visionos/blank_getting_started.png)
+![Getting Started Screen](/assets/visionos/blank_getting_started.png)
 
 Let's replace the Text Label with a RealityView to load some 3D Content.
 
@@ -123,7 +122,7 @@ extension ImmersiveView: View {
 If done correctly, the Canvas should update and show nothing...that's because we haven't asked the RealityView
 to draw anything.
 
-![Xcode Vision App](/assets/visionos/blank.png)
+![Blank Screen](/assets/visionos/blank.png)
 
 You can see the RealityView's closure has a `content` argument, you can think of that as the `scene` into which
 we can add content.
@@ -200,7 +199,7 @@ extension ImmersiveView: View {
 
 You will see the canvas update, it will display a pink/purple striped cube, use you mouse to move around the scene.
 
-![Xcode Vision App](/assets/visionos/untextured_shape_.png)
+![Untextured Cube](/assets/visionos/untextured_shape_.png)
 
 ## Dragging the Entity with Gestures <a name="drag_gesture_"></a>
 
@@ -359,8 +358,47 @@ extension ImmersiveView: View {
 
 If you now run the demo, you can see the `onChanged` handler is called when you try to drag the `Shape`
 
+We can now take the `value` from the `targetedToEntity` to set the new position
 
-## Creating a System <a name="system"></a>
+```swift
+import SwiftUI
+import RealityKit
 
-TODO
+struct ImmersiveView {
+
+}
+
+extension ImmersiveView: View {
+
+  var body: some View {
+    realityView
+  }
+
+  private var dragGesture: some Gesture {
+    DragGesture()
+      .targetedToEntity(where: .has(ShapeComponent.self))
+      .onChanged { value in
+        let entity: Entity = value.entity
+        entity.position = value.convert(value.location3D, from: .local, to: entity.parent!)
+      }
+  }
+
+  private var realityView: some View {
+    RealityView { content in
+      let shape = Shape()
+      shape.position = [0,0,0]
+      content.add(shape)
+    }
+    .gesture(dragGesture)
+  }
+}
+
+#Preview {
+  ImmersiveView()
+    .previewLayout(.sizeThatFits)
+}
+
+```
+
+![Drag Gesture](/assets/visionos/drag_gesture.gif)
 
