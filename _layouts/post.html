@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<header class="post__header">
+  <img
+    src="https://source.unsplash.com/random/?tech"
+    alt=""
+    class="post__image"
+  />
+</header>
+
+<div class="py-20 px-72 flex gap-8">
+  <div>
+    <div class="post__avatar">
+      <div class="post__avatar__pic">
+        <img src="https://source.unsplash.com/random/100x100/?avatar" alt="" />
+      </div>
+      <div class="post__avatar__author">
+        <p class="post__avatar__author__name">Chris Davis</p>
+        <p class="post__avatar__author__role">iOS Developer</p>
+        <p class="post__avatar__author__contact">chris@ustwo.com</p>
+        <a href="/" class="post__back"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+            />
+          </svg>
+          <span>Back to blog</span></a
+        >
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <h1 class="text-4xl font-bold mb-2">{{page.title}}</h1>
+    <p class="text-sm mb-6 text-gray-400">{{ page.date | date_to_string}}</p>
+    <main>{{ content }}</main>
+  </article>
+</div>
