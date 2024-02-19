@@ -164,7 +164,7 @@ Entities can have multiple children, and those children cal also have children a
 
 We can now switch back to the `ImmersiveView` and add this Shape to the `scene`.
 
-```
+```swift
 import SwiftUI
 import RealityKit
 
