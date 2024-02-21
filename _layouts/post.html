@@ -10,7 +10,7 @@ layout: default
   />
 </header>
 
-<div class="py-20 px-72 flex gap-8">
+<div class="post">
   <div>
     <div class="post__avatar">
       <div class="post__avatar__pic">
@@ -43,6 +43,6 @@ layout: default
   <article>
     <h1 class="text-4xl font-bold mb-2">{{page.title}}</h1>
     <p class="text-sm mb-6 text-gray-400">{{ page.date | date_to_string}}</p>
-    <main>{{ content }}</main>
+    <main class="post-content">{{ content }}</main>
   </article>
 </div>
