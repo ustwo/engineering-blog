@@ -16,11 +16,11 @@ A list of engineering articles from usTwo
 
 ### New to the Project? <a name="new_to_the_project"></a>
 
-If you are a new developer, we have a script you can run to install all dependencies, there
-may be parts that you do-not wish to install, so pick and choose what you need when asked.
+If you are a new developer, we are a docker container to development environment, just run the command below to have 
+all things done, running at port: 4000
 
-```
-sh ./scripts/new-developer.sh
+```docker-compose
+docker-compose up
 ```
 
 ## GitHub Pages with Jekyll <a name="jekyll"></a>
