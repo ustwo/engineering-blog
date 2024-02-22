@@ -237,6 +237,12 @@ mkdir /tmp/xcf/xrsimulator.xcarchive/Products/usr/local/lib/Bookshop.framework/M
 cp -a /tmp/visionos/Build/Intermediates.noindex/ArchiveIntermediates/Bookshop/BuildProductsPath/Release-xrsimulator/Bookshop.swiftmodule /tmp/xcf/xrsimulator.xcarchive/Products/usr/local/lib/Bookshop.framework/Modules
 ```
 
+Recombine the two `framework`s to make a single `XCFramework`
+
+```bash
+xcodebuild -create-xcframework -framework $(readlink -f "/tmp/xcf/xros.xcarchive/Products/usr/local/lib/Bookshop.framework") -framework $(readlink -f "/tmp/xcf/xrsimulator.xcarchive/Products/usr/local/lib/Bookshop.framework") -output "/tmp/xcf/Bookshop.xcframework"
+```
+
 Re-Run the script and re-upload your Package to GitHub.
 
 When you now import, you can buy your book. magic.
