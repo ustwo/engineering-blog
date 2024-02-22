@@ -186,7 +186,7 @@ let package = Package(
 
 ### Deploy <a name="deploy"></a>
 
-Deploy this package, your folder structure should be succinct to GitHub.
+Deploy this package, your folder structure should be succinct to GitHub, ie, you should not see any of your public code.
 
 ![Package Contents](/assets/swiftpackage/xcframework_package.png)
 
