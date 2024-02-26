@@ -12,9 +12,27 @@ title: ustwo_engineering
 
 <ul class="blog">
   {% for post in site.posts %}
+    {% if post == site.posts[0] %}
+    <li class="blog__list--latest">
+        <a href="{{post.url}}" class="blog__thumbnail">
+            <img src="{{post.thumbnail}}" alt="" />
+        </a>
+
+        <div class="blog__post">
+            <span class="blog__post__date">{{ post.date | date_to_string }}</span>
+            <h2 class="blog__post__title">
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </h2>
+            <div class="blog__post__excerpt">
+                <p>{{post.excerpt}}</p>
+            </div>
+            <a href="{{post.url}}" class="btn">Read more</a>
+        </div>
+    </li>
+    {% else %}
   <li class="blog__list">
     <a href="{{post.url}}" class="blog__thumbnail">
-      <img src="https://source.unsplash.com/random/900x700/?tech" alt="" />
+      <img src="{{post.thumbnail}}" alt="" />
     </a>
 
     <div class="blog__post">
@@ -24,19 +42,10 @@ title: ustwo_engineering
       </h2>
       <div class="blog__post__excerpt">
         <p>{{post.excerpt}}</p>
-        <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Optio in
-          quia expedita ipsam, debitis est mollitia quidem sit aut iste.
-        </p>
-        <p>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. A, sed
-          corporis. Accusantium, dicta? Quod cumque dolore aspernatur aut nobis
-          similique repellat reiciendis? Deserunt adipisci a possimus labore
-          pariatur officia perferendis.
-        </p>
       </div>
       <a href="{{post.url}}" class="btn">Read more</a>
     </div>
   </li>
+    {% endif %}
   {% endfor %}
 </ul>

@@ -4,7 +4,7 @@ layout: default
 
 <header class="post__header">
   <img
-    src="https://source.unsplash.com/random/?tech"
+    src="{{page.thumbnail}}"
     alt=""
     class="post__image"
   />
@@ -14,12 +14,12 @@ layout: default
   <div>
     <div class="post__avatar">
       <div class="post__avatar__pic">
-        <img src="https://source.unsplash.com/random/100x100/?avatar" alt="" />
+        <img src="{{page.avatar}}" alt="" />
       </div>
       <div class="post__avatar__author">
-        <p class="post__avatar__author__name">Chris Davis</p>
-        <p class="post__avatar__author__role">iOS Developer</p>
-        <p class="post__avatar__author__contact">chris@ustwo.com</p>
+        <p class="post__avatar__author__name">{{page.author}}</p>
+        <p class="post__avatar__author__role">{{page.role}}</p>
+        <p class="post__avatar__author__contact">{{page.contact}}</p>
         <a href="/" class="post__back"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +41,7 @@ layout: default
   </div>
 
   <article>
-    <h1 class="text-4xl font-bold mb-2">{{page.title}}</h1>
-    <p class="text-sm mb-6 text-gray-400">{{ page.date | date_to_string}}</p>
+    <span>{{ page.date | date_to_string}}</span>
     <main class="post-content">{{ content }}</main>
   </article>
 </div>
