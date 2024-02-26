@@ -1,3 +1,12 @@
+---
+author: Chris Davis
+role: iOS Developer
+contact: chrisdavis@ustwo.com
+thumbnail: /assets/images/visionos/thumbnail.jpeg
+avatar: /assets/images/visionos/avatar.jpeg
+title: Getting started with VisionOS
+---
+
 # Getting started with VisionOS
 
 Hi, This is a short guide on how to get up and running with RealityKit on VisionOS.
