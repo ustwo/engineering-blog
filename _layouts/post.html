@@ -1,0 +1,47 @@
+---
+layout: default
+---
+
+<header class="post__header">
+  <img
+    src="{{page.thumbnail}}"
+    alt=""
+    class="post__image"
+  />
+</header>
+
+<div class="post">
+  <div>
+    <div class="post__avatar">
+      <div class="post__avatar__pic">
+        <img src="{{page.avatar}}" alt="" />
+      </div>
+      <div class="post__avatar__author">
+        <p class="post__avatar__author__name">{{page.author}}</p>
+        <p class="post__avatar__author__role">{{page.role}}</p>
+        <p class="post__avatar__author__contact">{{page.contact}}</p>
+        <a href="/" class="post__back"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3"
+            />
+          </svg>
+          <span>Back to blog</span></a
+        >
+      </div>
+    </div>
+  </div>
+
+  <article>
+    <span>{{ page.date | date_to_string}}</span>
+    <main class="post-content">{{ content }}</main>
+  </article>
+</div>

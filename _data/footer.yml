@@ -1,0 +1,9 @@
+- name: instagram
+  link: https://instagram.com/ustwo
+  image: /assets/images/instagram-logo.png
+- name: linkedin
+  link: https://linkedin.com/company/ustwo-
+  image: /assets/images/linkedin-logo.png
+- name: x
+  link: https://twitter.com/ustwo
+  image: /assets/images/x-logo.png
