@@ -1,15 +1,5 @@
-$primary: #07a90a;
-$light: #fff;
-$dark: rgb(2, 6, 23);
-$gray: #afafaf;
+@import "_variables";
 
-$spacing-unit: 30px !default;
-$table-text-align: left !default;
-$content-width: 800px !default;
-$on-palm: 600px !default;
-$on-laptop: 800px !default;
-$on-medium: $on-palm !default;
-$on-large: $on-laptop !default;
 @mixin relative-font-size($ratio) {
   font-size: #{$ratio}rem;
 }
@@ -117,11 +107,12 @@ samp {
 
 .navbar {
   display: flex;
-  padding: 1rem 18rem;
-  justify-content: space-between;
+  padding: 1rem 1rem;
+  justify-content: center;
   background-color: $light;
 
   &__logo {
+    transform: translateX(-75%);
     a {
       position: relative;
     }
@@ -138,7 +129,7 @@ samp {
   }
 
   &__menu {
-    display: flex;
+    display: none;
     gap: 1rem;
 
     &__item {
@@ -158,12 +149,12 @@ samp {
 .footer {
   color: $light;
   background-color: $dark;
-  padding: 0 18rem;
+  padding: 0 1rem;
 
   &__logo {
     display: flex;
     justify-content: center;
-    padding: 2rem 0;
+    padding: .75rem 0;
 
     & svg {
       height: 2rem;
@@ -172,10 +163,13 @@ samp {
 
   &__text {
     display: flex;
-    justify-content: space-between;
-    padding: 1rem 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: .5rem 0;
     border-top: 1px solid $gray;
     color: $gray;
+    font-size: .75rem;
   }
 
   &__social {
@@ -193,7 +187,7 @@ samp {
       }
 
       &__icon {
-        height: 1.2 .5rem;
+        height: 1.25rem;
         width: 1.25rem;
       }
     }
@@ -201,15 +195,24 @@ samp {
 }
 
 .post {
-  padding: 5rem 18rem;
+  padding: 1rem;
   display: flex;
+  flex-direction: column;
   gap: 2rem;
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  h1 {
+    font-size: 1.75rem;
+  }
 
   &__header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 600px;
+    height: 200px;
     overflow: hidden;
   }
 
@@ -219,44 +222,7 @@ samp {
   }
 
   &__avatar {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    position: sticky;
-    top: 5rem;
-
-    &__pic {
-      border-radius: 999999%;
-      width: 5rem;
-      height: 5rem;
-      background-color: $gray;
-      overflow: hidden;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-
-    &__author {
-      width: max-content;
-
-      &__name {
-        font-size: 1.25rem;
-        font-weight: semibold;
-      }
-
-      &__role {
-        font-style: italic;
-        color: $gray;
-      }
-
-      &__contact {
-        font-size: .875rem;
-      }
-
-    }
+    display: none;
   }
 
   &__back {
@@ -280,21 +246,23 @@ samp {
 }
 
 .blog {
-  padding: 0 18rem;
+  padding: 0 1rem;
   justify-content: space-between;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
 
   &__header {
-    padding: 0 18rem;
+    padding: 0 1rem;
+    text-align: center;
 
     &__title {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
       font-weight: bold;
     }
 
     &__text {
-      padding: 1.5rem 0;
+      padding: .75rem 0;
+      font-size: .75rem;
     }
   }
 
@@ -305,13 +273,12 @@ samp {
     overflow: hidden;
     flex: 2 2 0%;
     height: 100%;
-    max-height: 30rem;
     transition: scale .3s ease-in-out;
 
     img {
       transition: transform .3s ease-in-out;
       width: 100%;
-      height: 350px;
+      height: auto;
       object-fit: cover;
     }
 
@@ -324,11 +291,16 @@ samp {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    width: 30%;
+    width: 100%;
     padding: 4rem 0;
+
+    & .blog__thumbnail {
+      max-height: 20rem;
+    }
 
     &--latest {
       display: flex;
+      flex-direction: column;
       width: 100%;
       gap: 1.5rem;
       padding: 4rem 0;
@@ -717,11 +689,12 @@ code {
 
 .language-plaintext.highlighter-rouge {
   margin: .25rem 0 !important;
+  width: fit-content;
 }
 
 .highlighter-rouge {
   margin: 1.5rem 0 !important;
-  width: fit-content;
+  width: 100%;
   max-width: 950px;
 }
 
@@ -833,7 +806,6 @@ code.output {
     display: inline-table;
     padding: 8px;
     width: 100%;
-    padding: 5px 0;
     font: 400 16px/24px "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #444;
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
