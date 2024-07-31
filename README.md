@@ -2,11 +2,13 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [Getting Started](#getting_started)
-	1. [New to the Project?](#new_to_the_project)
-3. [GitHub Pages with Jekyll](#jekyll)
-	1. [Run site locally](#run_local)
+- [engineering-blog](#engineering-blog)
+	- [Table of Contents](#table-of-contents)
+	- [Introduction ](#introduction-)
+	- [Getting Started ](#getting-started-)
+		- [New to the Project? ](#new-to-the-project-)
+	- [GitHub Pages with Jekyll ](#github-pages-with-jekyll-)
+		- [Run locally ](#run-locally-)
 
 ## Introduction <a name="introduction"></a>
 
@@ -16,8 +18,9 @@ A list of engineering articles from usTwo
 
 ### New to the Project? <a name="new_to_the_project"></a>
 
-If you are a new developer, we are a docker container to development environment, just run the command below to have 
-all things done, running at port: 4000
+If you are a new developer, you'll need to first [install Docker](https://docs.docker.com/get-docker/).
+
+Once that's done, just run the command below to set up your docker container, running at port: 4000
 
 ```docker-compose
 docker-compose up
