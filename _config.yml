@@ -20,6 +20,9 @@ plugins:
 exclude:
   - scripts
   - CNAME
+  - CODEOWNERS
   - Gemfile
   - Gemfile.lock
   - docker-compose.yml
+  - about.md
+  - README.md
