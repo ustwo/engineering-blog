@@ -160,6 +160,10 @@ samp {
   background-color: $dark;
   padding: 0 18rem;
 
+  .footer__text a:hover{
+    text-decoration: underline;
+  }
+  
   &__logo {
     display: flex;
     justify-content: center;
@@ -174,6 +178,7 @@ samp {
     display: flex;
     justify-content: space-between;
     padding: 1rem 0;
+    font-size: .75rem;
     border-top: 1px solid $gray;
     color: $gray;
   }
