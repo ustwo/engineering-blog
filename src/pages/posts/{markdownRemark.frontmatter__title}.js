@@ -1,14 +1,17 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../../components/layout";
 
 const Post = ({ data }) => {
   return (
     <Layout>
-      <Link to="/">Home</Link>
-      <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <p>{data.markdownRemark.frontmatter.author} | {data.markdownRemark.frontmatter.role}</p>
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      <article>
+        <header>
+          <h1>{data.markdownRemark.frontmatter.title}</h1>
+          <p>{data.markdownRemark.frontmatter.author} | {data.markdownRemark.frontmatter.role}</p>
+        </header>
+        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      </article>
     </Layout>
   );
 }
