@@ -1,0 +1,24 @@
+{
+  "name": "engineering-blog",
+  "private": true,
+  "description": "Articles by ustwo's engineering team.",
+  "version": "0.1.0",
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^5.13.7",
+    "gatsby-adapter-netlify": "^1.1.7",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-remark": "^6.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "small-date": "^2.0.0"
+  }
+}

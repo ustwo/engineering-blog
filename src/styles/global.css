@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+:root {
+  --font-family-sans-serif: system-ui, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, Helvetica, Arial, "Helvetica Neue", sans-serif;
+  --font-family-monospace: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-family: var(--font-family-sans-serif);
+  --font-size: 100%;
+  --line-height: 1.48;
+  --font-weight: 400;
+  --transition: 0.2s ease-in-out;
+  --padding: 1rem;
+  --typography-spacing-vertical: 1rem;
+  --color: #222;
+  --primary-color: blue;
+  --muted-color: #666;
+  --muted-border-color: #eee;
+}
+
+@media (min-width: 576px) {
+  :root {
+    --font-size: 106.25%;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --font-size: 112.5%;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --font-size: 118.75%;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --font-size: 125%;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --font-size: 131.25%;
+  }
+}
+
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  background-color: var(--background-color);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-family: var(--font-family);
+  text-rendering: optimizeLegibility;
+  overflow-wrap: break-word;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+}
+
+body {
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--primary-color);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+.h1 {
+  --font-size: 2.5rem;
+  --line-height: 1.125;
+  --typography-spacing-top: 3rem;
+}
+
+h2,
+.h2 {
+  --font-size: 1.75rem;
+  --line-height: 1.15;
+  --typography-spacing-top: 2.625rem;
+}
+
+h3,
+.h3 {
+  --font-size: 1.25rem;
+  --line-height: 1.175;
+  --typography-spacing-top: 2.25rem;
+}
+
+h4,
+.h4 {
+  --font-size: 0.8rem;
+  --line-height: 1.2;
+  --typography-spacing-top: 1.874rem;
+}
+
+h1,
+h2,
+h3,
+h4 .h1,
+.h2,
+.h3,
+.h4 {
+  margin-top: 0;
+  margin-bottom: var(--typography-spacing-vertical);
+  color: var(--color);
+  font-weight: var(--font-weight);
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-family: var(--font-family);
+}
+
+h4,
+.h4 {
+  color: var(--muted-color);
+  margin-bottom: 50px;
+  font-weight: normal;
+}
+
+/* TODO: clean up h styles */
+
+h2,
+h3,
+h4 {
+  margin-top: 2em;
+}
+
+hr {
+  margin: 2em 0;
+}

@@ -5,9 +5,8 @@ contact: chrisdavis@ustwo.com
 thumbnail: /assets/images/visionos/thumbnail.jpeg
 avatar: /assets/images/visionos/avatar.jpeg
 title: Getting started with VisionOS
+date: 2024-02-12
 ---
-
-# Getting started with VisionOS
 
 Hi, This is a short guide on how to get up and running with RealityKit on VisionOS.
 

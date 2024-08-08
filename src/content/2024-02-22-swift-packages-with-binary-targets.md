@@ -5,9 +5,8 @@ contact: chrisdavis@ustwo.com
 thumbnail: /assets/images/swiftpackage/thumbnail.png
 avatar: /assets/images/swiftpackage/avatar.jpeg
 title: Swift Packages with Binary Targets
+date: 2024-02-22
 ---
-
-# Swift Packages with Binary Targets
 
 Swift Packages are a wonderful way of distributing code to use in projects.
 They are simple to use, you add the URL to a repo in Xcode and the dependency is added to your project.
