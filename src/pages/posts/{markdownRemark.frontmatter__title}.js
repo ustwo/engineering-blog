@@ -1,16 +1,19 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../../components/layout";
+import Author from "../../components/author";
 
 const Post = ({ data }) => {
+  const { frontmatter, html } = data.article;
+
   return (
     <Layout>
       <article>
         <header>
-          <h1>{data.markdownRemark.frontmatter.title}</h1>
-          <p>{data.markdownRemark.frontmatter.author} | {data.markdownRemark.frontmatter.role}</p>
+          <h1>{frontmatter.title}</h1>
+          <Author name={frontmatter.author} />
         </header>
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </article>
     </Layout>
   );
@@ -20,11 +23,10 @@ export default Post;
 
 export const query = graphql`
   query($id: String) {
-    markdownRemark(id: { eq: $id }) {
+    article: markdownRemark(id: { eq: $id }) {
       frontmatter {
         title
         author
-        role
       }
       html
     }
