@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../components/layout";
-import Author from "../../components/author";
+import Layout from "../components/layout";
+import Author from "../components/author";
 
-const Post = ({ data }) => {
+const Article = ({ data }) => {
   const { frontmatter, html } = data.article;
 
   return (
@@ -17,13 +17,19 @@ const Post = ({ data }) => {
       </article>
     </Layout>
   );
+};
+
+export default Article;
+
+export const Head = ({ data }) => {
+  return (
+    <></>
+  );
 }
 
-export default Post;
-
 export const query = graphql`
-  query($id: String) {
-    article: markdownRemark(id: { eq: $id }) {
+  query($title: String) {
+    article: markdownRemark(frontmatter: { title: { eq: $title } }) {
       frontmatter {
         title
         author

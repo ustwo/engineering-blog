@@ -2,17 +2,16 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import { format } from "small-date";
 import Layout from "../components/layout";
+import kebabCase from "../utils/kebab-case";
 
 const Home = ({ data }) => {
   return (
     <Layout>
       <h1>Engineering blog</h1>
-      <p>lorem ipsum</p>
-      {data.allMarkdownRemark.nodes.map(post => {
+      {data.allMarkdownRemark.nodes.map(article => {
         return (
           <div>
-            <Link to={post.postPath}>{post.frontmatter.title}</Link>
-            <div>{format(new Date(post.frontmatter.date), "dd MMM 'yy")}</div>
+            <Link to={`/articles/${kebabCase(article.frontmatter.title)}`}>{article.frontmatter.title} - {format(new Date(article.frontmatter.date), "dd MMM 'yy")}</Link>
           </div>
         );
       })}
@@ -24,13 +23,15 @@ export default Home;
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { frontmatter: { date: DESC } }) {
+    allMarkdownRemark(
+      sort: { frontmatter: { date: DESC } }
+      filter: { fileAbsolutePath: { regex: "/(articles)/" } }
+    ) {
       nodes {
         frontmatter {
           title
           date
         }
-        postPath: gatsbyPath(filePath: "/posts/{markdownRemark.frontmatter__title}")
       }
     }
   }

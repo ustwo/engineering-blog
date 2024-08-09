@@ -2,7 +2,7 @@
 title: Swift Packages with Binary Targets
 author: Chris Davis
 date: 2024-02-22
-thumbnail: /assets/images/posts/swiftpackage/thumbnail.png
+thumbnail: ../../assets/images/articles/swiftpackage/thumbnail.png
 ---
 
 Swift Packages are a wonderful way of distributing code to use in projects.
@@ -45,7 +45,7 @@ At the end you will have:
 
 Create a new Swift Package.
 
-![Xcode Vision App](/assets/images/posts/swiftpackage/new_swift_package.png)
+![Xcode Vision App](../../assets/images/articles/swiftpackage/new_swift_package.png)
 
 I've called my Package `Bookshop`.
 
@@ -193,7 +193,7 @@ let package = Package(
 
 Deploy this package, your folder structure should be succinct to GitHub, ie, you should not see any of your public code.
 
-![Package Contents](/assets/images/posts/swiftpackage/xcframework_package.png)
+![Package Contents](../../assets/images/articles/swiftpackage/xcframework_package.png)
 
 ## Importing <a name="importing"></a>
 
