@@ -2,19 +2,18 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import Author from "../components/author";
+import * as styles from "./article.module.css";
 
 const Article = ({ data }) => {
   const { frontmatter, html } = data.article;
 
   return (
-    <Layout>
-      <article>
-        <header>
-          <h1>{frontmatter.title}</h1>
-          <Author name={frontmatter.author} />
-        </header>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </article>
+    <Layout type="article">
+      <header className={styles.header}>
+        <h1 className={styles.title}>{frontmatter.title}</h1>
+        <Author name={frontmatter.author} />
+      </header>
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   );
 };

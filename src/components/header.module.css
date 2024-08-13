@@ -1,0 +1,39 @@
+.header {
+  border-bottom: 1px solid #f6f6f6;
+  margin-bottom: 5vh;
+}
+
+.header nav {
+  padding: 0 var(--app-gutter);
+  max-width: var(--app-width);
+  width: 100%;
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+}
+
+.homeLink {
+  display: flex;
+}
+
+.homeLink span {
+  color: var(--text-body-color);
+  transform: translateY(8px);
+  font-weight: bold;
+}
+
+.logo {
+  width: 100px;
+}
+
+.header a {
+  text-decoration: none;
+}

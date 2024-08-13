@@ -3,11 +3,20 @@ import "../styles/base.css";
 import "../styles/global.css";
 import Header from "./header";
 import Footer from "./footer";
+import * as styles from "./layout.module.css";
 
-const Layout = ({ children }) => (
+const Layout = ({ children, type }) => (
   <main>
     <Header />
-    {children}
+    {type === "article" ? (
+      <article className={styles.article}>
+        {children}
+      </article>
+    ) : (
+      <div className={styles.article}>
+        {children}
+      </div>
+    )}
     <Footer />
   </main>
 );
