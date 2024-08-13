@@ -1,0 +1,17 @@
+.articleCard {
+  text-decoration: none;
+}
+
+.thumbnail {
+  height: 0;
+  padding-top: calc(9 / 16 * 100%);
+}
+
+.articleCard h2 {
+  margin-top: 0.6em;
+  margin-bottom: 0.3em;
+}
+
+.date {
+  color: var(--text-body-color);
+}

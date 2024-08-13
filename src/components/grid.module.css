@@ -1,0 +1,73 @@
+/* Flex fallback */
+.grid {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid > div:not(:last-child) {
+  margin-right: var(--grid-gap);
+}
+
+@media (min-width: 600px) {
+  .grid > div,
+  .threeColumns > div {
+    width: calc(50% - var(--grid-gap) / 2);
+  }
+}
+
+@media (min-width: 1024px) {
+  .threeColumns > div {
+    width: calc(33% - var(--grid-gap) / 2);
+  }
+}
+
+/* Grid enhancement */
+@supports (display: grid) {
+  .grid {
+    width: 100%;
+  }
+  .grid > div {
+    width: inherit;
+  }
+  .grid > div:not(:last-child) {
+    margin-right: 0;
+    gap: var(--grid-gap);
+  }
+
+  @media (min-width: 600px) {
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: var(--grid-gap);
+    }
+    /* Reset widths from flex styles */
+    .grid > div {
+      width: inherit;
+      margin-bottom: 0;
+    }
+
+    /* Default grid layout is two column */
+    .grid {
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .grid > * {
+      grid-column: span 6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    /* Reset widths from flex styles */
+    .grid > div {
+      width: inherit;
+      grid-column: span 4;
+    }
+
+    /* Grid */
+    .threeColumns > * {
+      grid-column: span 4;
+    }
+  }
+}

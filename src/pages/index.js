@@ -1,20 +1,16 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
-import { format } from "small-date";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import kebabCase from "../utils/kebab-case";
+import Grid from "../components/grid";
+import ArticleCard from "../components/article-card";
 
 const Home = ({ data }) => {
   return (
     <Layout>
       <h1>Engineering blog</h1>
-      {data.allMarkdownRemark.nodes.map(article => {
-        return (
-          <div>
-            <Link to={`/articles/${kebabCase(article.frontmatter.title)}`}>{article.frontmatter.title} - {format(new Date(article.frontmatter.date), "dd MMM 'yy")}</Link>
-          </div>
-        );
-      })}
+      <Grid columns={3}>
+        {data.allMarkdownRemark.nodes.map(article => <ArticleCard {...article.frontmatter} />)}
+      </Grid>
     </Layout>
   );
 }
@@ -31,6 +27,11 @@ export const query = graphql`
         frontmatter {
           title
           date
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData 
+            }
+          }
         }
       }
     }
