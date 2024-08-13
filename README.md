@@ -28,7 +28,6 @@ npm install
 
 We are using GitHub Pages and GatsbyJS (React).
 
-
 ### Run locally <a name="run_local"></a>
 
 ```bash
