@@ -25,6 +25,8 @@
 
   --app-width: 1064px;
   --app-gutter: 15px;
+
+  --base-font-size: 62.5%;
 }
 
 html {
