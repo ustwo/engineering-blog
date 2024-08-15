@@ -11,7 +11,7 @@ const ArticleCard = ({ title, date, thumbnail, thumbnailAlt, tags, empty }) => {
 
   if (!empty) {
     return (
-      <Link to={`/articles/${kebabCase(title)}`} className={styles.articleCard} aria-labelledby={title} role="article">
+      <Link to={`/articles/${kebabCase(title)}`} className={styles.articleCard} aria-label={title}>
         <article>
           <figure>
             <GatsbyImage image={thumbnailImage} className={styles.thumbnail} alt={thumbnailAlt || "Non-descript article thumbnail"} />
