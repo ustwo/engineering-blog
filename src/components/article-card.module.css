@@ -1,13 +1,17 @@
 .articleCard {
   text-decoration: none;
-  transform: translateZ(0);
-  transition: transform 0.2s ease-in-out;
   margin-bottom: 1em;
+}
+
+.articleCard figure {
+  overflow: hidden;
 }
 
 .thumbnail {
   height: 0;
   padding-top: calc(9 / 16 * 100%);
+  transform: translateZ(0);
+  transition: transform 0.2s ease-in-out;
 }
 
 .articleCard h2 {
@@ -38,8 +42,8 @@
   background: #eee;
 }
 
-.articleCard:hover {
-  transform: scale(1.02) translateZ(0);
+.articleCard:hover .thumbnail {
+  transform: scale(1.03) translateZ(0);
 }
 
 /* Empty */
