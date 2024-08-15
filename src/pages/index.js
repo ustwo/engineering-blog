@@ -7,9 +7,12 @@ import ArticleCard from "../components/article-card";
 const Home = ({ data }) => {
   return (
     <Layout>
-      <h1>Engineering blog</h1>
+      {/* <p>
+        Neque porro quisquam est ustwo engineering qui dolorem.<br /> 
+        Ipsum quia dolor sit amet.
+      </p> */}
       <Grid columns={3}>
-        {data.allMarkdownRemark.nodes.map(article => <ArticleCard {...article.frontmatter} />)}
+        {data.allMarkdownRemark.nodes.map(article => <ArticleCard {...article.frontmatter} key={article.frontmatter.title} />)}
       </Grid>
     </Layout>
   );
@@ -32,6 +35,8 @@ export const query = graphql`
               gatsbyImageData 
             }
           }
+          thumbnailAlt
+          tags
         }
       }
     }

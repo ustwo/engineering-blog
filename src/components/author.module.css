@@ -1,0 +1,20 @@
+.authorSection {
+  margin-top: 10px;
+}
+
+.authorSection p {
+  margin: 0;
+}
+
+.authorName {
+  font-weight: bold;
+}
+
+.authorRole {
+  font-style: italic;
+}
+
+.separator {
+  margin: 0 7px;
+  color: var(--color-lightGrey);
+}

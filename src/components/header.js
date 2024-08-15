@@ -5,13 +5,14 @@ import * as styles from "./header.module.css";
 
 const Header = () => (
   <header className={styles.header}>
-    <nav>
-      <Link to="/" className={styles.homeLink}>
-        <LogoUstwo className={styles.logo} />
+    <a href="#main-content" className={`${styles.skipLink} smallText`}>Skip to content</a>
+    <nav aria-label="Main navigation">
+      <Link to="/" className={styles.homeLink} aria-label="Ustwo Engineering Home">
+        <LogoUstwo className={styles.logo} aria-hidden="true" />
         <span>_engineering</span>
       </Link>
-      <ul>
-        <li><Link to="/about">About</Link></li>
+      <ul className="smallText">
+        <li><Link to="/about">About</Link></li> 
         <li><Link to="/contact">Contact</Link></li>
       </ul>
     </nav>

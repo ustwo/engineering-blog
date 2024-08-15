@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import * as styles from "./author.module.css";
 
 const Author = ({ name }) => {
   const { authors } = useStaticQuery(graphql`
@@ -19,7 +20,13 @@ const Author = ({ name }) => {
   const activeAuthor = authors.nodes.filter(author => author.frontmatter.name === name);
 
   return (
-    <p>{activeAuthor[0].frontmatter.name} | {activeAuthor[0].frontmatter.role}</p>
+    <div className={styles.authorSection}>
+      <p className="smallText">
+        <span className={styles.authorName}>{activeAuthor[0].frontmatter.name}</span> 
+        <span className={styles.separator}>·</span> 
+        <span className={styles.authorRole}>{activeAuthor[0].frontmatter.role}</span>
+      </p>
+    </div>
   );
 }
 

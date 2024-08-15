@@ -9,11 +9,11 @@ const Layout = ({ children, type }) => (
   <main>
     <Header />
     {type === "article" ? (
-      <article className={styles.article}>
+      <article className={styles.article} id="main-content">
         {children}
       </article>
     ) : (
-      <div className={styles.article}>
+      <div className={styles.article} id="main-content">
         {children}
       </div>
     )}

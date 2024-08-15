@@ -13,5 +13,9 @@
 }
 
 .date {
-  color: var(--text-body-color);
+  color: var(--color-offBlack);
+}
+
+.articleCard p {
+  color: var(--color-offBlack);
 }

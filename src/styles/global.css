@@ -20,8 +20,10 @@
   --font-family-body: "Dm Sans", Helvetica, Arial, "Helvetica Neue", sans-serif;
   --font-family-title: "La Nord", "Helvetica", "Arial", sans-serif;
 
-  --text-body-color: #222;
-  --text-link-color: #323BFF;
+  --color-offBlack: #222;
+  --color-blue: #323BFF;
+  --color-lightGrey: #888;
+  --color-offWhite: #eee;
 
   --app-width: 1064px;
   --app-gutter: 15px;
@@ -29,6 +31,8 @@
   --base-font-size: 62.5%;
   
   --grid-gap: 20px;
+
+  --text-link-color: var(--color-blue);
 }
 
 html {
@@ -36,7 +40,7 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  color: var(--text-body-color);
+  color: var(--color-offBlack);
   text-rendering: optimizeLegibility;
   overflow-wrap: break-word;
   font-size: var(--base-font-size);
@@ -59,8 +63,12 @@ a {
   color: var(--text-link-color);
 }
 
-p {
+p, ul, ol {
   margin-bottom: 1em;
+}
+
+li ul, li ol {
+  margin-bottom: 0;
 }
 
 a:hover {
@@ -78,24 +86,28 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 h1, .h1 {
   font-size: 3.2rem;
   line-height: 1.2;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
   margin-top: 0;
   margin-bottom: 1.5em;
 }
 h2, .h2 {
   font-size: 2.4rem;
   line-height: 1.25;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
 }
 h3, .h3 {
   font-size: 2rem;
   line-height: 1.3;
-  letter-spacing: -.1rem;
+  letter-spacing: -0.1rem;
 }
 h4, .h4, h5, .h5, h6, .h6 {
   font-size: 1.8rem;
   line-height: 1.35;
-  letter-spacing: -.08rem;
+  letter-spacing: -0.08rem;
+}
+
+.smallText {
+  font-size: 1.4rem;
 }
 
 @media (min-width: 600px) {
@@ -114,4 +126,16 @@ h4, .h4, h5, .h5, h6, .h6 {
   h4, .h4, h5, .h5, h6, .h6 {
     font-size: 2rem;
   }
+  .smallText {
+    font-size: 1.5rem;
+  }
 }
+
+/* Focus styles are visible */
+/* Apply focus styles only when keyboard is used */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid red; /* Customize your focus style */
+}
+
+/* Optional: Reset default focus styles to avoid double styling */
