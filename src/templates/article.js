@@ -20,7 +20,7 @@ const Article = ({ data }) => {
           <time dateTime={frontmatter.date}>{format(new Date(frontmatter.date), "dd MMM, yyyy")}</time>
         </div>
       </header>
-      <section dangerouslySetInnerHTML={{ __html: html }} />
+      <section dangerouslySetInnerHTML={{ __html: html }} id="article-content" />
     </Layout>
   );
 };

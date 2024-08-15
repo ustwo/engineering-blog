@@ -9,6 +9,7 @@
 }
 
 :global .gatsby-highlight pre,
-:global .gatsby-resp-image-wrapper {
+:global .gatsby-resp-image-wrapper,
+:global #article-content video {
   margin: 2em 0;
 }
