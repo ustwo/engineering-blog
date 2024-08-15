@@ -48,7 +48,7 @@ At the end you will have:
 
 Create a new Swift Package.
 
-![Xcode Vision App](../../assets/images/articles/swiftpackage/new_swift_package.png)
+![Xcode Vision App](../../assets/images/articles/swiftpackage/new_swift_package.jpg)
 
 I've called my Package `Bookshop`.
 

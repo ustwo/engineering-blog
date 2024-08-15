@@ -3,7 +3,7 @@ title: Getting started with VisionOS
 author: Chris Davis
 date: 2024-02-12
 description: A short guide on how to get up and running with RealityKit on VisionOS.
-thumbnail: ../../assets/images/articles/visionos/thumbnail.jpeg
+thumbnail: ../../assets/images/articles/visionos/thumbnail.jpg
 thumbnailAlt: Photo of a white Apple keyboard
 tags: visionos, realitykit
 ---
@@ -38,7 +38,7 @@ we'll be running our examples in Xcode Preview and Simulator.
 
 When you open Xcode 15.2 you'll be asked to create a project, choose `visionOS App`.
 
-![Xcode Vision App](../../assets/images/articles/visionos/xcode_vision.png)
+![Xcode Vision App](../../assets/images/articles/visionos/xcode_vision.jpg)
 
 This creates a basic template App containing:
 
@@ -63,7 +63,7 @@ The ImmersiveView contains a pre-made RealityView View, it loads some content fr
 
 You can use this App in the Canvas Preview, or via running it in the Simulator, `CMD+R`
 
-![Default Space](../../assets/images/articles/visionos/default_space.png)
+![Default Space](../../assets/images/articles/visionos/default_space.jpg)
 
 ### Starting afresh <a name="starting_afresh"></a>
 
@@ -205,7 +205,7 @@ You will see the canvas update, it will display a pink/purple striped cube, use 
 
 Note: No Texture/Material has been applied to this Cube, we'll cover that in another tutorial.
 
-![Untextured Cube](../../assets/images/articles/visionos/untextured_shape.png)
+![Untextured Cube](../../assets/images/articles/visionos/untextured_shape.jpg)
 
 ## Dragging the Entity with Gestures <a name="drag_gesture"></a>
 
@@ -407,6 +407,8 @@ extension ImmersiveView: View {
 
 ```
 
-![Drag Gesture](../../assets/images/articles/visionos/drag_gesture.gif)
+<video autoplay loop playsinline muted style="width: 100%">
+  <source src="../../assets/images/articles/visionos/drag_gesture.mp4" type="video/mp4">
+</video>
 
 So that's not a lot of code to Add a 3D entity and drag it around the scene.
