@@ -1,0 +1,13 @@
+.homepageHeader {
+  margin-bottom: 3em;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.placeholder {
+  background: #f6f6f6;
+  border: 1px solid var(--color-offWhite);
+  height: 300px;
+}

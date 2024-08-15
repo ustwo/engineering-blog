@@ -1,5 +1,8 @@
 .articleCard {
   text-decoration: none;
+  transform: translateZ(0);
+  transition: transform 0.2s ease-in-out;
+  margin-bottom: 1em;
 }
 
 .thumbnail {
@@ -18,4 +21,49 @@
 
 .articleCard p {
   color: var(--color-offBlack);
+}
+
+.tags {
+  display: flex;
+  padding: 0;
+  margin-bottom: 0.5em;
+  color: var(--color-offBlack);
+  list-style-type: none;
+}
+
+.tags li {
+  /* border: 1px solid #666; */
+  padding: 1px 5px;
+  margin-right: 7px;
+  background: #eee;
+}
+
+.articleCard:hover {
+  transform: scale(1.02) translateZ(0);
+}
+
+/* Empty */
+
+.emptyThumbnail,
+.emptyTitle,
+.emptyDate {
+  background-color: #f6f6f6;
+}
+
+.emptyThumbnail {
+  width: 100%;
+  height: 0;
+  padding-top: calc(9 / 16 * 100%);
+}
+
+.emptyTitle {
+  height: 30px;
+  width: 75%;
+  margin-top: 0.8em;
+  margin-bottom: 0.6em;
+}
+
+.emptyDate {
+  height: 15px;
+  width: 25%;
 }

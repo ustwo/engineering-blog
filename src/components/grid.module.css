@@ -28,6 +28,9 @@
 @supports (display: grid) {
   .grid {
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: var(--grid-gap);
   }
   .grid > div {
     width: inherit;
@@ -38,11 +41,6 @@
   }
 
   @media (min-width: 600px) {
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(1, 1fr);
-      gap: var(--grid-gap);
-    }
     /* Reset widths from flex styles */
     .grid > div {
       width: inherit;

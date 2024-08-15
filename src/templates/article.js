@@ -17,7 +17,7 @@ const Article = ({ data }) => {
         <Author name={frontmatter.author} date={frontmatter.date} />
         <div className="smallText">
           <span>Published on </span>
-          <time dateTime={frontmatter.date} className={styles.date}>{format(new Date(frontmatter.date), "dd MMM, yyyy")}</time>
+          <time dateTime={frontmatter.date}>{format(new Date(frontmatter.date), "dd MMM, yyyy")}</time>
         </div>
       </header>
       <section dangerouslySetInnerHTML={{ __html: html }} />
