@@ -1,15 +1,6 @@
 # engineering-blog
 
-## Table of Contents
-
-- [engineering-blog](#engineering-blog)
-	- [Table of Contents](#table-of-contents)
-	- [Introduction ](#introduction-)
-	- [Getting Started ](#getting-started-)
-	- [GitHub Pages with Gatsby ](#github-pages-with-jekyll-)
-		- [Run locally ](#run-locally-)
-
-## Introduction <a name="introduction"></a>
+## Introduction
 
 A list of engineering articles from ustwo
 
@@ -24,11 +15,11 @@ npm install --global gatsby-cli
 npm install
 ```
 
-## GitHub Pages with Gatsby <a name="gatsby"></a>
+## GitHub Pages with Gatsby
 
 We are using GitHub Pages and GatsbyJS (React).
 
-### Run locally <a name="run_local"></a>
+### Run locally
 
 ```bash
 gatsby develop
@@ -50,8 +41,8 @@ Use video not gifs... etc
 
 ### Dynamic page generation for articles
 
-Each markdown file in `/content/articles/` is queried in `gatsby-node.js`. The 'title' assigned in the .md file is the unique differentiator - we `kebabCase()` it to create the page slug. 
+Each markdown file in `/src/content/articles/` is queried in `gatsby-node.js` and filtered using `sourceInstanceName: 'articles'` ('articles' is defined in `gatsby-config.js` in `gatsby-source-filesystem`). Each result is generated into a page using `/src/templates/article.js`. 
 
-For links to each article (e.g. from on the homepage) we need to `kebabCase()` the 'title' again in order to reach the aforementioned slug. This isn't ideal doing this twice. We also filter the queries twice to remove anything but markdown files in `/content/articles`.
+NOTE: It is more performant to query using `allFile` and filter using `sourceInstanceName` rather than querying `allMarkdownRemark` files, as we can then only filter using `regex: "/(articles)/"` on `fileAbsolutePath`. 
 
-Note: the ideal method is to use Gatsby's File System Route API. We could create a filename that infers the collection to query, e.g. `/pages/articles/{markdownRemark.frontmatter__title}.js` to creates each article page. We could then use `gatsbyPath` (as this is added to the node) when refrencing a link to it thus negating the need for kebabing anything. Alas, there is no way to filter out (that I know of) other markdown files in the filename - this alone is the reason we move to the `gatsby-node.js` method and add a filter to the queries. The unwanted markdown files in question are `/content/authors`.
+I'd liked to have used Gatsby's File System Route API, e.g. `/src/pages/articles/{allFile.name}.js` instead of using `gatsby-node.js`. The File System Route API generates pages based on file structure, but we would then filter `sourceInstanceName: 'articles'` in the GraphQL query after Gatsby has processed ALL files, including those we don't want, e.g. Author files. This feels inefficient since we would be processing files we intend to exclude. I wonder if there will be a way to do simple filtering in the File System Route API in the future.

@@ -8,7 +8,7 @@ import kebabCase from "../utils/kebab-case";
 import * as styles from "./article.module.css";
 
 const Article = ({ data }) => {
-  const { frontmatter, html } = data.article;
+  const { frontmatter, html } = data.article.childMarkdownRemark;
 
   return (
     <Layout type="article">
@@ -28,7 +28,7 @@ const Article = ({ data }) => {
 export default Article;
 
 export const Head = ({ data }) => {
-  const { title, author, thumbnail, description } = data.article.frontmatter;
+  const { title, author, thumbnail, description } = data.article.childMarkdownRemark.frontmatter;
 
   return (
     <Meta 
@@ -37,30 +37,33 @@ export const Head = ({ data }) => {
       image={thumbnail.childImageSharp.fixed.srcWebp}
       description={description}
       timeToRead={data.article.timeToRead}
-      url={`https://engineering.ustwo.com/articles/${kebabCase(title)}/`}
+      url={`https://engineering.ustwo.com/articles/${data.name}/`}
     />
   );
 }
 
 /* Thumbnail transformed to 1200 for twitter/og/meta stuff */
 export const query = graphql`
-  query($title: String) {
-    article: markdownRemark(frontmatter: { title: { eq: $title } }) {
-      frontmatter {
-        title
-        author
-        date
-        description
-        thumbnail {
-          childImageSharp {
-            fixed(width: 1200) {
-              srcWebp
-            }
-          } 
+  query($name: String) {
+    article: file(name: { eq: $name }) {
+      name
+      childMarkdownRemark {
+        frontmatter {
+          title
+          author
+          date
+          description
+          thumbnail {
+            childImageSharp {
+              fixed(width: 1200) {
+                srcWebp
+              }
+            } 
+          }
         }
+        html
+        timeToRead
       }
-      html
-      timeToRead
     }
   }
 `;

@@ -1,2 +1,1 @@
 See /gatsby-node.js and /templates/article.js
-Also, README.md for full explanation of how we generate articles.

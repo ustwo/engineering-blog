@@ -1,21 +1,17 @@
 const path = require(`path`)
-const kebabCase = require("./src/utils/kebab-case");
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
 
+  /* Use allFile and sourceInstanceName (defined in gatsby-config.js) as this
+  is more performant than using regex and pathname to filter only articles.
+  See more in README.md  */
   const result = await graphql(
     `
       {
-        allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "/(articles)/" } }
-        ) {
+        allFile(filter: { sourceInstanceName: { eq: "articles" } }) {
           nodes {
-            id
-            frontmatter {
-              title
-              date
-            }
+            name
           }
         }
       }
@@ -27,12 +23,12 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const articleTemplate = path.resolve(`./src/templates/article.js`);
-  result.data.allMarkdownRemark.nodes.forEach(node => {
+  result.data.allFile.nodes.forEach(node => {
     createPage({
-      path: `/articles/${kebabCase(node.frontmatter.title)}`,
+      path: `/articles/${node.name}`,
       component: articleTemplate,
       context: {
-        title: node.frontmatter.title
+        name: node.name
       }
     });
   });

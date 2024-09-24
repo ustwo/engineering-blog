@@ -2,16 +2,15 @@ import React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { format } from "small-date";
-import kebabCase from "../utils/kebab-case";
 import tagify from "../utils/tagify";
 import * as styles from "./article-card.module.css";
 
-const ArticleCard = ({ title, date, thumbnail, thumbnailAlt, tags, empty }) => {
+const ArticleCard = ({ name, title, date, thumbnail, thumbnailAlt, tags, empty }) => {
   let thumbnailImage = getImage(thumbnail?.childImageSharp?.gatsbyImageData);
 
   if (!empty) {
     return (
-      <Link to={`/articles/${kebabCase(title)}`} className={styles.articleCard} aria-label={title}>
+      <Link to={`/articles/${name}`} className={styles.articleCard} aria-label={title}>
         <article>
           <figure>
             <GatsbyImage image={thumbnailImage} className={styles.thumbnail} alt={thumbnailAlt || "Non-descript article thumbnail"} />
