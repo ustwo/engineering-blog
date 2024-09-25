@@ -140,3 +140,56 @@ button:focus-visible {
 }
 
 /* Optional: Reset default focus styles to avoid double styling */
+
+
+/* Table styles */
+
+#article-content table {
+  width: 100%;
+  margin: 40px 0 20px 0;
+  overflow: scroll;
+  display: inline-block;
+}
+
+#article-content table tbody {
+  display: table;
+  width: 100%;
+}
+
+#article-content th {
+  padding: 1em 0.5em;
+  text-align: left;
+  font-weight: normal;
+  font-size: calc(12px + (22 - 12) * ((100vw - 320px) / (3200 - 320)));
+  border-bottom: 1px solid #ccc;
+}
+
+#article-content td {
+  padding: 1em 0.5em;
+  text-align: left;
+  font-size: calc(12px + (22 - 12) * ((100vw - 320px) / (3200 - 320)));
+}
+
+#article-content .tableBold {
+  font-weight: 600 !important;
+}
+
+#article-content .tableTrShade { 
+  background-color: #f6f6f6;
+}
+
+#article-content .tableFlag {
+  height: 16px;
+  margin-right: 6px;
+  float: left;
+}
+
+@media (max-width: 600px) {
+  #article-content .tableMobile {
+    display: none;
+  }
+  #article-content .tableFlag {
+    height: 10px;
+    margin-right: 4px;
+  }
+}

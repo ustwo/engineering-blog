@@ -31,6 +31,10 @@ gatsby develop
 
 ...
 
+### Images and captions
+
+~~We use `gatsby-remark-figure-caption` plugin to utilise `<figure>` and `<figcaption>`.~~ FAIL... out of date plugin. Is Gatsby dying?
+
 ### Assets
 
 ...
@@ -46,3 +50,4 @@ Each markdown file in `/src/content/articles/` is queried in `gatsby-node.js` an
 NOTE: It is more performant to query using `allFile` and filter using `sourceInstanceName` rather than querying `allMarkdownRemark` files, as we can then only filter using `regex: "/(articles)/"` on `fileAbsolutePath`. 
 
 I'd liked to have used Gatsby's File System Route API, e.g. `/src/pages/articles/{allFile.name}.js` instead of using `gatsby-node.js`. The File System Route API generates pages based on file structure, but we would then filter `sourceInstanceName: 'articles'` in the GraphQL query after Gatsby has processed ALL files, including those we don't want, e.g. Author files. This feels inefficient since we would be processing files we intend to exclude. I wonder if there will be a way to do simple filtering in the File System Route API in the future.
+
