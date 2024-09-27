@@ -12,17 +12,15 @@ const ArticleCard = ({ name, title, date, thumbnail, thumbnailAlt, tags, empty }
     return (
       <Link to={`/articles/${name}`} className={styles.articleCard} aria-label={title}>
         <article>
-          <figure>
-            <GatsbyImage image={thumbnailImage} className={styles.thumbnail} alt={thumbnailAlt || "Non-descript article thumbnail"} />
-          </figure>
+          <GatsbyImage image={thumbnailImage} className={styles.thumbnail} alt={thumbnailAlt || ""} />
           <header>
-            <h2 id={title} className="h3">{title}</h2>
+            <time dateTime={date} className={`${styles.date} smallText`}>{format(new Date(date), "dd MMM, yyyy")}</time>
+            <h2 id={title} className="h4">{title}</h2>
             {tags && (
               <ul className={`${styles.tags} smallText`} aria-label="Article tags">
                 {tagify(tags).map(tag => <li key={`${title} ${tag}`} aria-label={`Tag: ${tag}`}>{tag}</li>)}
               </ul>
             )}
-            <time dateTime={date} className={`${styles.date} smallText`}>{format(new Date(date), "dd MMM, yyyy")}</time>
           </header>
         </article>
       </Link>

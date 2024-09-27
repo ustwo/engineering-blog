@@ -1,10 +1,12 @@
 import React from "react";
 import * as styles from "./grid.module.css";
 
-const Grid = ({ children, columns }) => {
+const Grid = ({ children, columns, className, verticalCenter }) => {
   const classes = `
     ${styles.grid} 
-    ${columns === 3 ? styles.threeColumns : ""}
+    ${columns === 3 ? styles.threeColumns : ""} 
+    ${className} 
+    ${verticalCenter && styles.verticalCenter}
   `;
 
   return (

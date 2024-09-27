@@ -1,31 +1,48 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { format } from "small-date";
 import * as styles from "./author.module.css";
 
-const Author = ({ name }) => {
+const Author = ({ authorName, date }) => {
   const { authors } = useStaticQuery(graphql`
     query {
-      authors: allMarkdownRemark(filter: { fileAbsolutePath: {regex: "/(/authors/)/"  } }) {
+      authors: allFile(filter: { sourceInstanceName: { eq: "authors" } }) {
         nodes {
-          frontmatter {
-            name
-            role
+          childMarkdownRemark {
+            frontmatter {
+              name
+              role
+              avatar {
+                childImageSharp {
+                  gatsbyImageData 
+                }
+              }
+            }
           }
         }
       }
     }
   `);
 
-  
-  const activeAuthor = authors.nodes.filter(author => author.frontmatter.name === name);
+  const activeAuthor = authors.nodes.filter(author => author.childMarkdownRemark.frontmatter.name === authorName);
+  const { name, role, avatar } = activeAuthor[0].childMarkdownRemark.frontmatter;
+  const avatarImage = getImage(avatar?.childImageSharp?.gatsbyImageData);
 
   return (
     <div className={styles.authorSection}>
-      <p className="smallText">
-        <span className={styles.authorName}>{activeAuthor[0].frontmatter.name}</span> 
-        <span className={styles.separator}>·</span> 
-        <span className={styles.authorRole}>{activeAuthor[0].frontmatter.role}</span>
-      </p>
+      <GatsbyImage image={avatarImage} className={styles.avatar} alt="" />
+      <div className="smallText">
+        <p>
+          <span className={styles.authorName}>{name}</span> 
+          <span className={styles.separator}>·</span> 
+          <span className={styles.authorRole}>{role}</span>
+        </p>
+        <p>
+          <span>Published on </span>
+          <time dateTime={date}>{format(new Date(date), "MMM dd, yyyy")}</time>
+        </p>
+      </div>
     </div>
   );
 }

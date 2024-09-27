@@ -15,8 +15,8 @@ const Home = ({ data }) => {
     />
   ));
   
-  if (articles.length < 7) {
-    const placeholdersNeeded = 6 - articles.length;
+  if (articles.length < 12) {
+    const placeholdersNeeded = 12 - articles.length;
   
     const placeholders = Array.from({ length: placeholdersNeeded }, (_, index) => (
       <ArticleCard empty key={`placeholder-${index}`} />
@@ -27,10 +27,10 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      <div className={styles.homepageHeader}>
-        <h1 className={`${styles.title} h4`}>{data.content.frontmatter.introTitle}</h1>
-        <p>{data.content.frontmatter.introMore}</p>
-      </div>
+      <Grid className={styles.homepageHeader} verticalCenter>
+        <h1 className={`${styles.title} h2`}>{data.content.frontmatter.introTitle}</h1>
+        <p className={styles.description}>{data.content.frontmatter.introMore}</p>
+      </Grid>
       <Grid columns={3}>{articles}</Grid>
     </Layout>
   );

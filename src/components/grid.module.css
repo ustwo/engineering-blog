@@ -54,6 +54,10 @@
     .grid > * {
       grid-column: span 6;
     }
+
+    .verticalCenter {
+      align-items: center;
+    }
   }
 
   @media (min-width: 1024px) {

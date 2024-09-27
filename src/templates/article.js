@@ -1,6 +1,5 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { format } from "small-date";
 import Layout from "../components/layout";
 import Author from "../components/author";
 import Meta from "../components/meta";
@@ -13,11 +12,7 @@ const Article = ({ data }) => {
     <Layout type="article">
       <header className={styles.header}>
         <h1 className={styles.title}>{frontmatter.title}</h1>
-        <Author name={frontmatter.author} date={frontmatter.date} />
-        <div className="smallText">
-          <span>Published on </span>
-          <time dateTime={frontmatter.date}>{format(new Date(frontmatter.date), "dd MMM, yyyy")}</time>
-        </div>
+        <Author authorName={frontmatter.author} date={frontmatter.date} />
       </header>
       <section dangerouslySetInnerHTML={{ __html: html }} id="article-content" />
     </Layout>

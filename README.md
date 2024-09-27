@@ -31,6 +31,11 @@ gatsby develop
 
 ...
 
+### Image captions
+
+`[caption:Alt/Caption text here](image_url.jpg)`
+
+
 ### Images and captions
 
 ~~We use `gatsby-remark-figure-caption` plugin to utilise `<figure>` and `<figcaption>`.~~ FAIL... out of date plugin. Is Gatsby dying?
@@ -42,6 +47,14 @@ gatsby develop
 Use video not gifs... etc
 
 ## Under the hood
+
+### Some Gatsby image magic
+
+In markdown files, references to local images in frontmatter will get transformed so can be used with `GatsbyImage`.
+
+### Remark Figure Caption Plugin
+
+In `/plugins` is a bespoke plugin to handle rendering `<figure>` and `<figcaption>` for when we need to have captions for an image. It was important to keep the usual markdown image syntax `[alt/caption text](image_url.jpg)`. So the plugin looks for the alt/caption text that starts with "caption:".
 
 ### Dynamic page generation for articles
 

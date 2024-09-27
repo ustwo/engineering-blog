@@ -1,9 +1,10 @@
 .homepageHeader {
-  margin-bottom: 3em;
+  margin-bottom: 6rem;
 }
 
-.title {
-  margin-bottom: 0;
+.title,
+.description {
+  margin: 0;
 }
 
 .placeholder {
