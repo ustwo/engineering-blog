@@ -4,7 +4,6 @@ import { format } from "small-date";
 import Layout from "../components/layout";
 import Author from "../components/author";
 import Meta from "../components/meta";
-import kebabCase from "../utils/kebab-case";
 import * as styles from "./article.module.css";
 
 const Article = ({ data }) => {

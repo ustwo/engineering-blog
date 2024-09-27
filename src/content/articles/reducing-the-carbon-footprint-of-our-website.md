@@ -26,7 +26,7 @@ To help us measure our progress we use the tool, [Ecoping](https://ecoping.earth
 
 In November, our website [homepage](https://ustwo.com/) produced __0.54gCO2e__ per visit (already a vast improvement on readings over 1gCO2e earlier in the year). After employing the techniques above, we reduced this to __0.23gCO2e__. This is a great start. It shows that the right mindset and a little technical knowledge can go a long way in this endeavour.
 
-![blog-post-graph-ecoping-2](//images.ctfassets.net/ve81k805bx04/2ipwGbqLq1ET7yGmaT8GN9/69a7871485c33d601fe497dbedd53d40/blog-post-graph-ecoping-2.png)<figcaption>Ecoping graphs showing a relative decline in size and carbon footprint of ustwo.com's homepage</figcaption>
+![caption:Ecoping graphs showing a relative decline in size and carbon footprint of ustwo.com's homepage](//images.ctfassets.net/ve81k805bx04/2ipwGbqLq1ET7yGmaT8GN9/69a7871485c33d601fe497dbedd53d40/blog-post-graph-ecoping-2.png)
 
 ## Choosing the right web host 
 
@@ -103,7 +103,7 @@ Would using hosts in these regions see a compromise in not just the quality and 
 
 Well, we thought we’d give it a go - our website is now hosted on our own green network. We’ve chosen servers in Oslo, Montreal and Seattle to begin with. Together they are powered by an annual average of 98% renewable energy (almost exclusively hydroelectric).
 
-![green-server-network](../../assets/images/articles/carbonfootprint/green-server-network.png)<span>ustwo's Green Server Network made up of Oslo, Montreal and Seattle (with future expansion in Hobart)</span>
+![caption:ustwo's Green Server Network made up of Oslo, Montreal and Seattle (with future expansion in Hobart)](../../assets/images/articles/carbonfootprint/green-server-network.png)
 
 The website is deployed to all servers which are hosted by independent companies based in the same region. A Geo DNS service directs each user to their closest server depending on their location, thus reducing load times in an attempt to match Netlify. For example, European users will be served by Oslo, whereas North American users will be served by Montreal or Seattle. Encouragingly, the table below shows that load times are comparable. However, Sydney is below par, so an additional host to serve our users in Australia and East Asia would be a good next step - [Tasmania might be a good option](https://app.electricitymaps.com/zone/AU-TAS).
 
@@ -178,7 +178,7 @@ The website is deployed to all servers which are hosted by independent companies
 
 The estimated average carbon footprint per visit of a webpage can vary from 0.5gCO2e to 1.76gCO2e depending on what you read. Our homepage now produces just __0.02gCO2e__ per visit. Comparing, even to the lowest average, this is a vast difference.
 
-![blog-post-graph-ecoping-2b](//images.ctfassets.net/ve81k805bx04/7t4mYX9uWiE0eqNowsPtD3/77e8fa97eb883f08bfcba5449caf76eb/blog-post-graph-ecoping-2b.png)<span>Ecoping showing the drop in our carbon footprint when we switched to our green network in February.</span>
+![caption:Ecoping showing the drop in our carbon footprint when we switched to our green network in February.](//images.ctfassets.net/ve81k805bx04/7t4mYX9uWiE0eqNowsPtD3/77e8fa97eb883f08bfcba5449caf76eb/blog-post-graph-ecoping-2b.png)
 
 There have been a few challenges to overcome that would otherwise “just work” with Netlify: overcoming quirks with SSL certificates across multiple servers; reinstating fast and convenient deployment workflows (we are now using Github Actions - we’d like to run all this on green servers too sometime!) not to mention finding the hosting companies we wanted to work with.
 
