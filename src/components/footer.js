@@ -7,6 +7,7 @@ const Footer = () => (
     <div className={styles.inner}>
       <p>Copyright &copy; ustwo Ltd 2024. All rights reserved. <a href="https://ustwo.com/legal/">Legal</a> | <a href="https://ustwo.com/privacy-policy/">Privacy Policy</a></p>
       <ul className={styles.socials}>
+        <li><Link to="https://ustwo.com">ustwo.com</Link></li>
         <li><Link to="https://instagram.com/ustwo">Instagram</Link></li>
         <li><Link to="https://linkedin.com/company/ustwo-">LinkedIn</Link></li>
         <li><Link to="https://twitter.com/ustwo">X</Link></li>
