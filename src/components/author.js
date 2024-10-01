@@ -7,7 +7,7 @@ import * as styles from "./author.module.css";
 const Author = ({ authorName, date }) => {
   const { authors } = useStaticQuery(graphql`
     query {
-      authors: allFile(filter: { sourceInstanceName: { eq: "authors" } }) {
+      authors: allFile(filter: { sourceInstanceName: { eq: "authors" }, extension: { eq: "md" } }) {
         nodes {
           childMarkdownRemark {
             frontmatter {
