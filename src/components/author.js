@@ -31,12 +31,12 @@ const Author = ({ authorName, date }) => {
 
   return (
     <div className={styles.authorSection}>
-      <GatsbyImage image={avatarImage} className={styles.avatar} alt="" />
+      <GatsbyImage className={styles.avatar} image={avatarImage} alt="" />
       <div className="smallText">
         <p>
           <span className={styles.authorName}>{name}</span> 
           <span className={styles.separator}>·</span> 
-          <span className={styles.authorRole}>{role}</span>
+          <span>{role}</span>
         </p>
         <p>
           <span>Published on </span>

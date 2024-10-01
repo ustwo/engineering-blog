@@ -2,6 +2,7 @@
   border-top: 1px solid var(--color-offWhite);
   padding: 5vh 0;
   margin-top: 5vh;
+  font-size: var(--font-size-small);
 }
 
 .inner {

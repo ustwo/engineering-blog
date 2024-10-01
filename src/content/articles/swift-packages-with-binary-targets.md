@@ -4,7 +4,6 @@ author: Chris Davis
 date: 2024-02-22
 description: What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
 thumbnail: ../../assets/images/articles/swiftpackage/thumbnail.png
-thumbnailAlt: Swift logo
 tags: swift, xcode
 ---
 

@@ -4,7 +4,6 @@ author: Chris Davis
 date: 2024-02-12
 description: A short guide on how to get up and running with RealityKit on VisionOS.
 thumbnail: ../../assets/images/articles/visionos/thumbnail.jpg
-thumbnailAlt: Photo of a white Apple keyboard
 tags: visionos, realitykit
 ---
 

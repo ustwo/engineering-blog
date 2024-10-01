@@ -2,9 +2,8 @@
 title: Reducing the Carbon Footprint of Our Website
 author: Phil Linnell
 date: 2023-03-15
-description: Our journey to reducing the environmental impact of our website, focussing on the amount of energy it uses which resulted in the creation of our own green hosting network.
+description: Reducing the environmental impact of our website, focussing not just on the amount of energy it uses, but also the type of energy.
 thumbnail: ../../assets/images/articles/carbonfootprint/green-server-network.png
-thumbnailAlt: Global map showing where in the world our servers are
 tags: greenweb
 ---
 
@@ -26,7 +25,7 @@ To help us measure our progress we use the tool, [Ecoping](https://ecoping.earth
 
 In November, our website [homepage](https://ustwo.com/) produced __0.54gCO2e__ per visit (already a vast improvement on readings over 1gCO2e earlier in the year). After employing the techniques above, we reduced this to __0.23gCO2e__. This is a great start. It shows that the right mindset and a little technical knowledge can go a long way in this endeavour.
 
-![caption:Ecoping graphs showing a relative decline in size and carbon footprint of ustwo.com's homepage](//images.ctfassets.net/ve81k805bx04/2ipwGbqLq1ET7yGmaT8GN9/69a7871485c33d601fe497dbedd53d40/blog-post-graph-ecoping-2.png)
+![caption:Ecoping graphs showing a relative decline in size and carbon footprint of ustwo.com's homepage](../../assets/images/articles/carbonfootprint/graph-ecoping-before.png)
 
 ## Choosing the right web host 
 
@@ -178,7 +177,7 @@ The website is deployed to all servers which are hosted by independent companies
 
 The estimated average carbon footprint per visit of a webpage can vary from 0.5gCO2e to 1.76gCO2e depending on what you read. Our homepage now produces just __0.02gCO2e__ per visit. Comparing, even to the lowest average, this is a vast difference.
 
-![caption:Ecoping showing the drop in our carbon footprint when we switched to our green network in February.](//images.ctfassets.net/ve81k805bx04/7t4mYX9uWiE0eqNowsPtD3/77e8fa97eb883f08bfcba5449caf76eb/blog-post-graph-ecoping-2b.png)
+![caption:Ecoping showing the drop in our carbon footprint when we switched to our green network in February.](../../assets/images/articles/carbonfootprint/graph-ecoping-after.png)
 
 There have been a few challenges to overcome that would otherwise “just work” with Netlify: overcoming quirks with SSL certificates across multiple servers; reinstating fast and convenient deployment workflows (we are now using Github Actions - we’d like to run all this on green servers too sometime!) not to mention finding the hosting companies we wanted to work with.
 

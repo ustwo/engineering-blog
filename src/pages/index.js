@@ -8,18 +8,20 @@ import * as styles from "./index.module.css";
 
 const Home = ({ data }) => {
   const articles = data.allFile.nodes.map(article => (
-    <ArticleCard
-      {...article.childMarkdownRemark.frontmatter}
-      name={article.name}
-      key={article.childMarkdownRemark.frontmatter.title}
-    />
+    <li>
+      <ArticleCard
+        {...article.childMarkdownRemark.frontmatter}
+        name={article.name}
+        key={article.childMarkdownRemark.frontmatter.title}
+      />
+    </li>
   ));
   
   if (articles.length < 12) {
     const placeholdersNeeded = 12 - articles.length;
   
     const placeholders = Array.from({ length: placeholdersNeeded }, (_, index) => (
-      <ArticleCard empty key={`placeholder-${index}`} />
+      <li><ArticleCard empty key={`placeholder-${index}`} /></li>
     ));
     
     articles.push(...placeholders);
@@ -28,10 +30,10 @@ const Home = ({ data }) => {
   return (
     <Layout>
       <Grid className={styles.homepageHeader} verticalCenter>
-        <h1 className={`${styles.title} h2`}>{data.content.frontmatter.introTitle}</h1>
+        <h1 className={styles.title}>{data.content.frontmatter.introTitle}</h1>
         <p className={styles.description}>{data.content.frontmatter.introMore}</p>
       </Grid>
-      <Grid columns={3}>{articles}</Grid>
+      <Grid columns={2} list>{articles}</Grid>
     </Layout>
   );
 }
@@ -66,12 +68,12 @@ export const query = graphql`
           frontmatter {
             title
             date
+            description
             thumbnail {
               childImageSharp {
                 gatsbyImageData 
               }
             }
-            thumbnailAlt
             tags
           }
         }

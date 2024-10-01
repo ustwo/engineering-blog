@@ -5,9 +5,9 @@ import * as styles from "./header.module.css";
 
 const Header = () => (
   <header className={styles.header}>
-    <a href="#main-content" className={`${styles.skipLink} smallText`}>Skip to content</a>
+    <a className={styles.skipLink} href="#main-content">Skip to content</a>
     <nav aria-label="Main navigation">
-      <Link to="/" className={styles.homeLink} aria-label="Ustwo Engineering Home">
+      <Link className={styles.homeLink} to="/" aria-label="Ustwo Engineering Home">
         <LogoUstwo className={styles.logo} aria-hidden="true" />
         <span>_engineering</span>
       </Link>

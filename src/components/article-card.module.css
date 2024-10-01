@@ -1,4 +1,7 @@
 .articleCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   margin-bottom: 1em;
 }
@@ -8,11 +11,56 @@
 }
 
 .thumbnail {
+  order: 1;
   height: 0;
   padding-top: calc(3 / 4 * 100%);
   transform: translateZ(0);
   transition: transform 0.2s ease-in-out;
   border-radius: 10px;
+}
+
+.contentWrapper {
+  order: 2;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  order: 2;
+  font-size: var(--font-size-h3);
+}
+
+.description {
+  order: 2;
+  font-size: var(--font-size-small);
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding-bottom: var(--text-spacing);
+}
+
+.link {
+  display: block;
+  color: var(--color-offBlack);
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.link:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  content: "";
+  cursor: pointer;
+  z-index: 2;
 }
 
 .articleCard h2 {
@@ -21,10 +69,11 @@
 }
 
 .date {
+  order: 1;
   display: block;
   color: var(--color-lightGrey);
-  margin: 1rem 0 0.2rem;
-  font-size: var(--font-small);
+  margin: 1rem 0 0.5rem;
+  font-size: var(--font-size-small);
 }
 
 .articleCard p {
@@ -32,9 +81,12 @@
 }
 
 .tags {
+  order: 3;
   display: flex;
+  position: relative;
+  z-index: 2;
   padding: 0;
-  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
   color: var(--color-offBlack);
   list-style-type: none;
 }
@@ -43,17 +95,15 @@
   padding: 1px 5px;
   margin-right: 7px;
   background: #eee;
+  font-size: var(--font-size-small);
 }
 
-.articleCard:hover .thumbnail {
-  transform: scale(1.03) translateZ(0);
-}
-
-/* Empty */
+/* Empty Article */
 
 .emptyThumbnail,
 .emptyTitle,
-.emptyDate {
+.emptyDate,
+.emptyDescription {
   background-color: #f6f6f6;
 }
 
@@ -67,11 +117,17 @@
 .emptyTitle {
   height: 30px;
   width: 75%;
-  margin-top: 0.8em;
-  margin-bottom: 0.6em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .emptyDate {
   height: 15px;
   width: 25%;
+  margin-top: 0.5em;
+}
+
+.emptyDescription {
+  height: 15px;
+  width: 100%;
 }

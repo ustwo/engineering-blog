@@ -2,6 +2,10 @@
   margin-bottom: 6rem;
 }
 
+.title {
+  font-size: var(--font-size-h2);
+}
+
 .title,
 .description {
   margin: 0;

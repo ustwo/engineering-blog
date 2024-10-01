@@ -48,6 +48,8 @@ table {
   border-spacing: 0;
 }
 
+/* I know what this does, but I can't remember why I put this here :) */
+
 #___gatsby {
   isolation: isolate;
 }
