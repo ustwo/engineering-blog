@@ -2,9 +2,9 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
-import * as styles from "./author.module.css";
+import * as styles from "./article-details.module.css";
 
-const Author = ({ authorName, date }) => {
+const ArticleDetails = ({ authorName, date }) => {
   const { authors } = useStaticQuery(graphql`
     query {
       authors: allFile(filter: { sourceInstanceName: { eq: "authors" }, extension: { eq: "md" } }) {
@@ -47,4 +47,4 @@ const Author = ({ authorName, date }) => {
   );
 }
 
-export default Author;
+export default ArticleDetails;

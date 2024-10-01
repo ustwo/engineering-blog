@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
-import Author from "../components/author";
+import ArticleDetails from "../components/article-details";
 import Meta from "../components/meta";
 import * as styles from "./article.module.css";
 
@@ -12,7 +12,7 @@ const Article = ({ data }) => {
     <Layout type="article">
       <header className={styles.header}>
         <h1 className={styles.title}>{frontmatter.title}</h1>
-        <Author authorName={frontmatter.author} date={frontmatter.date} />
+        <ArticleDetails authorName={frontmatter.author} date={frontmatter.date} />
       </header>
       <section dangerouslySetInnerHTML={{ __html: html }} id="article-content" />
     </Layout>
