@@ -5,7 +5,7 @@ import { format } from "small-date";
 import tagify from "../utils/tagify";
 import * as styles from "./article-card.module.css";
 
-const ArticleCard = ({ name, title, description, date, thumbnail, tags, empty }) => {
+const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty }) => {
   let thumbnailImage = getImage(thumbnail?.childImageSharp?.gatsbyImageData);
 
   if (!empty) {
@@ -14,7 +14,7 @@ const ArticleCard = ({ name, title, description, date, thumbnail, tags, empty })
         <div className={styles.contentWrapper}>
           <header className={styles.header}>
             <h2 className={styles.title} id={title}>
-              <Link className={styles.link} to={`/articles/${name}`}>{title}</Link>
+              <Link className={styles.link} to={`/articles/${slug}`}>{title}</Link>
             </h2>
             <time className={styles.date} dateTime={date}>{format(new Date(date), "dd MMM, yyyy")}</time>
             <p className={styles.description}>{description}</p>

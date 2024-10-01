@@ -9,9 +9,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(
     `
       {
-        allFile(filter: { sourceInstanceName: { eq: "articles" } }) {
+        allFile(filter: { sourceInstanceName: { eq: "articles" }, extension: { eq: "md" } }) {
           nodes {
-            name
+            id
+            relativeDirectory
           }
         }
       }
@@ -25,10 +26,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const articleTemplate = path.resolve(`./src/templates/article.js`);
   result.data.allFile.nodes.forEach(node => {
     createPage({
-      path: `/articles/${node.name}`,
+      path: `/articles/${node.relativeDirectory}`,
       component: articleTemplate,
       context: {
-        name: node.name
+        id: node.id
       }
     });
   });

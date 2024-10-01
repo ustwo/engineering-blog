@@ -3,7 +3,7 @@ title: Getting started with VisionOS
 author: Chris Davis
 date: 2024-02-12
 description: A short guide on how to get up and running with RealityKit on VisionOS.
-thumbnail: ../../assets/images/articles/visionos/thumbnail.jpg
+thumbnail: ./thumbnail.jpg
 tags: visionos, realitykit
 ---
 
@@ -37,7 +37,7 @@ we'll be running our examples in Xcode Preview and Simulator.
 
 When you open Xcode 15.2 you'll be asked to create a project, choose `visionOS App`.
 
-![Xcode Vision App](../../assets/images/articles/visionos/xcode_vision.jpg)
+![Xcode Vision App](./xcode_vision.jpg)
 
 This creates a basic template App containing:
 
@@ -62,7 +62,7 @@ The ImmersiveView contains a pre-made RealityView View, it loads some content fr
 
 You can use this App in the Canvas Preview, or via running it in the Simulator, `CMD+R`
 
-![Default Space](../../assets/images/articles/visionos/default_space.jpg)
+![Default Space](./default_space.jpg)
 
 ### Starting afresh <a name="starting_afresh"></a>
 
@@ -92,7 +92,7 @@ extension ImmersiveView: View {
 
 You should see the Preview Canvas update so that it has a Label "Getting Started"
 
-![Getting Started Screen](../../assets/images/articles/visionos/blank_getting_started.png)
+![Getting Started Screen](./blank_getting_started.png)
 
 Let's replace the Text Label with a RealityView to load some 3D Content.
 
@@ -126,7 +126,7 @@ extension ImmersiveView: View {
 If done correctly, the Canvas should update and show... nothing, that's because we haven't asked the RealityView
 to draw anything.
 
-![Blank Screen](../../assets/images/articles/visionos/blank.png)
+![Blank Screen](./blank.png)
 
 You can see the RealityView's closure has a `content` argument, you can think of that as the `scene` into which
 we can add content.
@@ -204,7 +204,7 @@ You will see the canvas update, it will display a pink/purple striped cube, use 
 
 Note: No Texture/Material has been applied to this Cube, we'll cover that in another tutorial.
 
-![Untextured Cube](../../assets/images/articles/visionos/untextured_shape.jpg)
+![Untextured Cube](./untextured_shape.jpg)
 
 ## Dragging the Entity with Gestures <a name="drag_gesture"></a>
 
@@ -407,7 +407,7 @@ extension ImmersiveView: View {
 ```
 
 <video autoplay loop playsinline muted style="width: 100%">
-  <source src="../../assets/images/articles/visionos/drag_gesture.mp4" type="video/mp4">
+  <source src="drag_gesture.mp4" type="video/mp4">
 </video>
 
 So that's not a lot of code to Add a 3D entity and drag it around the scene.

@@ -31,16 +31,16 @@ export const Head = ({ data }) => {
       image={thumbnail.childImageSharp.fixed.srcWebp}
       description={description}
       timeToRead={data.article.timeToRead}
-      url={`https://engineering.ustwo.com/articles/${data.name}/`}
+      url={`https://engineering.ustwo.com/articles/${data.article.id}/`}
     />
   );
 }
 
 /* Thumbnail transformed to 1200 for twitter/og/meta stuff */
 export const query = graphql`
-  query($name: String) {
-    article: file(name: { eq: $name }) {
-      name
+  query($id: String!) {
+    article: file(id: { eq: $id }) {
+      id
       childMarkdownRemark {
         frontmatter {
           title

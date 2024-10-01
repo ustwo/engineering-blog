@@ -3,7 +3,7 @@ title: Reducing the Carbon Footprint of Our Website
 author: Phil Linnell
 date: 2023-03-15
 description: Reducing the environmental impact of our website, focussing not just on the amount of energy it uses, but also the type of energy.
-thumbnail: ../../assets/images/articles/carbonfootprint/green-server-network.png
+thumbnail: ./green-server-network.png
 tags: greenweb
 ---
 
@@ -25,7 +25,7 @@ To help us measure our progress we use the tool, [Ecoping](https://ecoping.earth
 
 In November, our website [homepage](https://ustwo.com/) produced __0.54gCO2e__ per visit (already a vast improvement on readings over 1gCO2e earlier in the year). After employing the techniques above, we reduced this to __0.23gCO2e__. This is a great start. It shows that the right mindset and a little technical knowledge can go a long way in this endeavour.
 
-![caption:Ecoping graphs showing a relative decline in size and carbon footprint of ustwo.com's homepage](../../assets/images/articles/carbonfootprint/graph-ecoping-before.png)
+![caption:Ecoping graphs showing a relative decline in size and carbon footprint of ustwo.com's homepage](./graph-ecoping-before.png)
 
 ## Choosing the right web host 
 
@@ -45,42 +45,42 @@ Our website has been hosted with [Netlify](https://netlify.com/). It is a modern
     <td>Media</td>
     <td class="tableMobile">1</td>
     <td>443.7KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/uk.svg" class="tableFlag" alt="UK" /></td>
+    <td><img src="./uk.svg" class="tableFlag" alt="UK" /></td>
     <td>34.56%</td>
   </tr>
   <tr>
     <td>Image</td>
     <td class="tableMobile">4</td>
     <td>275.5KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/uk.svg" class="tableFlag" alt="UK" /></td>
+    <td><img src="./uk.svg" class="tableFlag" alt="UK" /></td>
     <td>34.56%</td>
   </tr>
   <tr class="tableTrShade">
     <td>Script</td>
     <td class="tableMobile">5</td>
     <td>171.8KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/be.svg" class="tableFlag" alt="Belgium" /><img src="../../assets/images/articles/carbonfootprint/de.svg" class="tableFlag" alt="Germany" /><img src="../../assets/images/articles/carbonfootprint/uk.svg" class="tableFlag" alt="UK" /></td>
+    <td><img src="./be.svg" class="tableFlag" alt="Belgium" /><img src="./de.svg" class="tableFlag" alt="Germany" /><img src="./uk.svg" class="tableFlag" alt="UK" /></td>
     <td>32.46%</td>
   </tr>
   <tr>
     <td>Font</td>
     <td class="tableMobile">4</td>
     <td>147.9KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/be.svg" class="tableFlag" alt="Belgium" /><img src="../../assets/images/articles/carbonfootprint/uk.svg" class="tableFlag" alt="UK" /></td>
+    <td><img src="./be.svg" class="tableFlag" alt="Belgium" /><img src="./uk.svg" class="tableFlag" alt="UK" /></td>
     <td>32.34%</td>
   </tr>
   <tr class="tableTrShade">
     <td>Doc</td>
     <td class="tableMobile">1</td>
     <td>90.3KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/de.svg" class="tableFlag" alt="Germany" /></td>
+    <td><img src="./de.svg" class="tableFlag" alt="Germany" /></td>
     <td>30.12%</td>
   </tr>
   <tr>
     <td>Other</td>
     <td class="tableMobile">9</td>
     <td>16.1KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/de.svg" class="tableFlag" alt="Germany" /><img src="../../assets/images/articles/carbonfootprint/ie.svg" class="tableFlag" alt="Ireland" /></td>
+    <td><img src="./de.svg" class="tableFlag" alt="Germany" /><img src="./ie.svg" class="tableFlag" alt="Ireland" /></td>
     <td>18.82%</td>
   </tr>
 </table>
@@ -102,7 +102,7 @@ Would using hosts in these regions see a compromise in not just the quality and 
 
 Well, we thought we’d give it a go - our website is now hosted on our own green network. We’ve chosen servers in Oslo, Montreal and Seattle to begin with. Together they are powered by an annual average of 98% renewable energy (almost exclusively hydroelectric).
 
-![caption:ustwo's Green Server Network made up of Oslo, Montreal and Seattle (with future expansion in Hobart)](../../assets/images/articles/carbonfootprint/green-server-network.png)
+![caption:ustwo's Green Server Network made up of Oslo, Montreal and Seattle (with future expansion in Hobart)](./green-server-network.png)
 
 The website is deployed to all servers which are hosted by independent companies based in the same region. A Geo DNS service directs each user to their closest server depending on their location, thus reducing load times in an attempt to match Netlify. For example, European users will be served by Oslo, whereas North American users will be served by Montreal or Seattle. Encouragingly, the table below shows that load times are comparable. However, Sydney is below par, so an additional host to serve our users in Australia and East Asia would be a good next step - [Tasmania might be a good option](https://app.electricitymaps.com/zone/AU-TAS).
 
@@ -177,7 +177,7 @@ The website is deployed to all servers which are hosted by independent companies
 
 The estimated average carbon footprint per visit of a webpage can vary from 0.5gCO2e to 1.76gCO2e depending on what you read. Our homepage now produces just __0.02gCO2e__ per visit. Comparing, even to the lowest average, this is a vast difference.
 
-![caption:Ecoping showing the drop in our carbon footprint when we switched to our green network in February.](../../assets/images/articles/carbonfootprint/graph-ecoping-after.png)
+![caption:Ecoping showing the drop in our carbon footprint when we switched to our green network in February.](./graph-ecoping-after.png)
 
 There have been a few challenges to overcome that would otherwise “just work” with Netlify: overcoming quirks with SSL certificates across multiple servers; reinstating fast and convenient deployment workflows (we are now using Github Actions - we’d like to run all this on green servers too sometime!) not to mention finding the hosting companies we wanted to work with.
 
@@ -197,42 +197,42 @@ We understand this will not be a realistic solution for many websites and setups
     <td>Media</td>
     <td class="tableMobile">1</td>
     <td>430.7KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/no.svg" class="tableFlag" alt="Norway" /></td>
+    <td><img src="./no.svg" class="tableFlag" alt="Norway" /></td>
     <td>99.00%</td>
   </tr>
   <tr>
     <td>Image</td>
     <td class="tableMobile">4</td>
     <td>224.1KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/no.svg" class="tableFlag" alt="Norway" /></td>
+    <td><img src="./no.svg" class="tableFlag" alt="Norway" /></td>
     <td>99.00%</td>
   </tr>
   <tr class="tableTrShade">
     <td>Script</td>
     <td class="tableMobile">7</td>
     <td>176.2KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/no.svg" class="tableFlag" alt="Norway" /><img src="../../assets/images/articles/carbonfootprint/uk.svg" class="tableFlag" alt="UK" /></td>
+    <td><img src="./no.svg" class="tableFlag" alt="Norway" /><img src="./uk.svg" class="tableFlag" alt="UK" /></td>
     <td>90.55%</td>
   </tr>
   <tr>
     <td>Font</td>
     <td class="tableMobile">2</td>
     <td>73.8KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/no.svg" class="tableFlag" alt="Norway" /></td>
+    <td><img src="./no.svg" class="tableFlag" alt="Norway" /></td>
     <td>99.00%</td>
   </tr>
   <tr class="tableTrShade">
     <td>Doc</td>
     <td class="tableMobile">1</td>
     <td>97.5KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/no.svg" class="tableFlag" alt="Norway" /></td>
+    <td><img src="./no.svg" class="tableFlag" alt="Norway" /></td>
     <td>99.00%</td>
   </tr>
   <tr>
     <td>Other</td>
     <td class="tableMobile">9</td>
     <td>31.3KB</td>
-    <td><img src="../../assets/images/articles/carbonfootprint/ie.svg" class="tableFlag" alt="Ireland" /><img src="../../assets/images/articles/carbonfootprint/no.svg" class="tableFlag" alt="Norway" /></td>
+    <td><img src="./ie.svg" class="tableFlag" alt="Ireland" /><img src="./no.svg" class="tableFlag" alt="Norway" /></td>
     <td>61.88%</td>
   </tr>
 </table>
