@@ -45,7 +45,7 @@ Our website has been hosted with [Netlify](https://netlify.com/). It is a modern
     <td>Media</td>
     <td class="tableMobile">1</td>
     <td>443.7KB</td>
-    <td><img src="./uk.svg" class="tableFlag" alt="UK" /></td>
+    <td><img src="uk.svg" class="tableFlag" alt="UK" /></td>
     <td>34.56%</td>
   </tr>
   <tr>
