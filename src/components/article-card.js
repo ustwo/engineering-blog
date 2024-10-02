@@ -15,11 +15,11 @@ const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty })
     return (
       <article
         className={`${styles.articleCard} ${hovered ? styles.hovered : ""}`}
-        aria-labelledby={title}
+        aria-labelledby={slug}
       >
         <div className={styles.contentWrapper}>
           <header className={styles.header}>
-            <h2 className={styles.title} id={title}>
+            <h2 className={styles.title} id={slug}>
               <Link
                 className={styles.link}
                 to={slug}
@@ -34,7 +34,7 @@ const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty })
           </header>
           {tags && (
             <ul className={styles.tags} aria-label="Article tags">
-              {tagify(tags).map(tag => <li key={`${title} ${tag}`} aria-label={tag}>{tag}</li>)}
+              {tagify(tags).map(tag => <li key={`${title} ${tag}`}>{tag}</li>)}
             </ul>
           )}
         </div>
