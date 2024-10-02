@@ -11,7 +11,7 @@ const Home = ({ data }) => {
     <li>
       <ArticleCard
         {...article.childMarkdownRemark.frontmatter}
-        slug={article.relativeDirectory}
+        slug={`/articles/${article.relativeDirectory}`}
         key={article.childMarkdownRemark.frontmatter.title}
       />
     </li>

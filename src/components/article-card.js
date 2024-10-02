@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
 import tagify from "../utils/tagify";
 import * as styles from "./article-card.module.css";
@@ -22,7 +22,7 @@ const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty })
             <h2 className={styles.title} id={title}>
               <Link
                 className={styles.link}
-                to={`/articles/${slug}`}
+                to={slug}
                 onMouseEnter={toggleHover}
                 onMouseLeave={toggleHover}
               >
