@@ -10,11 +10,10 @@ export default ({ markdownAST }) => {
             <img src="${node.url}" alt="${node.alt}" />
             <figcaption>${node.alt.replace("caption:", "").trim()}</figcaption>
           </figure>
-        `
+        `,
       };
       Object.assign(node, figureNode);
     }
   });
-ss
   return markdownAST;
 };
