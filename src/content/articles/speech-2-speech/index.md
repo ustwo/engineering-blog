@@ -44,7 +44,7 @@ Remember, to use these tools, you'll need to generate API keys, which give you a
 
 As an additional piece of advice, the API's keys are stored in the .env file to ensure their safety. In a production environment, be sure to use environment variables or secret managers to manage your keys securely.
 
-## Let's Go Through Each Step <a name="go-through-each-step"></a>
+## Let's Go Through Each Step
 
 The following code snippets are part of a Python script that must be run from the command line.
 
