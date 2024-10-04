@@ -153,8 +153,6 @@ For instance, in our application, we need to transcribe spoken words, translate 
 
 To leverage LangChain to manage the translation process, we started to set up the OpenAI language model with the necessary parameters, such as temperature and model type.
 
-To leverage LangChain to manage the translation process, we started to set up the OpenAI language model with the necessary parameters, such as temperature and model type.
-
 ```python
 llm = ChatOpenAI(
     temperature=0.0,

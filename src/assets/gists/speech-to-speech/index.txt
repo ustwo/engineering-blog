@@ -1,0 +1,129 @@
+import os
+from dotenv import load_dotenv
+import assemblyai as aai
+from elevenlabs.client import ElevenLabs
+from elevenlabs import play
+from langchain_openai import ChatOpenAI
+from langchain_core.runnables import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+
+# Load environment variables from the .env file
+load_dotenv()
+
+# Initialize the ElevenLabs client with your API key
+elevenlabs_client = ElevenLabs(api_key=os.getenv("ELEVENLABS_API_KEY"))
+
+# Set the AssemblyAI API key
+aai.settings.api_key = os.getenv("ASSEMBLYAI_API_KEY")
+
+# Define the translation prompt template
+translation_template = """
+Please translate the following sentence into {language}. Return ONLY the translated sentence with no additional text or commentary.
+
+Sentence: "{sentence}"
+"""
+
+# Initialize the OpenAI Chat model
+llm = ChatOpenAI(
+    temperature=0.0,
+    model="gpt-4o-mini",
+    api_key=os.getenv("OPENAI_API_KEY")
+)
+
+# Create a prompt template and output parser for the translation
+translation_prompt = ChatPromptTemplate.from_template(translation_template)
+output_parser = StrOutputParser()
+
+# Build the translation chain
+translation_chain = (
+    {
+        "language": RunnablePassthrough(),
+        "sentence": RunnablePassthrough()
+    }
+    | translation_prompt
+    | llm
+    | output_parser
+)
+
+def translate(sentence: str, language: str = "Portuguese") -> str:
+    """
+    Translate the given sentence into the specified language.
+
+    :param sentence: The sentence to translate.
+    :param language: The target language for translation.
+    :return: The translated sentence.
+    """
+    data_input = {
+        "language": language,
+        "sentence": sentence
+    }
+    return translation_chain.invoke(data_input)
+
+def generate_audio(text: str):
+    """
+    Generate audio from the given text using ElevenLabs and play it.
+
+    :param text: The text to convert to speech.
+    """
+    print("Generating audio...")
+    audio = elevenlabs_client.generate(
+        text=text,
+        voice="Patty",
+        model="eleven_turbo_v2_5"
+    )
+    play(audio)
+
+def on_session_open(session_opened: aai.RealtimeSessionOpened):
+    """
+    Callback function called when the transcription session is opened.
+
+    :param session_opened: Information about the opened session.
+    """
+    print("Session ID:", session_opened.session_id)
+
+def on_transcript_data(transcript: aai.RealtimeTranscript):
+    """
+    Callback function called when transcription data is received.
+
+    :param transcript: The transcription data.
+    """
+    if not transcript.text:
+        return
+
+    if isinstance(transcript, aai.RealtimeFinalTranscript):
+        # Handle the final transcript
+        print(transcript.text)
+        print("Translating...")
+        translation = translate(transcript.text)
+        print(f"Translation: {translation}")
+        generate_audio(translation)
+    else:
+        # Handle partial transcripts
+        print(transcript.text, end='\r')
+
+def on_transcription_error(error: aai.RealtimeError):
+    print("An error occurred:", error)
+
+def on_session_close():
+    print("Closing session")
+
+def main():
+    # Initialize the real-time transcriber
+    transcriber = aai.RealtimeTranscriber(
+        on_data=on_transcript_data,
+        on_error=on_transcription_error,
+        sample_rate=44_100,
+        on_open=on_session_open,
+        on_close=on_session_close
+    )
+
+    # Connect to the transcription service
+    transcriber.connect()
+
+    # Start streaming audio from the microphone
+    microphone_stream = aai.extras.MicrophoneStream()
+    transcriber.stream(microphone_stream)
+
+if __name__ == "__main__":
+    main()
