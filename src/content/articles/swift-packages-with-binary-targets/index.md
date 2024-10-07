@@ -3,7 +3,7 @@ title: Swift Packages with Binary Targets
 author: Chris Davis
 date: 2024-02-22
 description: What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
-thumbnail: ./thumbnail.png
+thumbnail: ./assets/thumbnail.png
 tags: swift, xcode
 ---
 
@@ -47,7 +47,7 @@ At the end you will have:
 
 Create a new Swift Package.
 
-![Xcode Vision App](./new_swift_package.jpg)
+![Xcode Vision App](./assets/new_swift_package.jpg)
 
 I've called my Package `Bookshop`.
 
@@ -186,7 +186,7 @@ let package = Package(
     ],
     targets: [
         .binaryTarget(name: "BookshopFramework",
-                      path: "./Sources/Bookshop.xcframework")
+                      path: "assets/Sources/Bookshop.xcframework")
     ]
 )
 ```
@@ -195,7 +195,7 @@ let package = Package(
 
 Deploy this package, your folder structure should be succinct to GitHub, ie, you should not see any of your public code.
 
-![Package Contents](./xcframework_package.png)
+![Package Contents](./assets/xcframework_package.png)
 
 ## Importing <a name="importing"></a>
 

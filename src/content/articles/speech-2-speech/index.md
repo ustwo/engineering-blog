@@ -3,7 +3,7 @@ title: AI in Action - Crafting a Real-Time Speech-to-Speech Translation App
 author: Patricia Silva
 date: 2024-10-03
 description: Build a real-time speech-to-speech translation app with OpenAI, AssemblyAI, ElevenLabs, and LangChain for natural language processing.
-thumbnail: ./thumbnail.jpg
+thumbnail: ./assets/thumbnail.jpg
 tags: python, langchain, openai, assemblyai, elevenlabs
 ---
 
