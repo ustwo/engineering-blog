@@ -193,7 +193,7 @@ A perfect example of this kind of solution is OpenAI, which introduced an "advan
 ### Full Code Version
 
 The complete example of this experimentation is available here:
-<a href="./gists/index.txt" target="_blank">speech-to-speech-langchain</a>
+<a href="./gists/source_py.txt" target="_blank">speech-to-speech-langchain</a>
 
 ## Conclusion
 
