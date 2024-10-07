@@ -48,6 +48,47 @@ We don't need that scum.
 
 Yes sir.
 
+## Tables
+
+<table>
+  <tr>
+    <th></th>
+    <th>London</th>
+    <th>Frankfurt</th>
+    <th>W' D.C</th>
+    <th>San Fran</th>
+    <th>Tokyo</th>
+    <th>Sydney</th>
+  </tr>
+  <tr class="tableTrShade fontWeightBold">
+    <td>Netlify</td>
+    <td>340ms</td>
+    <td>201ms</td>
+    <td>377ms</td>
+    <td>428ms</td>
+    <td>1.62s</td>
+    <td>1.65s</td>
+  </tr>
+  <tr>
+    <td>Oslo</td>
+    <td>248ms</td>
+    <td>256ms</td>
+    <td>915ms</td>
+    <td>1.56s</td>
+    <td>2.56s</td>
+    <td>2.76s</td>
+  </tr>
+  <tr class="tableTrShade fontWeightBold">
+    <td>Green Net.</td>
+    <td style="color:green">248ms</td>
+    <td style="color:green">256ms</td>
+    <td style="color:green">214ms</td>
+    <td style="color:orange">524ms</td>
+    <td style="color:green">1.35s</td>
+    <td style="color:red">2.57s</td>
+  </tr>
+</table>
+
 
 
 

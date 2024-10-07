@@ -6,7 +6,7 @@ export default ({ markdownAST }) => {
       const figureNode = {
         type: "html",
         value: `
-          <figure>
+          <figure class="figure">
             <img src="${node.url}" alt="${node.alt}" />
             <figcaption>${node.alt.replace("caption:", "").trim()}</figcaption>
           </figure>
