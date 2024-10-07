@@ -153,8 +153,6 @@ For instance, in our application, we need to transcribe spoken words, translate 
 
 To leverage LangChain to manage the translation process, we started to set up the OpenAI language model with the necessary parameters, such as temperature and model type.
 
-To leverage LangChain to manage the translation process, we started to set up the OpenAI language model with the necessary parameters, such as temperature and model type.
-
 ```python
 llm = ChatOpenAI(
     temperature=0.0,
@@ -195,7 +193,7 @@ A perfect example of this kind of solution is OpenAI, which introduced an "advan
 ### Full Code Version
 
 The complete example of this experimentation is available here:
-[speech-to-speech-langchain-github](https://gist.github.com/patriciagssilva/618f5813ef4020fb670506814b12bfef#file-gistfile1-txt)
+<a href="./gists/source_py.txt" target="_blank">speech-to-speech-langchain</a>
 
 ## Conclusion
 
