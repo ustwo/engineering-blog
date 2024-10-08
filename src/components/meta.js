@@ -8,9 +8,10 @@ export const Meta = ({
   noIndex,
   author,
   timeToRead,
+  siteName
 }) => {
-  const siteName = "ustwo Engineering";
-  const metaTitle = title ? `${title} | ${siteName}` : siteName;
+  const metaSiteName = siteName || "ustwo engineering blog";
+  const metaTitle = title ? `${title} | ${metaSiteName}` : metaSiteName;
   const metaImage = image || "https://assets.ustwo.com/images/misc/ustwo-generic-meta-image.png";
 
   return (
@@ -18,7 +19,7 @@ export const Meta = ({
       <title>{metaTitle}</title>
       <meta name="image" content={metaImage} />
       <meta property="og:title" content={metaTitle} />
-      <meta property="og:site_name" content={siteName} />
+      <meta property="og:site_name" content={metaSiteName} />
       <meta property="og:type" content="website" />
       <meta property="og:image" content={metaImage} />
       <meta property="og:image:secure_url" content={metaImage} />

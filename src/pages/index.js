@@ -45,6 +45,7 @@ export const Head = ({ data }) => {
     <Meta 
       description={data.content.frontmatter.description}
       url="https://engineering.ustwo.com/"
+      siteName={data.content.frontmatter.title}
     />
   );
 }

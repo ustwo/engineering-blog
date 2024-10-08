@@ -7,7 +7,7 @@ const Header = () => (
   <header className={styles.header}>
     <a className={styles.skipLink} href="#main-content">Skip to content</a>
     <nav aria-label="Main navigation">
-      <Link className={styles.homeLink} to="/" aria-label="Ustwo Engineering Home">
+      <Link className={styles.homeLink} to="/" aria-label="ustwo engineering blog home">
         <LogoUstwo className={styles.logo} aria-hidden="true" />
         <span>_engineering</span>
       </Link>
