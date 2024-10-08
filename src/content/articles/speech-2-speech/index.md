@@ -5,6 +5,7 @@ date: 2024-10-03
 description: Build a real-time speech-to-speech translation app with OpenAI, AssemblyAI, ElevenLabs, and LangChain for natural language processing.
 thumbnail: ./assets/thumbnail.jpg
 tags: python, langchain, openai, assemblyai, elevenlabs
+cta_prefix: At ustwo, we're exploring how AI can be used to create and elevate great product experiences that help humans to connect.
 ---
 
 Just like when we go to the supermarket to select ingredients for a recipe, we can also choose digital "ingredients" to build our solutions. In this article, I’d like to explore and break down the complexity of these applications.

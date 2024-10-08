@@ -5,6 +5,7 @@ date: 2024-02-22
 description: What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
 thumbnail: ./assets/thumbnail.png
 tags: swift, xcode
+cta_prefix: At ustwo, we take pride in the craft of our Swift iOS development.
 ---
 
 Swift Packages are a wonderful way of distributing code to use in projects.
@@ -17,19 +18,19 @@ Casual users will deploy their Swift Package as pure Swift code, however this ha
 
 What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
 
-- [Swift Package Binary Targets](#binary_targets)
-- [Create a Private Package](#private_package)
-- [Create the XCFramework](#create_xcframework)
-    - [Platforms](#platforms)
-    - [Script](#script)
-    - [Merging](#merging)
-    - [Static vs Dynamic Frameworks](#static_dynamic)
-- [Create a Public Package](#public_package)
-    - [Deploy](#deploy)
-- [Importing](#importing)
-    - [Fail to Import](#failure)
-    - [Modules](#modules)
-- [Useful Commands](#useful_commands)
+- [Swift Package Binary Targets ](#swift-package-binary-targets-)
+- [Creating your Private Swift Package ](#creating-your-private-swift-package-)
+- [Creating an XCFramework ](#creating-an-xcframework-)
+  - [Platforms ](#platforms-)
+  - [Script ](#script-)
+  - [Merging ](#merging-)
+  - [Static vs Dynamic ](#static-vs-dynamic-)
+- [Creating your Public Swift Package ](#creating-your-public-swift-package-)
+  - [Deploy ](#deploy-)
+- [Importing ](#importing-)
+  - [Fail to Import ](#fail-to-import-)
+  - [Modules ](#modules-)
+- [Useful Commands ](#useful-commands-)
 
 ## Swift Package Binary Targets <a name="binary_targets"></a>
 

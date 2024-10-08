@@ -5,23 +5,23 @@ date: 2024-02-12
 description: A short guide on how to get up and running with RealityKit on VisionOS.
 thumbnail: ./assets/thumbnail.jpg
 tags: visionos, realitykit
+cta_prefix: At ustwo, we're always scanning the horizon for new technology that can shift the way we think about creating breakthrough experiences.
 ---
 
 Hi, This is a short guide on how to get up and running with RealityKit on VisionOS.
 
 We'll cover:
 
-- [Getting started with VisionOS](#getting-started-with-visionos)
-  - [Installing Required Software ](#software_requirements)
-  - [Xcode ](#xcode)
-  - [Creating a RealityView ](#realityview)
-    - [ContentView ](#contentview)
-    - [ImmersiveView ](#immersiveview)
-    - [Running the Default App ](#running_the_default)
-    - [Starting afresh ](#starting_afresh)
-  - [Creating an Entity ](#entity)
-  - [Dragging the Entity with Gestures ](#drag_gesture)
-  - [Creating a Component ](#component)
+- [Installing Required Software ](#installing-required-software-)
+- [Xcode ](#xcode-)
+- [Creating a RealityView ](#creating-a-realityview-)
+  - [ContentView ](#contentview-)
+  - [ImmersiveView ](#immersiveview-)
+  - [Running the Default App ](#running-the-default-app-)
+  - [Starting afresh ](#starting-afresh-)
+- [Creating an Entity ](#creating-an-entity-)
+- [Dragging the Entity with Gestures ](#dragging-the-entity-with-gestures-)
+- [Creating a Component ](#creating-a-component-)
 
 
 ## Installing Required Software <a name="software_requirements"></a>
