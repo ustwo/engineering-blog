@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import SocialMediaLinkIcons from "../SocialMediaLinkIcon/social-media-link-icon";
 import * as styles from "./author-info.module.css";
 
 const AuthorInfo = ({ authorName }) => {
@@ -43,7 +44,7 @@ const AuthorInfo = ({ authorName }) => {
 
   return (
     <section className={styles.authorProfileSection}>
-      <h3>Author:</h3>
+      <h3 className={styles.authorHeading}>Author:</h3>
       <div className={styles.authorHeader}>
         <GatsbyImage
           className={styles.authorAvatar}
@@ -64,17 +65,7 @@ const AuthorInfo = ({ authorName }) => {
 
       {!!contactInfo && (
         <div className={styles.authorContactInfo}>
-          {contactInfo.map((info, index) => (
-            <a
-              key={`contact-info-${index}`}
-              href={info.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.contactLink}
-            >
-              {info.platform}
-            </a>
-          ))}
+          <SocialMediaLinkIcons platforms={contactInfo} />
         </div>
       )}
     </section>
