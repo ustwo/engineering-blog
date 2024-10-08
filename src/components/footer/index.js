@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     <div className={styles.inner}>
       <ul className={styles.company}>
-        <li className={styles.ustwo}><a href="https://ustwo.com/"><LogoUstwo /></a><span> &copy; 2024</span></li>
+        <li className={styles.logo}><a href="https://ustwo.com/" aria-label="ustwo home"><LogoUstwo /></a><span> &copy; 2024</span></li>
         <li><a href="https://ustwo.com/legal/">Legal</a></li>
         <li><a href="https://ustwo.com/privacy-policy/">Privacy Policy</a></li>
       </ul>

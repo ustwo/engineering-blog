@@ -34,7 +34,7 @@ a:hover {
   padding-left: 1em;
 }
 
-.logo {
+.logo svg{
   width: 3em;
   display: inline-block;
 }
