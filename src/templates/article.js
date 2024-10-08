@@ -35,7 +35,7 @@ export const Head = ({ data }) => {
       image={thumbnail.childImageSharp.fixed.srcWebp}
       description={description}
       timeToRead={data.article.timeToRead}
-      url={`https://engineering.ustwo.com/articles/${data.article.id}/`}
+      url={`https://engineering.ustwo.com/articles/${data.article.relativeDirectory}/`}
     />
   );
 }
@@ -44,7 +44,7 @@ export const Head = ({ data }) => {
 export const query = graphql`
   query($id: String!) {
     article: file(id: { eq: $id }) {
-      id
+      relativeDirectory
       childMarkdownRemark {
         frontmatter {
           title
