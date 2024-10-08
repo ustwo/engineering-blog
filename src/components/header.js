@@ -9,7 +9,7 @@ const Header = () => (
     <nav aria-label="Main navigation">
       <Link className={styles.homeLink} to="/" aria-label="ustwo engineering blog home">
         <LogoUstwo className={styles.logo} aria-hidden="true" />
-        <span>_engineering</span>
+        <span>Engineering Blog</span>
       </Link>
       <ul className="smallText">
         <li><Link to="/about">About</Link></li> 

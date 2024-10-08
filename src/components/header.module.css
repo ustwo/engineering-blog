@@ -38,7 +38,9 @@
 }
 
 .logo {
-  width: 100px;
+  width: 5.5em;
+  margin-right: 0.4em;
+  padding-top: 1px;
 }
 
 .header a {
