@@ -8,11 +8,10 @@ import * as styles from "./index.module.css";
 
 const Home = ({ data }) => {
   const articles = data.articles.nodes.map(article => (
-    <li>
+    <li key={article.childMarkdownRemark.frontmatter.title}>
       <ArticleCard
         {...article.childMarkdownRemark.frontmatter}
         slug={`/articles/${article.relativeDirectory}`}
-        key={article.childMarkdownRemark.frontmatter.title}
       />
     </li>
   ));
@@ -21,7 +20,7 @@ const Home = ({ data }) => {
     const placeholdersNeeded = 12 - articles.length;
   
     const placeholders = Array.from({ length: placeholdersNeeded }, (_, index) => (
-      <li><ArticleCard empty key={`placeholder-${index}`} /></li>
+      <li key={`placeholder-${index}`}><ArticleCard empty  /></li>
     ));
     
     articles.push(...placeholders);
