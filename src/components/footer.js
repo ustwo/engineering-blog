@@ -6,7 +6,7 @@ const Footer = () => (
   <footer className={styles.footer}>
     <div className={styles.inner}>
       <ul className={styles.company}>
-        <li><a href="https://ustwo.com/"><LogoUstwo className={styles.logo} aria-hidden="true" /></a><span> &copy; 2024</span></li>
+        <li><a href="https://ustwo.com/"><LogoUstwo aria-hidden="true" /></a><span> &copy; 2024</span></li>
         <li><a href="https://ustwo.com/legal/">Legal</a></li>
         <li><a href="https://ustwo.com/privacy-policy/">Privacy Policy</a></li>
       </ul>
