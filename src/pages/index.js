@@ -29,7 +29,7 @@ const Home = ({ data }) => {
 
   return (
     <Layout>
-      <Grid className={styles.homepageHeader} verticalCenter>
+      <Grid className={styles.homepageHeader}>
         <h1 className={styles.title}>{data.content.frontmatter.introTitle}</h1>
         <p className={styles.description}>{data.content.frontmatter.introMore}</p>
       </Grid>
