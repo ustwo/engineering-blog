@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
-import * as styles from "./article-details.module.css";
+import * as styles from "./styles.module.css";
 
 const ArticleDetails = ({ authorName, date }) => {
   const { authors } = useStaticQuery(graphql`

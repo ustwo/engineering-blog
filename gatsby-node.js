@@ -23,7 +23,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild('Error loading Markdown result', result.errors)
   }
 
-  const articleTemplate = path.resolve(`./src/templates/article.js`);
+  const articleTemplate = path.resolve(`./src/templates/article/index.js`);
   result.data.allFile.nodes.forEach(node => {
     createPage({
       path: `/articles/${node.relativeDirectory}`,

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
-import LogoUstwo from "../assets/images/logo-ustwo";
-import * as styles from "./header.module.css";
+import LogoUstwo from "../../assets/images/logo-ustwo";
+import * as styles from "./styles.module.css";
 
 const Header = () => (
   <header className={styles.header}>

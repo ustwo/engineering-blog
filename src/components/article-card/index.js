@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
-import tagify from "../utils/tagify";
-import * as styles from "./article-card.module.css";
+import tagify from "../../utils/tagify";
+import * as styles from "./styles.module.css";
 
 const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty }) => {
   const thumbnailImage = getImage(thumbnail?.childImageSharp?.gatsbyImageData);
