@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import ArticleDetails from "../components/article-details";
+import ArticleCTA from "../components/article-cta";
 import Meta from "../components/meta";
 import * as styles from "./article.module.css";
 
@@ -15,6 +16,9 @@ const Article = ({ data }) => {
         <ArticleDetails authorName={frontmatter.author} date={frontmatter.date} />
       </header>
       <section dangerouslySetInnerHTML={{ __html: html }} id="article-content" />
+      <footer>
+        <ArticleCTA prefix={frontmatter.cta_prefix} />
+      </footer>
     </Layout>
   );
 };
@@ -47,6 +51,7 @@ export const query = graphql`
           author
           date
           description
+          cta_prefix
           thumbnail {
             childImageSharp {
               fixed(width: 1200) {
