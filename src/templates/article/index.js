@@ -1,9 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../components/layout";
-import ArticleDetails from "../../components/article-details";
-import ArticleCTA from "../../components/article-cta";
-import Meta from "../../components/meta";
+import Layout from "../components/layout";
+import ArticleDetails from "../components/article-details";
+import ArticleCTA from "../components/article-cta";
+import AuthorInfo from "../components/AuthorInfo/author-info";
+import Meta from "../components/meta";
 import * as styles from "./styles.module.css";
 
 const Article = ({ data }) => {
@@ -13,11 +14,19 @@ const Article = ({ data }) => {
     <Layout type="article">
       <header className={styles.header}>
         <h1 className={styles.title}>{frontmatter.title}</h1>
-        <ArticleDetails authorName={frontmatter.author} date={frontmatter.date} />
+        <ArticleDetails
+          authorName={frontmatter.author}
+          date={frontmatter.date}
+        />
       </header>
-      <section dangerouslySetInnerHTML={{ __html: html }} id="article-content" />
+      <section
+        dangerouslySetInnerHTML={{ __html: html }}
+        id="article-content"
+      />
       <footer>
         <ArticleCTA prefix={frontmatter.cta_prefix} />
+
+        <AuthorInfo authorName={frontmatter.author} />
       </footer>
     </Layout>
   );
@@ -26,10 +35,11 @@ const Article = ({ data }) => {
 export default Article;
 
 export const Head = ({ data }) => {
-  const { title, author, thumbnail, description } = data.article.childMarkdownRemark.frontmatter;
+  const { title, author, thumbnail, description } =
+    data.article.childMarkdownRemark.frontmatter;
 
   return (
-    <Meta 
+    <Meta
       title={title}
       author={author}
       image={thumbnail.childImageSharp.fixed.srcWebp}
@@ -38,11 +48,11 @@ export const Head = ({ data }) => {
       url={`https://engineering.ustwo.com/articles/${data.article.relativeDirectory}/`}
     />
   );
-}
+};
 
 /* Thumbnail transformed to 1200 for twitter/og/meta stuff */
 export const query = graphql`
-  query($id: String!) {
+  query ($id: String!) {
     article: file(id: { eq: $id }) {
       relativeDirectory
       childMarkdownRemark {
@@ -57,7 +67,7 @@ export const query = graphql`
               fixed(width: 1200) {
                 srcWebp
               }
-            } 
+            }
           }
         }
         html
