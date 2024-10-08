@@ -1,5 +1,10 @@
 .authorProfileSection {
+  border-top: 1px solid var(--color-offWhite);
   padding: 10px;
+}
+
+.authorHeading {
+  margin: 20px 0;
 }
 
 .authorName {
@@ -29,14 +34,9 @@
 }
 
 .authorContactInfo {
-  margin-top: 8px;
+  margin-top: 16px;
   padding: 0 64px;
 }
-
-/* .authorShortIntro {
-  font-size: 14px;
-  margin-top: 10px;
-} */
 
 .quoteBox {
   font-size: 16px;
