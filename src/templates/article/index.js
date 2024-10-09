@@ -9,15 +9,13 @@ import * as styles from "./styles.module.css";
 
 const Article = ({ data }) => {
   const { frontmatter, html } = data.article.childMarkdownRemark;
+  const author = data.author.childMarkdownRemark.frontmatter;
 
   return (
     <Layout type="article">
       <header className={styles.header}>
         <h1 className={styles.title}>{frontmatter.title}</h1>
-        <ArticleDetails
-          authorName={frontmatter.author}
-          date={frontmatter.date}
-        />
+        {<ArticleDetails author={author} date={frontmatter.date} />}
       </header>
       <section
         dangerouslySetInnerHTML={{ __html: html }}
@@ -25,8 +23,7 @@ const Article = ({ data }) => {
       />
       <footer>
         <ArticleCTA prefix={frontmatter.cta_prefix} />
-
-        <AuthorInfo authorName={frontmatter.author} />
+        {<AuthorInfo author={author} />}
       </footer>
     </Layout>
   );
@@ -52,7 +49,7 @@ export const Head = ({ data }) => {
 
 /* Thumbnail transformed to 1200 for twitter/og/meta stuff */
 export const query = graphql`
-  query ($id: String!) {
+  query ($id: String!, $authorName: String!) {
     article: file(id: { eq: $id }) {
       relativeDirectory
       childMarkdownRemark {
@@ -72,6 +69,28 @@ export const query = graphql`
         }
         html
         timeToRead
+      }
+    }
+
+    author: file(
+      sourceInstanceName: { eq: "authors" }
+      childMarkdownRemark: { frontmatter: { name: { eq: $authorName } } }
+    ) {
+      childMarkdownRemark {
+        frontmatter {
+          name
+          role
+          shortIntro
+          avatar {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+          contactInfo {
+            platform
+            url
+          }
+        }
       }
     }
   }

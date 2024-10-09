@@ -18,6 +18,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           nodes {
             id
             relativeDirectory
+            childMarkdownRemark {
+              frontmatter {
+                author
+              }
+            }
           }
         }
       }
@@ -35,6 +40,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       component: articleTemplate,
       context: {
         id: node.id,
+        authorName: node.childMarkdownRemark.frontmatter.author,
       },
     });
   });
