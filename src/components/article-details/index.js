@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
 import * as styles from "./styles.module.css";
+import * as constants from "../../utils/constants";
 
 const ArticleDetails = ({ authorName, date }) => {
   const { authors } = useStaticQuery(graphql`
@@ -40,7 +41,7 @@ const ArticleDetails = ({ authorName, date }) => {
         </p>
         <p>
           <span>Published on </span>
-          <time dateTime={date}>{format(new Date(date), "MMM dd, yyyy")}</time>
+          <time dateTime={date}>{format(new Date(date), constants.blog_date_format)}</time>
         </p>
       </div>
     </div>

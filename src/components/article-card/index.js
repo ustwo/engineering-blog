@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
 import tagify from "../../utils/tagify";
 import * as styles from "./styles.module.css";
+import * as constants from "../../utils/constants";
 
 const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty }) => {
   const thumbnailImage = getImage(thumbnail?.childImageSharp?.gatsbyImageData);
@@ -29,7 +30,7 @@ const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty })
                 {title}
               </Link>
             </h2>
-            <time className={styles.date} dateTime={date}>{format(new Date(date), "dd MMM, yyyy")}</time>
+            <time className={styles.date} dateTime={date}>{format(new Date(date), constants.blog_date_format)}</time>
             <p className={styles.description}>{description}</p>
           </header>
           {tags && (

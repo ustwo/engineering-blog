@@ -1,4 +1,5 @@
 import React from "react";
+import * as constants from "../../utils/constants";
 
 export const Meta = ({
   title,
@@ -10,7 +11,7 @@ export const Meta = ({
   timeToRead,
   siteName
 }) => {
-  const metaSiteName = siteName || "ustwo engineering blog";
+  const metaSiteName = siteName || constants.site_name;
   const metaTitle = title ? `${title} | ${metaSiteName}` : metaSiteName;
   const metaImage = image || "https://assets.ustwo.com/images/misc/ustwo-generic-meta-image.png";
 
