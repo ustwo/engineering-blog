@@ -19,20 +19,19 @@ const AuthorInfo = ({ author }) => {
         <div className={styles.authorDetails}>
           <h4 className={styles.authorName}>{name}</h4>
           <p className={styles.authorRole}>{role}</p>
+          {!!shortIntro && (
+            <div className={styles.descriptionBox}>
+              <p className={styles.descriptionText}>{shortIntro}</p>
+            </div>
+          )}
+
+          {contactInfo?.length > 0 && (
+            <div className={styles.authorContactInfo}>
+              <SocialMediaLinkIcons platforms={contactInfo} />
+            </div>
+          )}
         </div>
       </div>
-
-      {!!shortIntro && (
-        <div className={styles.descriptionBox}>
-          <p className={styles.descriptionText}>{shortIntro}</p>
-        </div>
-      )}
-
-      {contactInfo?.length > 0 && (
-        <div className={styles.authorContactInfo}>
-          <SocialMediaLinkIcons platforms={contactInfo} />
-        </div>
-      )}
     </section>
   );
 };
