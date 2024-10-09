@@ -45,6 +45,11 @@
   margin-top: 16px;
 }
 
+.descriptionText {
+  text-align: justify;
+  margin: 0 auto;
+}
+
 .authorContactInfo {
   display: flex;
   gap: 16px;
