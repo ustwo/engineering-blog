@@ -1,10 +1,70 @@
-# engineering-blog
+# ustwo Engineering Blog
 
-## Introduction
+A static website so our Engineering Team can write articles and tutorials about tech.
 
-A list of engineering articles from ustwo
+- [Writing an article](#writing-an-article)
+- [Developing](#developing)
 
-## Getting started
+## Writing an article
+
+### Basics
+
+...file structure, frontmatter, markdown, check out sandbox for various additional components such as video and captions...
+
+#### Frontmatter
+
+**`title`** [string][required]
+
+Unique to all other articles. Char limit: ??
+
+**`author`** [string]
+
+This should be a replica of the name used in "/content/authors".
+
+**`date`** [string]
+
+Format: YYYY-MM-DD e.g. `2024-02-12`
+
+**`description`** [string]
+
+Char limit: ??
+
+**`thumbnail`** [string]
+
+Relative to the markdown file, e.g. `./assets/thumbnail.jpg`
+
+**`tags`** [string]
+
+Comma-separated values to categorise the article, e.g. `javascript, gatsby, netlify`
+
+**`cta_prefix`** [string]
+
+Additional copy added to the bottom of the article, e.g. `At ustwo, we're exploring how AI can be used to create and elevate great product experiences that help humans to connect.`
+
+### Author
+
+...author dir + asset...
+
+### Assets
+
+#### Images
+
+...even though we transform images, keep originals as low in size as possible to reduce HD space, build times and energy used.
+
+#### Video
+
+Same for videos, Use video not gifs... subtitles etc
+Crunching, Handbrake, recommended size, (increase font size when doing code screencaptures)
+
+### Images with captions
+
+Use normal markdown syntax for images, but add the prefix 'caption:' to the start of the alt text, e.g. `![caption:This is the alt text but will generate as a caption](image_url.jpg)`.
+
+---
+---
+---
+
+## Developing
 
 ### Install
 
@@ -15,50 +75,32 @@ npm install --global gatsby-cli
 npm install
 ```
 
-## GitHub Pages with Gatsby
-
-We are using GitHub Pages and GatsbyJS (React).
-
 ### Run locally
 
 ```bash
 gatsby develop
 ```
 - Development server (https://localhost:8000)
-- Querying Data with GraphQL (http://localhost:8000/___graphql)
+- Query data with GraphQL (http://localhost:8000/___graphql)
 
-## Writing an article
+### Test production locally
 
-...
+```bash
+gatsby clean && gatsby build && gatsby serve
+```
+- Local version of production build (https://localhost:9000)
 
-### Image captions
+---
+---
+---
 
-`[caption:Alt/Caption text here](image_url.jpg)`
+## Under the hood notes
 
-
-### Images and captions
-
-~~We use `gatsby-remark-figure-caption` plugin to utilise `<figure>` and `<figcaption>`.~~ FAIL... out of date plugin. Is Gatsby dying?
-
-### Assets
-
-...
-
-Use video not gifs... etc
-
-## Under the hood
-
-### Some Gatsby image magic
-
-In markdown files, references to local images in frontmatter will get transformed so can be used with `GatsbyImage`.
-
-### Remark Figure Caption Plugin
+In markdown files, references to local images in frontmatter will get transformed so they can be used with `GatsbyImage`.
 
 In `/plugins` is a bespoke plugin to handle rendering `<figure>` and `<figcaption>` for when we need to have captions for an image. It was important to keep the usual markdown image syntax `[alt/caption text](image_url.jpg)`. So the plugin looks for the alt/caption text that starts with "caption:".
 
-### Dynamic page generation for articles
-
-Each markdown file in `/src/content/articles/` is queried in `gatsby-node.js` and filtered using `sourceInstanceName: 'articles'` ('articles' is defined in `gatsby-config.js` in `gatsby-source-filesystem`). Each result is generated into a page using `/src/templates/article.js`. 
+Each markdown file in `/src/content/articles/` is queried in `gatsby-node.js` and filtered using `sourceInstanceName: 'articles'` ('articles' is defined in `gatsby-config.js` in `gatsby-source-filesystem` options). Each result is generated into a page using `/src/templates/article.js`. 
 
 NOTE: It is more performant to query using `allFile` and filter using `sourceInstanceName` rather than querying `allMarkdownRemark` files, as we can then only filter using `regex: "/(articles)/"` on `fileAbsolutePath`. 
 
