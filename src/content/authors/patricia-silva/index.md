@@ -3,7 +3,7 @@ name: Patricia Silva
 role: Senior Fullstack Developer
 contact: patricia.silva@ustwo.com
 avatar: ./avatar-patricia-silva.jpg
-shortIntro: My first priority is people, followed by technology. However, by combining the two, I can help positively transform people's lives through technology. My first priority is people, followed by technology.
+shortIntro: Bachelor's degree in Computer Science with over 15 years of experience in application development, specialised in creating innovative and accessible solutions that improve the user experience. Passionate about combining people and technology, and also a coffee and plant lover.
 contactInfo:
   - platform: Github
     url: https://github.com/patriciagssilva
