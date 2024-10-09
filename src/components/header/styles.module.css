@@ -14,24 +14,17 @@
   justify-content: space-between;
 }
 
-.header ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
-
-.header li {
-  margin-left: 15px;
-}
-
 .homeLink {
   display: flex;
+}
+.homeLink:hover {
+  text-decoration: none;
 }
 
 .homeLink span {
   color: var(--color-offBlack);
-  transform: translateY(8px);
+  position: relative;
+  top: 0.5em;
   font-weight: bold;
 }
 
@@ -46,8 +39,14 @@
   color: var(--color-offBlack);
 }
 
-.header a:hover {
-  font-weight: bold;
+.links {
+  list-style-type: none;
+  padding-top: 1em;
+  margin: 0;
+  display: flex;
+}
+.links li {
+  margin-left: 15px;
 }
 
 /* Skip link styles */
