@@ -4,7 +4,7 @@ import { XIcon } from "../../assets/icons/xIcon";
 import { InstagramIcon } from "../../assets/icons/instagramIcon";
 import { GithubIcon } from "../../assets/icons/githubIcon";
 import { EmailIcon } from "../../assets/icons/emailIcon";
-import * as styles from "./social-media-link-icon.module.css";
+import * as styles from "./styles.module.css";
 
 const iconMap = {
   linkedin: <LinkedInIcon />,

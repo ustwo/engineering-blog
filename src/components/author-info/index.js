@@ -1,7 +1,7 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SocialMediaLinkIcons from "../social-media-link-icon";
-import * as styles from "./author-info.module.css";
+import * as styles from "./styles.module.css";
 
 const AuthorInfo = ({ author }) => {
   const { name, role, avatar, shortIntro, contactInfo } = author;
