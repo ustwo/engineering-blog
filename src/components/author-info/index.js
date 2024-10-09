@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import SocialMediaLinkIcons from "../SocialMediaLinkIcon/social-media-link-icon";
+import SocialMediaLinkIcons from "../social-media-link-icon";
 import * as styles from "./author-info.module.css";
 
 const AuthorInfo = ({ author }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./article-cta.module.css";
+import * as styles from "./styles.module.css";
 
 const ArticleCTA = ({ prefix }) => (
   <section className={styles.cta}>

@@ -1,5 +1,5 @@
 import React from "react";
-import * as styles from "./grid.module.css";
+import * as styles from "./styles.module.css";
 
 const Grid = ({ children, columns, className, verticalCenter, list }) => {
   const classes = `

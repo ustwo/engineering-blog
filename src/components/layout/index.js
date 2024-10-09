@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/base.css";
-import "../styles/global.css";
-import Header from "./header";
-import Footer from "./footer";
-import * as styles from "./layout.module.css";
+import "../../styles/base.css";
+import "../../styles/global.css";
+import Header from "../header";
+import Footer from "../footer";
+import * as styles from "./styles.module.css";
 
 const Layout = ({ children, type }) => (
   <main>

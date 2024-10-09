@@ -1,7 +1,8 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { format } from "small-date";
-import * as styles from "./article-details.module.css";
+import * as styles from "./styles.module.css";
+import * as constants from "../../utils/constants";
 
 const ArticleDetails = ({ author, date }) => {
   const { name, role, avatar } = author;
@@ -18,7 +19,7 @@ const ArticleDetails = ({ author, date }) => {
         </p>
         <p>
           <span>Published on </span>
-          <time dateTime={date}>{format(new Date(date), "MMM dd, yyyy")}</time>
+          <time dateTime={date}>{format(new Date(date), constants.blog_date_format)}</time>
         </p>
       </div>
     </div>

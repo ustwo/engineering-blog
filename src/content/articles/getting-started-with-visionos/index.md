@@ -407,7 +407,7 @@ extension ImmersiveView: View {
 ```
 
 <video autoplay loop playsinline muted style="width: 100%">
-  <source src="drag_gesture.mp4" type="video/mp4">
+  <source src="./assets/drag_gesture.mp4" type="video/mp4">
 </video>
 
 So that's not a lot of code to Add a 3D entity and drag it around the scene.

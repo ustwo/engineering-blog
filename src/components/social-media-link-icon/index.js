@@ -15,7 +15,6 @@ const iconMap = {
 };
 
 const renderIcon = (platform, url) => {
-  console.log(platform);
   const platformName = platform.toLowerCase();
 
   const IconComponent = iconMap[platformName];

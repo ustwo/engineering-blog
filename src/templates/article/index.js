@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import ArticleDetails from "../components/article-details";
-import ArticleCTA from "../components/article-cta";
-import AuthorInfo from "../components/AuthorInfo/author-info";
-import Meta from "../components/meta";
-import * as styles from "./article.module.css";
+import Layout from "../../components/layout";
+import ArticleDetails from "../../components/article-details";
+import ArticleCTA from "../../components/article-cta";
+import Meta from "../../components/meta";
+import AuthorInfo from "../../components/author-info";
+import * as styles from "./styles.module.css";
 
 const Article = ({ data }) => {
   const { frontmatter, html } = data.article.childMarkdownRemark;
@@ -42,7 +42,7 @@ export const Head = ({ data }) => {
       image={thumbnail.childImageSharp.fixed.srcWebp}
       description={description}
       timeToRead={data.article.timeToRead}
-      url={`https://engineering.ustwo.com/articles/${data.article.id}/`}
+      url={`https://engineering.ustwo.com/articles/${data.article.relativeDirectory}/`}
     />
   );
 };
@@ -51,7 +51,7 @@ export const Head = ({ data }) => {
 export const query = graphql`
   query ($id: String!, $authorName: String!) {
     article: file(id: { eq: $id }) {
-      id
+      relativeDirectory
       childMarkdownRemark {
         frontmatter {
           title

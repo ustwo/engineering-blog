@@ -5,6 +5,15 @@
   font-size: var(--font-size-small);
 }
 
+a {
+  color: var(--color-offBlack);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .inner {
   padding: 0 var(--app-gutter);
   max-width: var(--app-width);
@@ -12,6 +21,22 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+}
+
+.company {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+}
+
+.company li:not(:first-child) {
+  margin-left: 1em;
+  padding-left: 1em;
+}
+
+.logo svg{
+  width: 3em;
+  display: inline-block;
 }
 
 .socials {

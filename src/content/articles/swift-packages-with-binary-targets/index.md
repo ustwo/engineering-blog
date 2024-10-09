@@ -3,7 +3,7 @@ title: Swift Packages with Binary Targets
 author: Chris Davis
 date: 2024-02-22
 description: What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
-thumbnail: ./assets/thumbnail.png
+thumbnail: ./assets/thumbnail.jpg
 tags: swift, xcode
 cta_prefix: At ustwo, we take pride in the craft of our Swift iOS development.
 ---
