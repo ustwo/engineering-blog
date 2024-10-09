@@ -16,7 +16,7 @@ cta_prefix: Take your AI interactions to the next level with LangGraph, a powerf
 
 Now, let’s shift gears and talk about more complex scenarios—moving beyond basic chat interfaces. Imagine this: an app that offers you recipe suggestions based on a photo you take of your fridge or pantry. Seems futuristic, right? But this type of application is [already within reach](https://www.linkedin.com/posts/ustwo-_sproutiful-ustwoai-guthealth-activity-7239277625494405120-OJd1/), and it’s a great example of how we can push the boundaries of AI-driven experiences.
 
-This isn’t just a simple Q\&A chatbot anymore. Here, we’re dealing with image recognition, context understanding, and potentially multiple steps in the interaction. The app needs to understand what’s in the photo, possibly ask follow-up questions to clarify details (Is that fresh basil or spinach? Are those eggs still good?), and ultimately provide a tailored recipe recommendation.
+This isn’t just a simple Q&A chatbot anymore. Here, we’re dealing with image recognition, context understanding, and potentially multiple steps in the interaction. The app needs to understand what’s in the photo, possibly ask follow-up questions to clarify details (Is that fresh basil or spinach? Are those eggs still good?), and ultimately provide a tailored recipe recommendation.
 
 
 ## Multi-Agent Systems and State Management
@@ -285,7 +285,7 @@ In this code:
 * We create a **retriever** to search for the most relevant documents based on user input.  
 * The **ConversationalRetrievalChain** combines the retrieval process with the OpenAI model to generate responses grounded in the retrieved documents.
 
-One key part of the example is add\_routes, which comes from the LangServe package. This function automatically integrates LangChain-powered AI workflows into a FastAPI app by creating the necessary routes. It simplifies the process of turning your AI logic into a fully functional API.
+One key part of the example is add `_routes`, which comes from the LangServe package. This function automatically integrates LangChain-powered AI workflows into a FastAPI app by creating the necessary routes. It simplifies the process of turning your AI logic into a fully functional API.
 
 ### Why Retrieval-Augmented Generation (RAG)?
 
