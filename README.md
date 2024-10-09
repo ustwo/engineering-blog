@@ -26,7 +26,7 @@ gatsby develop
 ```
 
 - Development server (https://localhost:8000)
-- Querying Data with GraphQL (http://localhost:8000/\_\_\_graphql)
+- Querying Data with GraphQL (http://localhost:8000/___graphql)
 
 ## Writing an article
 
