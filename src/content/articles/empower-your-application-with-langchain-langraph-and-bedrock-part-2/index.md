@@ -8,9 +8,16 @@ tags: python, langchain, langgraph, ai
 cta_prefix: Take your AI interactions to the next level with LangGraph, a powerful tool for managing complex workflows in AI-driven apps.
 ---
 
+## Table of Contents
+
+1. [Empower your application with Langchain, Langraph and Bedrock - Part 1: Exploring AI Tools](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-1)
+2. [Empower your application with Langchain, Langraph and Bedrock - Part 2: Managing Complex AI Interactions with LangGraph](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-2)
+3. [Empower your application with Langchain, Langraph and Bedrock - Part 3: Leveraging Bedrock for Knowledge Base Management](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-3)
+
 Now, let’s shift gears and talk about more complex scenarios—moving beyond basic chat interfaces. Imagine this: an app that offers you recipe suggestions based on a photo you take of your fridge or pantry. Seems futuristic, right? But this type of application is [already within reach](https://www.linkedin.com/posts/ustwo-_sproutiful-ustwoai-guthealth-activity-7239277625494405120-OJd1/), and it’s a great example of how we can push the boundaries of AI-driven experiences.
 
 This isn’t just a simple Q\&A chatbot anymore. Here, we’re dealing with image recognition, context understanding, and potentially multiple steps in the interaction. The app needs to understand what’s in the photo, possibly ask follow-up questions to clarify details (Is that fresh basil or spinach? Are those eggs still good?), and ultimately provide a tailored recipe recommendation.
+
 
 ## Multi-Agent Systems and State Management
 
@@ -25,7 +32,7 @@ For example:
 
 The interaction becomes more sophisticated, where the agent doesn’t just respond, but also seeks clarification when needed. This shift moves us from simple question-answer exchanges to a more dynamic, **multi-modal** interaction—one where the agent can process different types of input and adapt its responses accordingly.
 
-For example, in a scenario where the AI is identifying ingredients from a photo of your fridge, it might not stop at merely describing what’s visible. If there’s ambiguity—like whether a green bunch is parsley or cilantro—the agent can ask follow-up questions or request more information. **O1** and similar models aim to push this even further by handling **multi-modal inputs**, meaning the agent isn’t restricted to text but can also interpret images, audio, and perhaps even video in real time.
+For example, in a scenario where the AI is identifying ingredients from a photo of your fridge, it might not stop at merely describing what’s visible. If there’s ambiguity—like whether a green bunch is parsley or cilantro—the agent can ask follow-up questions or request more information. **o1** and similar models aim to push this even further by handling **multi-modal inputs**, meaning the agent isn’t restricted to text but can also interpret images, audio, and perhaps even video in real time.
 
 With this, the AI moves from passive response generation to **active engagement**, clarifying uncertainties, refining its understanding, and even prompting the user to provide missing information. It’s no longer just a tool answering queries—it’s an intelligent system that collaborates with you to arrive at the most accurate and relevant response.
 
@@ -50,7 +57,7 @@ LangGraph helps with all of this by providing a structured way to manage these i
 
 **Example: Recipe App with LangGraph**
 
-Here’s a simplified flow of how LangGraph could help manage such a complex interaction.
+Here’s a simplified flow of how [LangGraph](https://blog.langchain.dev/langgraph-multi-agent-workflows/) could help manage such a complex interaction.
 
 1. **User submits a photo:** The AI agent analyses the photo using an image recognition model (for example, Hugging Face’s Vision Transformer or a custom model).  
 2. **Agent clarifies:** The agent may not be confident about certain items (e.g., “Is that parsley or cilantro?”) and can ask the user for confirmation using a multi-agent system.  
@@ -58,6 +65,141 @@ Here’s a simplified flow of how LangGraph could help manage such a complex int
 4. **State management:** LangGraph ensures that throughout this multi-step process, all state information (such as confirmed ingredients, clarifications, etc.) is retained and used to refine future interactions.
 
 This flow can be as complex as needed, and LangGraph ensures the system can handle it by managing states, transitions between agents, and orchestrating how models interact with each other.
+
+Something like:
+
+```python
+from langchain_core.messages import BaseMessage, HumanMessage, ToolMessage, AIMessage
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
+from langgraph.graph import END, StateGraph, START
+from langchain_openai import ChatOpenAI
+from langgraph.prebuilt import ToolNode
+
+@tool
+def image_recognition_tool(image_path: str):
+    """Analyze the image and return identified ingredients."""
+    # Simulating image recognition process
+    ingredients = ["milk", "eggs", "herbs"]  # Replace with actual ML model logic
+    return f"Identified ingredients: {', '.join(ingredients)}. FINAL ANSWER"
+
+# Tool for clarification
+@tool
+def clarification_tool(ingredients: str):
+    """Clarify uncertain items like herbs."""
+    # Simulating a clarification process
+    if "herbs" in ingredients:
+        return "Is that fresh parsley or cilantro? Please clarify."
+    return "No clarification needed. FINAL ANSWER"
+
+# Tool for recipe generation (e.g., GPT-3)
+@tool
+def recipe_generation_tool(confirmed_ingredients: str):
+    """Generate a recipe based on confirmed ingredients."""
+    # Simulating recipe generation
+    return f"Recipe generated for ingredients: {confirmed_ingredients}. FINAL ANSWER"
+
+# Define the state to manage messages and sender
+class AgentState(TypedDict):
+    messages: Sequence[BaseMessage]
+    sender: str
+
+# Helper function to create agent nodes
+def create_agent_node(agent, state, name):
+    result = agent.invoke(state)
+    if isinstance(result, ToolMessage):
+        pass
+    else:
+        result = AIMessage(**result.dict(exclude={"type", "name"}), name=name)
+    return {
+        "messages": [result],
+        "sender": name,
+    }
+
+# Initialize LLM (e.g., GPT-4) for agents
+llm = ChatOpenAI(model="gpt-4")
+
+# Create Agents for Image Recognition, Clarification, and Recipe Generation
+def create_agent(llm, tools, system_message: str):
+    prompt = ChatPromptTemplate.from_messages(
+        [
+            (
+                "system",
+                "You are an AI assistant collaborating with other assistants. "
+                "Your task is to process the image, clarify ingredients, and generate a recipe."
+                " If your result is final, prefix it with 'FINAL ANSWER'."
+                " Available tools: {tool_names}. {system_message}",
+            ),
+            MessagesPlaceholder(variable_name="messages"),
+        ]
+    )
+    prompt = prompt.partial(system_message=system_message)
+    prompt = prompt.partial(tool_names=", ".join([tool.name for tool in tools]))
+    return prompt | llm.bind_tools(tools)
+
+# Define agent nodes with their respective tools
+image_recognition_agent = create_agent(llm, [image_recognition_tool], system_message="Analyze the photo to identify ingredients.")
+clarification_agent = create_agent(llm, [clarification_tool], system_message="Ask for clarification if needed.")
+recipe_agent = create_agent(llm, [recipe_generation_tool], system_message="Generate a recipe from the confirmed ingredients.")
+
+image_recognition_node = functools.partial(create_agent_node, agent=image_recognition_agent, name="ImageRecognition")
+clarification_node = functools.partial(create_agent_node, agent=clarification_agent, name="Clarification")
+recipe_node = functools.partial(create_agent_node, agent=recipe_agent, name="RecipeGeneration")
+
+# Define Tool Node for executing tools
+tools = [image_recognition_tool, clarification_tool, recipe_generation_tool]
+tool_node = ToolNode(tools)
+
+# Define Edge Logic for transitioning between steps
+def router(state):
+    messages = state["messages"]
+    last_message = messages[-1]
+    if last_message.tool_calls:
+        return "call_tool"
+    if "FINAL ANSWER" in last_message.content:
+        return END
+    return "continue"
+
+# Define the Graph Workflow
+workflow = StateGraph(AgentState)
+workflow.add_node("ImageRecognition", image_recognition_node)
+workflow.add_node("Clarification", clarification_node)
+workflow.add_node("RecipeGeneration", recipe_node)
+workflow.add_node("call_tool", tool_node)
+
+workflow.add_conditional_edges(
+    "ImageRecognition", router, {"continue": "Clarification", "call_tool": "call_tool", END: END}
+)
+workflow.add_conditional_edges(
+    "Clarification", router, {"continue": "RecipeGeneration", "call_tool": "call_tool", END: END}
+)
+workflow.add_conditional_edges(
+    "RecipeGeneration", router, {"continue": "ImageRecognition", "call_tool": "call_tool", END: END}
+)
+workflow.add_conditional_edges(
+    "call_tool", lambda x: x["sender"], {"ImageRecognition": "ImageRecognition", "Clarification": "Clarification", "RecipeGeneration": "RecipeGeneration"}
+)
+workflow.add_edge(START, "ImageRecognition")
+
+# Compile the graph
+graph = workflow.compile()
+
+# Example invocation: User submits a photo of their fridge
+events = graph.stream(
+    {
+        "messages": [
+            HumanMessage(
+                content="Here is a photo of my fridge. Can you suggest a recipe based on the ingredients?"
+            )
+        ],
+    },
+    {"recursion_limit": 150},
+)
+
+# Output the events (final recipe)
+for event in events:
+    print(event)
+    print("----")
+```
 
 ### Scaling These Applications
 
@@ -156,3 +298,9 @@ Concepts like **embeddings**, **chunk size**, and **chunk overlap** are crucial 
 As we’ve seen, integrating AI into more complex workflows is not just about adding a simple chatbot. LangGraph provides the necessary infrastructure to handle multi-agent systems, state management, and complex interaction flows, making AI-driven applications far more robust and scalable. Whether you’re working with image recognition, follow-up clarifications, or multiple models, LangGraph simplifies these tasks and keeps the complexity under control.
 
 In the next and final part of this series, we’ll explore how Amazon Bedrock further streamlines AI development by managing document-based knowledge retrieval for context-aware applications. Stay tuned!
+
+## Almost there!
+
+Next, we’ll explore how **Amazon Bedrock** simplifies knowledge base management for AI-driven applications. Get ready to see how Bedrock handles document retrieval with ease.
+
+[Don’t miss Part 3: Leveraging Bedrock for Knowledge Base Management](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-3)
