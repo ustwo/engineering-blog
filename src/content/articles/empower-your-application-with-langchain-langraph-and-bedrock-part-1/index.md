@@ -8,8 +8,6 @@ tags: python, langchain, ai, javascript
 cta_prefix: AI is reshaping the future of app development. Join us as we explore the tools that make integrating AI easier for developers.
 ---
 
-# Empower your application with Langchain, Langraph and Bedrock - Part 1: Exploring AI Tools
-
 Hello there! 👋
 
 By now, it’s pretty clear that adding AI to our systems is more of a “when” than an “if.” But it’s not just about slapping on some API calls and calling it done. There’s a lot more going on under the hood. In this article, I’m going to share how I, as a full stack dev, started weaving AI into my projects using tools like LangChain, LangGraph, and Bedrock.

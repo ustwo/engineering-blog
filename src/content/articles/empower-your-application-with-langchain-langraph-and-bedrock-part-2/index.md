@@ -8,8 +8,6 @@ tags: python, langchain, langgraph, ai
 cta_prefix: Take your AI interactions to the next level with LangGraph, a powerful tool for managing complex workflows in AI-driven apps.
 ---
 
-# Empower your application with Langchain, Langraph and Bedrock - Part 2: Moving Beyond Simple Chats
-
 Now, let’s shift gears and talk about more complex scenarios—moving beyond basic chat interfaces. Imagine this: an app that offers you recipe suggestions based on a photo you take of your fridge or pantry. Seems futuristic, right? But this type of application is [already within reach](https://www.linkedin.com/posts/ustwo-_sproutiful-ustwoai-guthealth-activity-7239277625494405120-OJd1/), and it’s a great example of how we can push the boundaries of AI-driven experiences.
 
 This isn’t just a simple Q\&A chatbot anymore. Here, we’re dealing with image recognition, context understanding, and potentially multiple steps in the interaction. The app needs to understand what’s in the photo, possibly ask follow-up questions to clarify details (Is that fresh basil or spinach? Are those eggs still good?), and ultimately provide a tailored recipe recommendation.
