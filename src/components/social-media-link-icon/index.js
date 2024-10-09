@@ -1,9 +1,9 @@
 import React from "react";
-import { LinkedInIcon } from "../Icons/linkedInIcon";
-import { XIcon } from "../Icons/xIcon";
-import { InstagramIcon } from "../Icons/instagramIcon";
-import { GithubIcon } from "../Icons/githubIcon";
-import { EmailIcon } from "../Icons/emailIcon";
+import { LinkedInIcon } from "../../assets/icons/linkedInIcon";
+import { XIcon } from "../../assets/icons/xIcon";
+import { InstagramIcon } from "../../assets/icons/instagramIcon";
+import { GithubIcon } from "../../assets/icons/githubIcon";
+import { EmailIcon } from "../../assets/icons/emailIcon";
 import * as styles from "./social-media-link-icon.module.css";
 
 const iconMap = {

@@ -23,7 +23,7 @@ const Article = ({ data }) => {
       />
       <footer>
         <ArticleCTA prefix={frontmatter.cta_prefix} />
-        {<AuthorInfo author={author} />}
+        {author?.shortIntro && <AuthorInfo author={author} />}
       </footer>
     </Layout>
   );

@@ -23,8 +23,8 @@ const AuthorInfo = ({ author }) => {
       </div>
 
       {!!shortIntro && (
-        <div className={styles.quoteBox}>
-          <p className={styles.quoteText}>{shortIntro}</p>
+        <div className={styles.descriptionBox}>
+          <p className={styles.descriptionText}>{shortIntro}</p>
         </div>
       )}
 
