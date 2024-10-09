@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import ArticleDetails from "../components/article-details";
-import ArticleCTA from "../components/article-cta";
-import AuthorInfo from "../components/AuthorInfo/author-info";
-import Meta from "../components/meta";
+import Layout from "../../components/layout";
+import ArticleDetails from "../../components/article-details";
+import ArticleCTA from "../../components/article-cta";
+import AuthorInfo from "../../components/AuthorInfo/author-info";
+import Meta from "../../components/meta";
 import * as styles from "./styles.module.css";
 
 const Article = ({ data }) => {
