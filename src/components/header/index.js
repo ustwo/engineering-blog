@@ -11,7 +11,7 @@ const Header = () => (
         <LogoUstwo className={styles.logo} aria-hidden="true" />
         <span>Engineering Blog</span>
       </Link>
-      <ul className="smallText">
+      <ul className={`smallText ${styles.links}`}>
         <li><Link to="/about">About</Link></li> 
         <li><Link to="/contact">Contact</Link></li>
       </ul>
