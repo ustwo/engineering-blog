@@ -26,7 +26,6 @@ const renderIcon = (platform, url) => {
       href={platformName === "email" ? `mailto:${url}` : url}
       target="_blank"
       rel={platformName === "Email" ? "" : "noopener noreferrer"}
-      className={styles.iconLink}
       title={url}
     >
       <span className={styles.icon}>{IconComponent}</span>
