@@ -16,6 +16,7 @@ const iconMap = {
 
 const renderIcon = (platform, url) => {
   const platformName = platform.toLowerCase();
+  const isEmail = platformName === "email";
 
   const IconComponent = iconMap[platformName];
 
@@ -23,10 +24,9 @@ const renderIcon = (platform, url) => {
 
   return (
     <a
-      href={platformName === "email" ? `mailto:${url}` : url}
+      href={isEmail ? `mailto:${url}` : url}
       target="_blank"
-      rel={platformName === "Email" ? "" : "noopener noreferrer"}
-      className={styles.iconLink}
+      rel={isEmail ? "" : "noopener noreferrer"}
       title={url}
     >
       <span className={styles.icon}>{IconComponent}</span>

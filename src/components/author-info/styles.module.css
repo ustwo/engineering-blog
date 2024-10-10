@@ -16,7 +16,9 @@
 
 .authorAvatar {
   max-width: 90px;
+  min-width: 90px;
   height: 90px;
+  min-height: 90px;
   border-radius: 50%;
 }
 
