@@ -34,10 +34,11 @@ const renderIcon = (platform, url) => {
   );
 };
 
-const SocialMediaLinkIcons = ({ platforms }) => {
+const SocialMediaLinkIcons = ({ platforms, size }) => {
+  const containerClasses = styles.socialIcons + ((size === "small" ? " " + styles.small : ""));
   if (Array.isArray(platforms)) {
     return (
-      <div className={styles.socialIcons}>
+      <div className={containerClasses}>
         {platforms.map((platformInfo) => (
           <div key={platformInfo.platform}>
             {renderIcon(platformInfo.platform, platformInfo.url)}
@@ -49,7 +50,7 @@ const SocialMediaLinkIcons = ({ platforms }) => {
 
   if (platforms?.platform && platforms?.url) {
     return (
-      <div className={styles.socialIcons}>
+      <div className={containerClasses}>
         {renderIcon(platforms.platform, platforms.url)}
       </div>
     );

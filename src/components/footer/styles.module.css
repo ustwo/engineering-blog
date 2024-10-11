@@ -38,13 +38,3 @@ a:hover {
   width: 3em;
   display: inline-block;
 }
-
-.socials {
-  list-style-type: none;
-  display: flex;
-  padding: 0;
-}
-
-.socials li {
-  margin-left: 10px;
-}
