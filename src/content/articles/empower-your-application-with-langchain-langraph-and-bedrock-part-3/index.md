@@ -13,7 +13,8 @@ cta_prefix: With tools like Bedrock, managing knowledge bases for AI-driven appl
 2. [Part 2: Managing Complex AI Interactions with LangGraph](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-2)
 3. Part 3: Leveraging Bedrock for Knowledge Base Management 👈🏼 **You are here**
 
-Welcome to the final part of our series!  
+Welcome to the final part of our series!
+
 In the previous posts, we explored how LangChain simplifies LLM interactions and how LangGraph manages complex multi-agent workflows. Now, let’s focus on Amazon Bedrock and how it helps you manage knowledge bases for AI applications. Whether you’re dealing with internal documents or external sources, Bedrock offers a streamlined way to build context-aware AI systems.
 
 ### Introducing Bedrock: Simplifying Knowledge Base Management
