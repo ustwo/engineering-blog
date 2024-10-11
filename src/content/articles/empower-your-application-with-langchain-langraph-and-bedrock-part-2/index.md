@@ -125,7 +125,7 @@ def create_agent(llm, tools, system_message: str):
                 "system",
                 "You are an AI assistant collaborating with other assistants. "
                 "Your task is to process the image, clarify ingredients, and generate a recipe."
-                " If your result is final, prefix it with 'FINAL ANSWER'."
+                " If your result is final, end it with 'FINAL ANSWER'."
                 " Available tools: {tool_names}. {system_message}",
             ),
             MessagesPlaceholder(variable_name="messages"),
@@ -227,13 +227,13 @@ Once we generate these embeddings, we store them in a vector database, using too
 At this point, we can manually control the retrieval of relevant documents based on user input through a retriever, which will search the knowledge base for the most relevant pieces of information. Then, using a system like Retrieval-Augmented Generation (RAG), the AI can generate responses based on those documents. Something like this:
 
 ```py
+import os
+import uvicorn
 from fastapi import FastAPI
 from langchain.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 from dotenv import load_dotenv
 from langserve import add_routes
-import uvicorn
-import os
 from langchain_community.document_loaders import CSVLoader
 from langchain_text_splitters import CharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
