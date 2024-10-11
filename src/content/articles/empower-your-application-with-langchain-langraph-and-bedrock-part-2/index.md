@@ -1,15 +1,17 @@
 ---
-title: "Empower your application with Langchain, Langraph and Bedrock - Part 2: Managing Complex AI Interactions with LangGraph"
+title: "Managing Complex AI Interactions with LangGraph"
+series_title: "Empower your application with Langchain, Langraph and Bedrock"
+series_number: 2
 author: Vinicios Neves
-date: 2024-10-09
+date: 2024-10-10
 description: Discover how LangGraph enables multi-step and multi-agent workflows for more sophisticated AI applications.
 thumbnail: ./assets/thumbnail.jpg
 tags: python, langchain, langgraph, ai
 cta_prefix: Take your AI interactions to the next level with LangGraph, a powerful tool for managing complex workflows in AI-driven apps.
 ---
 
-*This article is one of a multi-part series, which covers the use of Langchain, Langraph, and Bedrock for working with LLMs. Here are the other parts in the series:*
-1. [Part 1: Exploring AI Tools](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-1)
+*This article is one of a multi-part series called **Empower your application with Langchain, Langraph and Bedrock**. Here are the other parts in the series:*
+1. [Part 1: Exploring AI Tools for LLM Interactions](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-1)
 2. Part 2: Managing Complex AI Interactions with LangGraph] 👈🏼 **You are here**
 3. [Part 3: Leveraging Bedrock for Knowledge Base Management](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-3)
 

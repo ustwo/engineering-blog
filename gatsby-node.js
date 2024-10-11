@@ -54,6 +54,8 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(`
     type MarkdownRemarkFrontmatter {
       contactInfo: [ContactInfo]
+      series_title: String
+      series_number: Int
     }
 
     type ContactInfo {

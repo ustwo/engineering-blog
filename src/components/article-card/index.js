@@ -6,16 +6,18 @@ import tagify from "../../utils/tagify";
 import * as styles from "./styles.module.css";
 import * as constants from "../../utils/constants";
 
-const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty }) => {
+const ArticleCard = ({ slug, title, description, series_title, series_number, date, thumbnail, tags, empty }) => {
   const thumbnailImage = getImage(thumbnail?.childImageSharp?.gatsbyImageData);
 
   const [hovered, setHover] = useState(false);
   const toggleHover = () => setHover(prev => !prev);
 
+  const isSeries = series_title && series_number;
+  
   if (!empty) {
     return (
       <article
-        className={`${styles.articleCard} ${hovered ? styles.hovered : ""}`}
+        className={`${styles.articleCard} ${hovered ? styles.hovered : ""} ${isSeries ? styles.articleInSeries : ""}`}
         aria-labelledby={slug}
       >
         <div className={styles.contentWrapper}>
@@ -30,6 +32,7 @@ const ArticleCard = ({ slug, title, description, date, thumbnail, tags, empty })
                 {title}
               </Link>
             </h2>
+            {isSeries && <h4 className={styles.subtitle}>Part {series_number} of {series_title}</h4>}
             <time className={styles.date} dateTime={date}>{format(new Date(date), constants.blog_date_format)}</time>
             <p className={styles.description}>{description}</p>
           </header>

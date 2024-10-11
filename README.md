@@ -15,7 +15,17 @@ A static website so our Engineering Team can write articles and tutorials about 
 
 **`title`** [string][required]
 
-Unique to all other articles. Char limit: ??
+Unique to all other articles.
+
+**`series_title`** [string][optional]
+
+Title for the series of articles, if applicable.
+
+**`series_number`** [int][optional]
+
+This article's number in the series of article, if applicable.
+
+*Note that if an article is in a series, both the title and number fields should be supplied*
 
 **`author`** [string]
 

@@ -1,15 +1,17 @@
 ---
-title: "Empower your application with Langchain, Langraph and Bedrock - Part 3: Leveraging Bedrock for Knowledge Base Management"
+title: "Leveraging Bedrock for Knowledge Base Management"
+series_title: "Empower your application with Langchain, Langraph and Bedrock"
+series_number: 3
 author: Vinicios Neves
-date: 2024-10-09
+date: 2024-10-11
 description: Learn how to manage document-based knowledge bases with Amazon Bedrock, simplifying AI interactions for context-aware applications.
 thumbnail: ./assets/thumbnail.jpg
 tags: ai, bedrock, langchain, knowledge management
 cta_prefix: With tools like Bedrock, managing knowledge bases for AI-driven applications has never been easier.
 ---
 
-*This article is one of a multi-part series, which covers the use of Langchain, Langraph, and Bedrock for working with LLMs. Here are the other parts in the series:*
-1. [Part 1: Exploring AI Tools](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-1)
+*This article is one of a multi-part series called **Empower your application with Langchain, Langraph and Bedrock**. Here are the other parts in the series:*
+1. [Part 1: Exploring AI Tools for LLM Interactions](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-1)
 2. [Part 2: Managing Complex AI Interactions with LangGraph](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-2)
 3. Part 3: Leveraging Bedrock for Knowledge Base Management 👈🏼 **You are here**
 

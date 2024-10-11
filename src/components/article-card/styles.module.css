@@ -41,6 +41,11 @@
   font-size: var(--font-size-h3);
 }
 
+.subtitle {
+  order: 2;
+  font-size: var(--font-size-h5);
+  margin: 0 0 0.5em 0;
+}
 .description {
   order: 2;
   font-size: var(--font-size-small);
@@ -74,6 +79,9 @@
 .articleCard h2 {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+.articleCard.articleInSeries h2{
+  margin-bottom: 0;
 }
 
 .date {

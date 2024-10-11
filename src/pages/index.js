@@ -67,6 +67,8 @@ export const query = graphql`
         childMarkdownRemark {
           frontmatter {
             title
+            series_title
+            series_number
             date
             description
             thumbnail {
