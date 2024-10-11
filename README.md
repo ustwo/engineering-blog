@@ -51,35 +51,6 @@ Comma-separated values to categorise the article, e.g. `javascript, gatsby, netl
 
 Additional copy added to the bottom of the article, e.g. `At ustwo, we're exploring how AI can be used to create and elevate great product experiences that help humans to connect.`
 
-### Instructions to create an author profile
-
-1. Inside the directory `src/content/authors`, create a folder with your name, separated by hyphens (`-`), and add an `index.md` file inside it.
-
-2. The `index.md` file should contain the following fields. `contactInfo` is the only optional field.
-
-3. Available contact platforms are: **Email**, **Github**, **Instagram**, **LinkedIn**, and **X** (formerly Twitter).
-
-4. The `contactInfo` field can contain one or more contact platforms. If there's no contact information, this field can be omitted.
-
-i.e:
-
-```yaml
----
-name: Ada lovelace
-role: mathematician
-contact: ada.lovelace@ustwo.com
-avatar: ./avatar-ada-lovelace.jpg
-shortIntro: "Mathematician and writer chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine."
-contactInfo:
-  - platform: Github
-    url: https://github.com/ada
-  - platform: Email
-    url: ada.lovelace@ustwo.com
-  - platform: Linkedin
-    url: https://www.linkedin.com/in/ada-lovelace-5304b233
----
-```
-
 ### Assets
 
 #### Images
