@@ -8,9 +8,9 @@ tags: python, langchain, ai, javascript
 cta_prefix: AI is reshaping the future of app development. Join us as we explore the tools that make integrating AI easier for developers.
 ---
 
-**Table of Contents**
+*This article is one of a multi-part series, which covers the use of Langchain, Langraph, and Bedrock for working with LLMs. Here are the other parts in the series:*
 
-1. [Part 1: Exploring AI Tools](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-1)
+1. Part 1: Exploring AI Tools 👈🏼 **You are here**
 2. [Part 2: Managing Complex AI Interactions with LangGraph](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-2)
 3. [Part 3: Leveraging Bedrock for Knowledge Base Management](/articles/empower-your-application-with-langchain-langraph-and-bedrock-part-3)
 
