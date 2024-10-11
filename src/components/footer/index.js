@@ -1,6 +1,22 @@
 import React from "react";
 import LogoUstwo from "../../assets/icons/logo-ustwo";
 import * as styles from "./styles.module.css";
+import SocialMediaLinkIcons from "../social-media-link-icon";
+
+const contactInfo = [
+  {
+    platform: "instagram",
+    url: "https://instagram.com/ustwo",
+  },
+  {
+    platform: "linkedin",
+    url: "https://linkedin.com/company/ustwo-",
+  },
+  {
+    platform: "x",
+    url: "https://twitter.com/ustwo",
+  },
+];
 
 const Footer = () => (
   <footer className={styles.footer}>
@@ -10,11 +26,7 @@ const Footer = () => (
         <li><a href="https://ustwo.com/legal/">Legal</a></li>
         <li><a href="https://ustwo.com/privacy-policy/">Privacy Policy</a></li>
       </ul>
-      <ul className={styles.socials}>
-        <li><a href="https://instagram.com/ustwo" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-        <li><a href="https://linkedin.com/company/ustwo-" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-        <li><a href="https://twitter.com/ustwo" target="_blank" rel="noopener noreferrer">X</a></li>
-      </ul>
+      <SocialMediaLinkIcons platforms={contactInfo} size="small"/>    
     </div>
   </footer>
 );
