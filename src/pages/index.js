@@ -16,8 +16,8 @@ const Home = ({ data }) => {
     </li>
   ));
   
-  if (articles.length < 12) {
-    const placeholdersNeeded = 12 - articles.length;
+  if (articles.length < 6) {
+    const placeholdersNeeded = 6 - articles.length;
   
     const placeholders = Array.from({ length: placeholdersNeeded }, (_, index) => (
       <li key={`placeholder-${index}`}><ArticleCard empty  /></li>
