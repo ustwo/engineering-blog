@@ -92,5 +92,15 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: "ustwo engineering blog",
+        short_name: "ustwo engineering blog",
+        start_url: "/",
+        display: "minimal-ui",
+        icon: "src/assets/icons/favicon.png",
+      },
+    },
   ]
 }
