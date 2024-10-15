@@ -34,7 +34,12 @@
 
 .authorRole {
   margin: 0;
-  font-size: 16px;
+  font-size: var(--font-size-small);
+}
+
+.authorLocation {
+  margin: 0;
+  font-size: var(--font-size-small);
 }
 
 .descriptionBox {

@@ -117,6 +117,7 @@ name: Ada lovelace
 role: mathematician
 contact: ada.lovelace@ustwo.com
 avatar: ./avatar-ada-lovelace.jpg
+location: London, UK
 shortIntro: "Mathematician and writer chiefly known for her work on Charles Babbage's proposed mechanical general-purpose computer, the Analytical Engine."
 contactInfo:
   - platform: Github

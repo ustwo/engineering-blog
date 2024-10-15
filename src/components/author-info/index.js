@@ -1,10 +1,11 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import SocialMediaLinkIcons from "../social-media-link-icon";
+
 import * as styles from "./styles.module.css";
 
 const AuthorInfo = ({ author }) => {
-  const { name, role, avatar, shortIntro, contactInfo } = author;
+  const { name, role, avatar, location, shortIntro, contactInfo } = author;
   const avatarImage = getImage(avatar?.childImageSharp?.gatsbyImageData);
 
   return (
@@ -18,7 +19,7 @@ const AuthorInfo = ({ author }) => {
         />
         <div className={styles.authorDetails}>
           <h4 className={styles.authorName}>{name}</h4>
-          <p className={styles.authorRole}>{role}</p>
+          <p className={styles.authorRole}>{role} - {location}</p>
           {!!shortIntro && (
             <div className={styles.descriptionBox}>
               <p className={styles.descriptionText}>{shortIntro}</p>
