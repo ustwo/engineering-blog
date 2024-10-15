@@ -18,14 +18,14 @@ const AuthorInfo = ({ author }) => {
             image={avatarImage}
             alt={`${name} headshot`}
           />
-          <div className={styles.authorNameCotainer}>
+          <div className={styles.authorNameContainer}>
             <h4 className={styles.authorName}>{name}</h4>
             <p className={styles.authorRole}>
               {role} - {location}
             </p>
           </div>
         </div>
-        <div className={styles.box}>
+        <div className={styles.descriptionBoxContainer}>
           {!!shortIntro && (
             <div className={styles.descriptionBox}>
               <p className={styles.descriptionText}>{shortIntro}</p>

@@ -14,7 +14,7 @@
   flex-direction: column;
 }
 
-.authorNameCotainer {
+.authorNameContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +70,7 @@
 }
 
 @media (min-width: 768px) {
-  .box {
+  .descriptionBoxContainer {
     margin-left: 10.45rem;
   }
 
