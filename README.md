@@ -129,7 +129,9 @@ contactInfo:
 ---
 ```
 
-### Markdown formatting and tips
+### Markdown features and tips
+
+Check out the [sandbox](https://engineering.ustwo.com/sandbox) and `/src/content/sandbox.md` to see how various features are used, including image captions, code blocks and tables.
 
 #### Images with captions
 

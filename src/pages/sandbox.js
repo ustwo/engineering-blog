@@ -12,6 +12,10 @@ const Sandbox = ({ data }) => {
 
 export default Sandbox;
 
+export const Head = () => (
+  <meta name="robots" content="noindex, nofollow" />
+);
+
 export const query = graphql`
   query {
     content: markdownRemark(frontmatter: { name: { eq: "sandbox" } }) {
