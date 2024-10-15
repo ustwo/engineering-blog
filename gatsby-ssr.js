@@ -7,6 +7,7 @@ export function onRenderBody({ setPostBodyComponents, setHtmlAttributes }) {
       async
       defer
       src="https://scripts.withcabin.com/hello.js"
+      key="cabinAnalytics-script"
     />,
   ]);
 };
