@@ -12,14 +12,20 @@ const AuthorInfo = ({ author }) => {
     <section className={styles.authorProfileSection}>
       <h3 className={styles.authorHeading}>About the author:</h3>
       <div className={styles.authorHeader}>
-        <GatsbyImage
-          className={styles.authorAvatar}
-          image={avatarImage}
-          alt={`${name} headshot`}
-        />
         <div className={styles.authorDetails}>
-          <h4 className={styles.authorName}>{name}</h4>
-          <p className={styles.authorRole}>{role} - {location}</p>
+          <GatsbyImage
+            className={styles.authorAvatar}
+            image={avatarImage}
+            alt={`${name} headshot`}
+          />
+          <div className={styles.authorNameContainer}>
+            <h4 className={styles.authorName}>{name}</h4>
+            <p className={styles.authorRole}>
+              {role} - {location}
+            </p>
+          </div>
+        </div>
+        <div className={styles.descriptionBoxContainer}>
           {!!shortIntro && (
             <div className={styles.descriptionBox}>
               <p className={styles.descriptionText}>{shortIntro}</p>
