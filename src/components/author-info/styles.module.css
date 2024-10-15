@@ -11,7 +11,13 @@
 
 .authorHeader {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+}
+
+.authorNameCotainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .authorAvatar {
@@ -24,8 +30,7 @@
 
 .authorDetails {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  gap: 1.5rem;
 }
 
 .authorName {
@@ -62,4 +67,14 @@
   gap: 16px;
   width: 100%;
   margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .box {
+    margin-left: 10.45rem;
+  }
+
+  .descriptionBox {
+    margin-top: 0;
+  }
 }
