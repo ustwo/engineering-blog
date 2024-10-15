@@ -45,7 +45,7 @@ Displayed on article card and used for meta and social network descriptions. Cha
 
 **`thumbnail`** [string]
 
-This should live in the assets dir, e.g. `./assets/thumbnail.jpg`. Optimal size is 1200px wide and no less than 630px high.
+This should live in the assets dir, e.g. `./assets/thumbnail.jpg`. It should be 1200px wide and no less than 630px high.
 
 **`tags`** [string]
 
