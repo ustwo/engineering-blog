@@ -84,6 +84,7 @@ export const query = graphql`
         frontmatter {
           name
           role
+          location
           shortIntro
           avatar {
             childImageSharp {
