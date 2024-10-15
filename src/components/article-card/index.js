@@ -38,7 +38,7 @@ const ArticleCard = ({ slug, title, description, series_title, series_number, da
           </header>
           {tags && (
             <ul className={styles.tags} aria-label="Article tags">
-              {tagify(tags).map(tag => <li key={`${title} ${tag}`}>{tag}</li>)}
+              {tagify(tags).map(tag => <li key={`${title}-${tag}`}>{tag}</li>)}
             </ul>
           )}
         </div>
