@@ -37,7 +37,7 @@ This should replicate the name used in `/content/authors` (see creating author b
 
 **`date`** [string]
 
-Format: YYYY-MM-DD e.g. `2024-02-12`
+Format: YYYY-MM-DD eg, `2024-02-12`
 
 **`description`** [string]
 
@@ -45,15 +45,25 @@ Displayed on article card and used for meta and social network descriptions. Cha
 
 **`thumbnail`** [string]
 
-This should live in the assets dir, e.g. `./assets/thumbnail.jpg`. It should be 1200px wide and no less than 630px high.
+This should live in the assets dir, eg, `./assets/thumbnail.jpg`. It should be 1200px wide and no less than 630px high.
 
 **`tags`** [string]
 
-Comma-separated values to categorise the article, e.g. `javascript, gatsby, netlify`
+Comma-separated values to categorise the article, eg, `javascript, gatsby, netlify`
 
 **`cta_prefix`** [string]
 
-Additional copy added to the bottom of the article, e.g. 'At ustwo, we're exploring how AI can be used to create and elevate great product experiences that help humans to connect.'
+Additional copy added to the bottom of the article, eg, 'At ustwo, we're exploring how AI can be used to create and elevate great product experiences that help humans to connect.'
+
+### Writing style
+The following style guidelines have been requested by our marketing team to maintain consistency with ustwo's other outward facing media:
+1. Use UK English spelling
+1. No Oxford commas
+1. Sentence Case titles
+1. Sentence case capitalisation in headings of article sections
+1. No punctuation in Latin expressions - should read as eg, ie with a comma afterward
+1. Time - 12 hour with am or pm - eg, 6:00pm
+1. Date - day, date month, year - eg, Thursday, 26 September, 2024
 
 ### Assets
 
@@ -63,11 +73,11 @@ Files should not drastically exceed what is absolutely necessary, no matter the 
 
 #### Images
 
-For now, images for each article are kept in the repo, e.g. `/src/contents/articles/article-name/assets`.
+For now, images for each article are kept in the repo, eg, `/src/contents/articles/article-name/assets`.
 
 As a rule of thumb, images should be between 2000-3000px wide and be landscape. 
 
-Don't just use PNG as a matter of course - consider the contents of the image and determine whether JPG is more appropriate, i.e. is it inherently a photo or illustration/diagram? We use `gatsby-plugin-image` to transform images to `webp` but the originals should not be unecessarily large to begin with - please no 5Mb PNGs!
+Don't just use PNG as a matter of course - consider the contents of the image and determine whether JPG is more appropriate, ie, is it inherently a photo or illustration/diagram? We use `gatsby-plugin-image` to transform images to `webp` but the originals should not be unecessarily large to begin with - please no 5Mb PNGs!
 
 #### Video
 
@@ -116,7 +126,7 @@ For autoplaying, gif-like videos:
 
 3. **`name`** [string][required] This should be exactly what is written in the `author` field in the frontmatter of the article markdown file.
 
-4. Available contact platforms are: **Email**, **Github**, **Instagram**, **LinkedIn**, and **X** (formerly Twitter).
+4. Available contact platforms are: **Email**, **Github**, **Instagram**, **LinkedIn** and **X** (formerly Twitter).
 
 5. The `contactInfo` field can contain one or more contact platforms. If there's no contact information, this field can be omitted.
 
@@ -146,7 +156,7 @@ Check out the [sandbox](https://engineering.ustwo.com/sandbox) and `/src/content
 
 #### Images with captions
 
-You can utilise `<figure>` and `<figcaption>` by using standard markdown syntax for images, but add the prefix 'caption:' to the start of the alt text, e.g. `![caption:This is the alt text but will generate as a caption](image_url.jpg)`.
+You can utilise `<figure>` and `<figcaption>` by using standard markdown syntax for images, but add the prefix 'caption:' to the start of the alt text, eg, `![caption:This is the alt text but will generate as a caption](image_url.jpg)`.
 
 
 ---
@@ -212,4 +222,4 @@ Each markdown file in `/src/content/articles/` is queried in `gatsby-node.js` an
 
 NOTE: It is more performant to query using `allFile` and filter using `sourceInstanceName` rather than querying `allMarkdownRemark` files, as we can then only filter using `regex: "/(articles)/"` on `fileAbsolutePath`.
 
-I'd liked to have used Gatsby's File System Route API, e.g. `/src/pages/articles/{allFile.name}.js` instead of using `gatsby-node.js`. The File System Route API generates pages based on file structure, but we would then filter `sourceInstanceName: 'articles'` in the GraphQL query after Gatsby has processed ALL files, including those we don't want, e.g. Author files. This feels inefficient since we would be processing files we intend to exclude. I wonder if there will be a way to do simple filtering in the File System Route API in the future.
+I'd liked to have used Gatsby's File System Route API, eg, `/src/pages/articles/{allFile.name}.js` instead of using `gatsby-node.js`. The File System Route API generates pages based on file structure, but we would then filter `sourceInstanceName: 'articles'` in the GraphQL query after Gatsby has processed ALL files, including those we don't want, eg, Author files. This feels inefficient since we would be processing files we intend to exclude. I wonder if there will be a way to do simple filtering in the File System Route API in the future.

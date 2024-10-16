@@ -12,19 +12,19 @@ Hi, This is a short guide on how to get up and running with RealityKit on Vision
 
 We'll cover:
 
-- [Installing Required Software ](#installing-required-software-)
-- [Xcode ](#xcode-)
-- [Creating a RealityView ](#creating-a-realityview-)
-  - [ContentView ](#contentview-)
-  - [ImmersiveView ](#immersiveview-)
-  - [Running the Default App ](#running-the-default-app-)
-  - [Starting afresh ](#starting-afresh-)
-- [Creating an Entity ](#creating-an-entity-)
-- [Dragging the Entity with Gestures ](#dragging-the-entity-with-gestures-)
-- [Creating a Component ](#creating-a-component-)
+- [Installing required software ](#software_requirements)
+- [Xcode ](#xcode)
+- [Creating a RealityView ](#realityview)
+  - [ContentView ](#contentview)
+  - [ImmersiveView ](#immersiveview)
+  - [Running the default app ](#running_the_default)
+  - [Starting afresh ](#starting_afresh)
+- [Creating an Entity ](#entity)
+- [Dragging the Entity with Gestures ](#drag_gesture)
+- [Creating a Component ](#component)
 
 
-## Installing Required Software <a name="software_requirements"></a>
+## Installing required software <a name="software_requirements"></a>
 
 VisionOS is shipped in Xcode 15.2 and later, the easiest way to download this is from [Xcode Releases](https://xcodereleases.com/)
 
@@ -52,15 +52,15 @@ You can think of a ContentView as a 2D view presented in 3D space. I think of it
 iOS App, all iOS controls work in this view.
 
 You'll note that you can also move this view around by `holding down` in the white bar at the bottom
-of the view, and then moving it to where-ever you want.
+of the view, and then moving it to wherever you want.
 
 ### ImmersiveView <a name="immersiveview"></a>
 
 The ImmersiveView contains a pre-made RealityView View, it loads some content from a referenced `RealityKitContent` package.
 
-### Running the Default App <a name="running_the_default"></a>
+### Running the default app <a name="running_the_default"></a>
 
-You can use this App in the Canvas Preview, or via running it in the Simulator, `CMD+R`
+You can use this app in the Canvas Preview, or via running it in the Simulator, `CMD+R`
 
 ![Default Space](./assets/default_space.jpg)
 
@@ -92,7 +92,7 @@ extension ImmersiveView: View {
 
 You should see the Preview Canvas update so that it has a Label "Getting Started"
 
-![Getting Started Screen](./assets/blank_getting_started.png)
+![Getting Started screen](./assets/blank_getting_started.png)
 
 Let's replace the Text Label with a RealityView to load some 3D Content.
 
@@ -123,7 +123,7 @@ extension ImmersiveView: View {
 }
 ```
 
-If done correctly, the Canvas should update and show... nothing, that's because we haven't asked the RealityView
+If done correctly, the canvas should update and show... nothing, that's because we haven't asked the RealityView
 to draw anything.
 
 ![Blank Screen](./assets/blank.png)
@@ -168,7 +168,7 @@ class Shape: Entity {
 
 It's important to note that the units used in RealityKit are in `meters`, so this cube is `25cm` along each edge.
 
-Entities can have multiple children, and those children cal also have children and so on, so in that sense, you can think of it like a tree of Entities/Nodes
+Entities can have multiple children, and those children can also have children and so on, so in that sense, you can think of it like a tree of Entities/Nodes.
 
 We can now switch back to the `ImmersiveView` and add this Shape to the `scene`.
 
@@ -262,7 +262,7 @@ An `Entity` can have a collection of `Components`,I think of them as traits that
 
 An `Entity` can have the `HoverEffectComponent` which RealityView interprets as highlighting the `Entity` when it is hovered over, whether that by via a mouse, or gaze.
 
-In order for the `Cube` to be `Selectable` we need to add the `InputTargetComponent`, and `CollisionComponent`, let's update the code:
+In order for the `Cube` to be `Selectable` we need to add the `InputTargetComponent` and `CollisionComponent`. Let's update the code:
 
 ```swift
 import RealityKit

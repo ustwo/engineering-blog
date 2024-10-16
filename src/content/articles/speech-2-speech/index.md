@@ -1,8 +1,8 @@
 ---
-title: AI in Action - Crafting a Real-Time Speech-to-Speech Translation App
+title: AI in action - crafting a real-time speech-to-speech translation app
 author: Patricia Silva
 date: 2024-10-03
-description: Build a real-time speech-to-speech translation app with OpenAI, AssemblyAI, ElevenLabs, and LangChain for natural language processing.
+description: Build a real-time speech-to-speech translation app with OpenAI, AssemblyAI, ElevenLabs and LangChain for natural language processing.
 thumbnail: ./assets/thumbnail.jpg
 tags: python, langchain, openai, assemblyai, elevenlabs
 cta_prefix: At ustwo, we're exploring how AI can be used to create and elevate great product experiences that help humans to connect.
@@ -10,9 +10,9 @@ cta_prefix: At ustwo, we're exploring how AI can be used to create and elevate g
 
 Just like when we go to the supermarket to select ingredients for a recipe, we can also choose digital "ingredients" to build our solutions. In this article, I’d like to explore and break down the complexity of these applications.
 
-How easy is it to create a "Speech-to-Speech" solution that captures speech, processes it, and translates it into another language in real-time?
+How easy is it to create a "speech-to-speech" solution that captures speech, processes it and translates it into another language in real-time?
 
-Using AI-based services, it’s surprisingly accessible and easy to create such a solution quickly. For this solution, I am using [OpenAI](https://openai.com/) for natural language processing, [AssemblyAI](https://www.assemblyai.com/) for speech recognition, [ElevenLabs](https://elevenlabs.io/) for speech synthesis, and [LangChain](https://www.langchain.com/) for workflow management, which have been game-changers.
+Using AI-based services, it’s surprisingly accessible and easy to create such a solution quickly. For this solution, I am using [OpenAI](https://openai.com/) for natural language processing, [AssemblyAI](https://www.assemblyai.com/) for speech recognition, [ElevenLabs](https://elevenlabs.io/) for speech synthesis and [LangChain](https://www.langchain.com/) for workflow management, which have been game-changers.
 
 Here is a small experiment in which I’m speaking in English, and the app pronounces it in French or Portuguese:
 
@@ -45,11 +45,11 @@ Remember, to use these tools, you'll need to generate API keys, which give you a
 
 As an additional piece of advice, the API's keys are stored in the .env file to ensure their safety. In a production environment, be sure to use environment variables or secret managers to manage your keys securely.
 
-## Let's Go Through Each Step
+## Let's go through each step
 
 The following code snippets are part of a Python script that must be run from the command line.
 
-### Speech-to-Text
+### Speech-to-text
 
 This part of the code handles the transcription, which is turning speech into text. AssemblyAI’s `RealtimeTranscriber` listens to the audio input (from a microphone, in this case) and produces text. As you speak, AssemblyAI sends back chunks of the transcription. These are useful for real-time feedback but aren’t final.
 
@@ -91,7 +91,7 @@ Sentence: {sentence}
 """
 ```
 
-### Text-to-Speech
+### Text-to-speech
 
 Once the translation is ready, the text is passed to ElevenLabs to be spoken aloud. The `generate_audio` function takes the translated text and converts it into speech. The `voice="Patty"` line selects my personalised voice. This service synthesises the translation into a natural-sounding voice, and we can even create personalised voices. I made my voice, and it's super interesting to hear my voice in different languages.
 
@@ -109,7 +109,7 @@ def generate_audio(text: str):
     play(audio)
 ```
 
-### Real-time Streaming
+### Real-time streaming
 
 This part sets up the live transcription. The transcriber continuously listens to the microphone input and calls various functions:
 
@@ -144,13 +144,13 @@ transcriber.stream(microphone_stream)
 
 The `MicrophoneStream()` function records your speech and transmits it to AssemblyAI for live transcription.
 
-## Workflow Management
+## Workflow management
 
-LangChain plays an important role in managing the workflow between various AI services in this solution, coordinating tasks efficiently, and ensuring seamless data transfer between these services easily.
+LangChain plays an important role in managing the workflow between various AI services in this solution, coordinating tasks efficiently and ensuring seamless data transfer between these services easily.
 
-For instance, in our application, we need to transcribe spoken words, translate the transcribed text, and then convert the translated text back into speech. Using LangChain allows us to create a structured workflow that connects these tasks easily.
+For instance, in our application, we need to transcribe spoken words, translate the transcribed text and then convert the translated text back into speech. Using LangChain allows us to create a structured workflow that connects these tasks easily.
 
-### Building the Translation Chain
+### Building the translation chain
 
 To leverage LangChain to manage the translation process, we started to set up the OpenAI language model with the necessary parameters, such as temperature and model type.
 
@@ -178,7 +178,7 @@ translation_chain = (
 
 By integrating LangChain into our workflow, we not only streamline the process of managing multiple AI services but also enhance the overall performance and reliability of the application.
 
-## All Together Now
+## All together now
 
 The components work together to create a seamless loop process:
 
@@ -191,7 +191,7 @@ And that’s how the magic happens! 🪄🪄🪄
 
 A perfect example of this kind of solution is OpenAI, which introduced an "advanced voice mode" that enhances this process further by adding a more natural and dynamic voice experience. This new feature is a fantastic addition to any app that integrates AI services, making it even easier to create immersive, real-time voice applications. Imagine combining this with the setup we've just described — the possibilities for creating intuitive, voice-driven solutions are truly exciting. Learn more about how this feature works [here](https://help.openai.com/en/articles/8400625-voice-mode-faq).
 
-### Full Code Version
+### Full code version
 
 The complete example of this experimentation is available here:
 <a href="./gists/source_py.txt" target="_blank">speech-to-speech-langchain</a>
