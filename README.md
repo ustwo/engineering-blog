@@ -97,6 +97,17 @@ If possible, consider adding a subtitle file of type `.vtt`.
 </video>
 ```
 
+For autoplaying, gif-like videos:
+
+```html
+<video autoplay loop playsinline muted style="width: 100%">
+  <source
+    src="https://assets.ustwo.com/engineering/article-name/video-name.mp4"
+    type="video/mp4" 
+  />
+</video>
+```
+
 ### Authors
 
 1. Inside the directory `src/content/authors`, create a folder with your name, separated by hyphens (`-`), and add an `index.md` file inside it.
