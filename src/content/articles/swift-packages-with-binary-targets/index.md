@@ -1,56 +1,58 @@
 ---
-title: Swift Packages with Binary Targets
+title: Swift packages with binary targets
 author: Chris Davis
 date: 2024-02-22
-description: What if there was a way to offer a Swift Package to your consumers without having to share your source code?
+description: What if there was a way to offer a Swift package to your consumers without having to share your source code?
 thumbnail: ./assets/thumbnail.jpg
 tags: swift, xcode
 cta_prefix: At ustwo, we take pride in the craft of our Swift iOS development.
 ---
 
-Swift Packages are a wonderful way of distributing code to use in projects.
+Swift packages are a wonderful way of distributing code to use in projects.
 They are simple to use, you add the URL to a repo in Xcode and the dependency is added to your project.
 Almost like magic.
 
-Casual users will deploy their Swift Package as pure Swift code, however this has some drawbacks (If you see them as drawbacks)
+Casual users will deploy their Swift package as pure Swift code, however this has some drawbacks (if you see them as drawbacks)
 
 - Your code is public, without correct licensing it could be used and abused
 
-What if there was a way to offer a Swift Package to your consumers without having to share your source code?
+What if there was a way to offer a Swift package to your consumers without having to share your source code?
 
-- [Swift Package Binary Targets ](#swift-package-binary-targets-)
-- [Creating your Private Swift Package ](#creating-your-private-swift-package-)
-- [Creating an XCFramework ](#creating-an-xcframework-)
-  - [Platforms ](#platforms-)
-  - [Script ](#script-)
-  - [Merging ](#merging-)
-  - [Static vs Dynamic ](#static-vs-dynamic-)
-- [Creating your Public Swift Package ](#creating-your-public-swift-package-)
-  - [Deploy ](#deploy-)
-- [Importing ](#importing-)
-  - [Fail to Import ](#fail-to-import-)
-  - [Modules ](#modules-)
-- [Useful Commands ](#useful-commands-)
+We'll cover:
 
-## Swift Package Binary Targets <a name="binary_targets"></a>
+- [Swift package binary targets ](#binary_targets)
+- [Creating your private Swift package ](#private_package)
+- [Creating an XCFramework ](#create_xcframework)
+  - [Platforms ](#platforms)
+  - [Script ](#script)
+  - [Merging ](#merging)
+  - [Static vs dynamic ](#static_dynamic)
+- [Creating your public Swift package ](#public_package)
+  - [Deploy ](#deploy)
+- [Importing ](#importing)
+  - [Fail to import ](#failure)
+  - [Modules ](#modules)
+- [Useful commands ](#useful_commands)
+
+## Swift package binary targets <a name="binary_targets"></a>
 
 They were built with this in mind.
 
-In this tutorial I'll show you how to create a Swift Package that can be exported as an XCFramework
-which is used in a distributed Swift Package.
+In this tutorial I'll show you how to create a Swift package that can be exported as an XCFramework
+which is used in a distributed Swift package.
 
 At the end you will have:
 
-- A Private Swift Package with your original source
-- A Public Swift Package that contains an XCFramework which you can distribute freely
+- A private Swift package with your original source
+- A public Swift package that contains an XCFramework which you can distribute freely
 
-## Creating your Private Swift Package <a name="private_package"></a>
+## Creating your private Swift package <a name="private_package"></a>
 
-Create a new Swift Package.
+Create a new Swift package.
 
 ![Xcode Vision App](./assets/new_swift_package.jpg)
 
-I've called my Package `Bookshop`.
+I've called my package `Bookshop`.
 
 You'll see the `Package.swift`, I've set the supported platforms to be `visionOS`.
 
@@ -96,7 +98,7 @@ public class Bookshop {
 
 ## Creating an XCFramework <a name="create_xcframework"></a>
 
-We're now going to create an `*.xcframework` file that consumers can use in their App
+We're now going to create an `*.xcframework` file that consumers can use in their app
 
 ### Platforms <a name="platforms"></a>
 
@@ -122,15 +124,15 @@ xcodebuild archive -workspace . -scheme $SCHEME -destination "generic/platform=v
 
 ### Merging <a name="merging"></a>
 
-We have both Frameworks, however, how do we create a single `XCFramework` from them?
+We have both frameworks, however, how do we create a single `XCFramework` from them?
 
 ```bash
 xcodebuild -create-xcframework -framework $(readlink -f "/tmp/xcf/xros.xcarchive/Products/usr/local/lib/Bookshop.framework") -framework $(readlink -f "/tmp/xcf/xrsimulator.xcarchive/Products/usr/local/lib/Bookshop.framework") -output "/tmp/xcf/Bookshop.xcframework"
 ```
 
-### Static vs Dynamic <a name="static_dynamic"></a>
+### Static vs dynamic <a name="static_dynamic"></a>
 
-If you run the last script, it will fail...this is because as it stands, the Swift Package produces a static framework, and the output is an `object` file, not a `framework`.
+If you run the last script, it will fail...this is because as it stands, the Swift package produces a static framework, and the output is an `object` file, not a `framework`.
 
 We can fix this by modifying the `Package.swift` to:
 
@@ -164,9 +166,9 @@ let package = Package(
 
 Run the scripts again.
 
-## Creating your Public Swift Package <a name="public_package"></a>
+## Creating your public Swift package <a name="public_package"></a>
 
-Create a new Swift Package and copy the generated `xcframework` into the `Sources` folder.
+Create a new Swift package and copy the generated `xcframework` into the `Sources` folder.
 
 Update your new `Package.swift` to reference the `xcframework`.
 
@@ -196,15 +198,15 @@ let package = Package(
 
 Deploy this package, your folder structure should be succinct to GitHub, ie, you should not see any of your public code.
 
-![Package Contents](./assets/xcframework_package.png)
+![Package contents](./assets/xcframework_package.png)
 
 ## Importing <a name="importing"></a>
 
-Inside of Xcode import the Package, use the GitHub url.
+Inside of Xcode import the package, use the GitHub url.
 
-### Fail to Import <a name="failure"></a>
+### Fail to import <a name="failure"></a>
 
-You can now use the code in your App...or can you?
+You can now use the code in your app...or can you?
 
 ```swift
 import Bookshop
@@ -223,7 +225,7 @@ If you try to compile, you get `No such module Bookshop`...why is that?
 
 ### Modules <a name="modules"></a>
 
-We have an `XCFramework` but to Xcode its a bunch of data, like being on an Island without a map, we need a map, specifically a `modulemap`
+We have an `XCFramework` but to Xcode it's a bunch of data, like being on an island without a map, we need a map, specifically a `modulemap`
 
 Let's modify the scripts so that we can include the generated `swiftmodule` in our `framework`.
 
@@ -251,13 +253,13 @@ Recombine the two `framework`s to make a single `XCFramework`
 xcodebuild -create-xcframework -framework $(readlink -f "/tmp/xcf/xros.xcarchive/Products/usr/local/lib/Bookshop.framework") -framework $(readlink -f "/tmp/xcf/xrsimulator.xcarchive/Products/usr/local/lib/Bookshop.framework") -output "/tmp/xcf/Bookshop.xcframework"
 ```
 
-Re-Run the script and re-upload your Package to GitHub.
+Re-run the script and re-upload your Package to GitHub.
 
-When you now import, you can buy your book. magic.
+When you now import, you can buy your book. Magic.
 
-## Useful Commands <a name="useful_commands"></a>
+## Useful commands <a name="useful_commands"></a>
 
-You may not know what Xcode version, or SDK's you have installed on your system, these one-liners can help you out:
+You may not know what Xcode version, or SDKs you have installed on your system, these one-liners can help you out:
 
 - What version of Xcode am I using?
 
@@ -265,13 +267,13 @@ You may not know what Xcode version, or SDK's you have installed on your system,
 xcode-select -p
 ```
 
-- What destinations are available for the Scheme?
+- What destinations are available for the scheme?
 
 ```bash
 xcodebuild -showdestinations -scheme Bookshop
 ```
 
-- What SDK's do I have installed?
+- What SDKs do I have installed?
 
 ```bash
 xcodebuild -showsdks
