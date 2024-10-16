@@ -78,7 +78,7 @@ from langgraph.prebuilt import ToolNode
 
 @tool
 def image_recognition_tool(image_path: str):
-    """Analyze the image and return identified ingredients."""
+    """Analyse the image and return identified ingredients."""
     # Simulating image recognition process
     ingredients = ["milk", "eggs", "herbs"]  # Replace with actual ML model logic
     return f"Identified ingredients: {', '.join(ingredients)}. FINAL ANSWER"
@@ -116,7 +116,7 @@ def create_agent_node(agent, state, name):
         "sender": name,
     }
 
-# Initialize LLM (e.g., GPT-4) for agents
+# Initialise LLM (e.g., GPT-4) for agents
 llm = ChatOpenAI(model="gpt-4")
 
 # Create Agents for Image Recognition, Clarification, and Recipe Generation
@@ -138,7 +138,7 @@ def create_agent(llm, tools, system_message: str):
     return prompt | llm.bind_tools(tools)
 
 # Define agent nodes with their respective tools
-image_recognition_agent = create_agent(llm, [image_recognition_tool], system_message="Analyze the photo to identify ingredients.")
+image_recognition_agent = create_agent(llm, [image_recognition_tool], system_message="Analyse the photo to identify ingredients.")
 clarification_agent = create_agent(llm, [clarification_tool], system_message="Ask for clarification if needed.")
 recipe_agent = create_agent(llm, [recipe_generation_tool], system_message="Generate a recipe from the confirmed ingredients.")
 

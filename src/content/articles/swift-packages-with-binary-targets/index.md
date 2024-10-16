@@ -2,7 +2,7 @@
 title: Swift Packages with Binary Targets
 author: Chris Davis
 date: 2024-02-22
-description: What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
+description: What if there was a way to offer a Swift Package to your consumers without having to share your source code?
 thumbnail: ./assets/thumbnail.jpg
 tags: swift, xcode
 cta_prefix: At ustwo, we take pride in the craft of our Swift iOS development.
@@ -16,7 +16,7 @@ Casual users will deploy their Swift Package as pure Swift code, however this ha
 
 - Your code is public, without correct licensing it could be used and abused
 
-What if there was a way to offer a Swift Package to your consumers without having to share your Sourcecode?
+What if there was a way to offer a Swift Package to your consumers without having to share your source code?
 
 - [Swift Package Binary Targets ](#swift-package-binary-targets-)
 - [Creating your Private Swift Package ](#creating-your-private-swift-package-)

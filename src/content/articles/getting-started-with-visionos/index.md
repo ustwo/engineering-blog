@@ -200,7 +200,7 @@ extension ImmersiveView: View {
 }
 ```
 
-You will see the canvas update, it will display a pink/purple striped cube, use you mouse to move around the scene.
+You will see the canvas update, it will display a pink/purple striped cube, use your mouse to move around the scene.
 
 Note: No Texture/Material has been applied to this Cube, we'll cover that in another tutorial.
 
@@ -208,7 +208,7 @@ Note: No Texture/Material has been applied to this Cube, we'll cover that in ano
 
 ## Dragging the Entity with Gestures <a name="drag_gesture"></a>
 
-Ok, so we have a 3D cube floating in space...lets make it so that we can move it via dragging it.
+Ok, so we have a 3D cube floating in space...let's make it so that we can move it via dragging it.
 We need to add a `DragGesture` to the RealityView
 
 The default implementation can look like this:
