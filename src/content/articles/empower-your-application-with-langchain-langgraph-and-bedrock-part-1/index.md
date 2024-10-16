@@ -1,6 +1,6 @@
 ---
 title: "Exploring AI Tools for LLM Interaction"
-series_title: "Empower your application with Langchain, LangGraph and Bedrock"
+series_title: "Empower your application with LangChain, LangGraph and Bedrock"
 series_number: 1
 author: Vinicios Neves
 date: 2024-10-09
@@ -10,7 +10,7 @@ tags: python, langchain, ai, javascript
 cta_prefix: AI is reshaping the future of app development. Join us as we explore the tools that make integrating AI easier for developers.
 ---
 
-*This article is one of a multi-part series called **Empower your application with Langchain, LangGraph and Bedrock**. Here are the other parts in the series:*
+*This article is one of a multi-part series called **Empower your application with LangChain, LangGraph and Bedrock**. Here are the other parts in the series:*
 
 1. Part 1: Exploring AI Tools for LLM Interactions 👈🏼 **You are here**
 2. [Part 2: Managing Complex AI Interactions with LangGraph](/articles/empower-your-application-with-langchain-langgraph-and-bedrock-part-2)

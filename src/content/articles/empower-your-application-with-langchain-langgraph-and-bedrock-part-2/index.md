@@ -10,7 +10,7 @@ tags: python, langchain, langgraph, ai
 cta_prefix: Take your AI interactions to the next level with LangGraph, a powerful tool for managing complex workflows in AI-driven apps.
 ---
 
-*This article is one of a multi-part series called **Empower your application with Langchain, LangGraph and Bedrock**. Here are the other parts in the series:*
+*This article is one of a multi-part series called **Empower your application with LangChain, LangGraph and Bedrock**. Here are the other parts in the series:*
 1. [Part 1: Exploring AI Tools for LLM Interactions](/articles/empower-your-application-with-langchain-langgraph-and-bedrock-part-1)
 2. Part 2: Managing Complex AI Interactions with LangGraph] 👈🏼 **You are here**
 3. [Part 3: Leveraging Bedrock for Knowledge Base Management](/articles/empower-your-application-with-langchain-langgraph-and-bedrock-part-3)
