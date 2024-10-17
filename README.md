@@ -59,7 +59,7 @@ Additional copy added to the bottom of the article, eg, 'At ustwo, we're explori
 The following style guidelines have been requested by our marketing team to maintain consistency with ustwo's other outward facing media:
 1. Use UK English spelling
 1. No Oxford commas
-1. Sentence Case titles
+1. Sentence case titles
 1. Sentence case capitalisation in headings of article sections
 1. No punctuation in Latin expressions - should read as eg, ie with a comma afterward
 1. Time - 12 hour with am or pm - eg, 6:00pm
