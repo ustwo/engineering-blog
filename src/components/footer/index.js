@@ -24,7 +24,7 @@ const Footer = () => (
       <ul className={styles.company}>
         <li className={styles.logo}><a href="https://ustwo.com/" aria-label="ustwo home"><LogoUstwo /></a><span> &copy; 2024</span></li>
         <li><a href="https://ustwo.com/legal/">Legal</a></li>
-        <li><a href="https://ustwo.com/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="https://ustwo.com/privacy-policy/">Privacy<span className="hideOnTinyScreens"> Policy</span></a></li>
       </ul>
       <SocialMediaLinkIcons platforms={contactInfo} size="small"/>    
     </div>
