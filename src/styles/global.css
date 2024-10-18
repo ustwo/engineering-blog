@@ -206,3 +206,10 @@ td {
 .figure .gatsby-resp-image-wrapper {
   margin-bottom: 0;
 }
+
+/* Hide things on tiny 320px screens */
+@media (max-width: 320px) {
+  .hideOnTinyScreens {
+    display: none;
+  }
+} 

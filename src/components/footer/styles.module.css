@@ -26,12 +26,19 @@ a:hover {
 .company {
   list-style-type: none;
   display: flex;
+  align-items: center;
   padding: 0;
+  margin-bottom: 0;
 }
 
 .company li:not(:first-child) {
-  margin-left: 1em;
-  padding-left: 1em;
+  margin-left: 1rem;
+}
+
+@media (min-width: 768px) {
+  .company li:not(:first-child) {
+    margin-left: 2rem;
+  }
 }
 
 .logo svg{
