@@ -1,6 +1,6 @@
 .header {
   position: relative;
-  margin-bottom: 1em;
+  margin-bottom: 3.5rem;
 }
 
 .header nav {
@@ -8,30 +8,43 @@
   max-width: var(--app-width);
   width: 100%;
   margin: 0 auto;
-  height: 70px;
+  height: 5.2rem;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
 }
 
 .homeLink {
   display: flex;
+  align-items: flex-end;
 }
 .homeLink:hover {
   text-decoration: none;
 }
 
-.homeLink span {
+.title {
   color: var(--color-offBlack);
   position: relative;
-  top: 0.5em;
   font-weight: bold;
+  margin-left: 1rem;
+}
+
+@media (max-width: 320px) {
+  .title {
+    font-size: 1.4rem;
+    margin-left: 0.5rem;
+  }
 }
 
 .logo {
-  width: 5.5em;
-  margin-right: 0.4em;
-  padding-top: 1px;
+  width: 4em;
+  margin-bottom: 0.25rem; /* Align bottom of logo to baseline of header text */
+}
+
+@media (min-width: 768px) {
+  .logo {
+    width: 5.5em;
+  }
 }
 
 .header a {
@@ -41,12 +54,19 @@
 
 .links {
   list-style-type: none;
-  padding-top: 1em;
+  padding-left: 0;
   margin: 0;
   display: flex;
 }
-.links li {
-  margin-left: 15px;
+
+.links li:not(:first-child) {
+  margin-left: 2rem;
+}
+
+@media (max-width: 320px) {
+  .links li:not(:first-child) {
+    margin-left: 1rem;
+  }
 }
 
 /* Skip link styles */
